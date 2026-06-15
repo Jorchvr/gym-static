@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Backoffice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="backoffice">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">📦 Backoffice — Productos</div>
+        <div class="page-subtitle">Gestión de inventario y catálogo de tienda</div>
+      </div>
+      <div class="flex-gap">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Buscar producto…" />
+        </div>
+        <a href="agregar-producto.html" class="btn btn-primary">➕ Nuevo Producto</a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-label">Total Productos</div>
+        <div class="stat-value">24</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-label">Stock Bajo</div>
+        <div class="stat-value text-yellow">3</div>
+        <div class="stat-sub">Menos de 5 unidades</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💵</div>
+        <div class="stat-label">Valor de Inventario</div>
+        <div class="stat-value">$12,400</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-label">Vendidos Hoy</div>
+        <div class="stat-value text-green">$680</div>
+        <div class="stat-sub">17 unidades</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio Venta</th>
+            <th>Costo</th>
+            <th>Ganancia</th>
+            <th>Margen</th>
+            <th>Stock</th>
+            <th>Vendidos (mes)</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>💧 Agua 600ml</strong></td>
+            <td>$15</td>
+            <td>$6</td>
+            <td class="text-green">$9</td>
+            <td class="text-green">60%</td>
+            <td><span class="badge badge-green">42 pzs</span></td>
+            <td>86</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🥤 Proteína 30g</strong></td>
+            <td>$80</td>
+            <td>$45</td>
+            <td class="text-green">$35</td>
+            <td class="text-green">43%</td>
+            <td><span class="badge badge-green">18 pzs</span></td>
+            <td>34</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🍫 Barra Energética</strong></td>
+            <td>$35</td>
+            <td>$18</td>
+            <td class="text-green">$17</td>
+            <td class="text-green">48%</td>
+            <td><span class="badge badge-yellow">4 pzs</span></td>
+            <td>21</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>👕 Playera GymMamba</strong></td>
+            <td>$220</td>
+            <td>$120</td>
+            <td class="text-green">$100</td>
+            <td class="text-green">45%</td>
+            <td><span class="badge badge-green">12 pzs</span></td>
+            <td>8</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🧢 Gorra GymMamba</strong></td>
+            <td>$180</td>
+            <td>$80</td>
+            <td class="text-green">$100</td>
+            <td class="text-green">55%</td>
+            <td><span class="badge badge-green">7 pzs</span></td>
+            <td>5</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🔑 Candado</strong></td>
+            <td>$60</td>
+            <td>$30</td>
+            <td class="text-green">$30</td>
+            <td class="text-green">50%</td>
+            <td><span class="badge badge-red">2 pzs</span></td>
+            <td>3</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🥛 Leche de Almendra</strong></td>
+            <td>$45</td>
+            <td>$28</td>
+            <td class="text-green">$17</td>
+            <td class="text-green">37%</td>
+            <td><span class="badge badge-green">22 pzs</span></td>
+            <td>19</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>🏋️ Guantes</strong></td>
+            <td>$280</td>
+            <td>$150</td>
+            <td class="text-green">$130</td>
+            <td class="text-green">46%</td>
+            <td><span class="badge badge-yellow">3 pzs</span></td>
+            <td>6</td>
+            <td>
+              <div class="td-actions">
+                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

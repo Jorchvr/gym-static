@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Clientes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="clientes">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">👥 Directorio de Clientes</div>
+        <div class="page-subtitle">248 miembros registrados</div>
+      </div>
+      <div class="flex-gap">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Buscar cliente…" />
+        </div>
+        <a href="registro.html" class="btn btn-primary">➕ Nuevo Cliente</a>
+        <button class="btn btn-ghost">📥 Importar Excel</button>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
+      <button class="btn btn-ghost btn-sm" style="border-color:#555; color:var(--text);">Todos (248)</button>
+      <button class="btn btn-ghost btn-sm">Activos (196)</button>
+      <button class="btn btn-ghost btn-sm">Vencidos (38)</button>
+      <button class="btn btn-ghost btn-sm">Por Vencer (14)</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Teléfono</th>
+            <th>Plan</th>
+            <th>Vencimiento</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-xs">00142</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧑</div>
+                <div>
+                  <div class="client-name">Carlos García López</div>
+                  <div class="client-id">Registrado: 15 Ene 2026</div>
+                </div>
+              </div>
+            </td>
+            <td>664-123-4567</td>
+            <td>Mensualidad</td>
+            <td>20 Jun 2026</td>
+            <td><span class="badge badge-yellow">⚠️ Por vencer</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00143</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👩</div>
+                <div>
+                  <div class="client-name">Ana Martínez Ruiz</div>
+                  <div class="client-id">Registrado: 3 Feb 2026</div>
+                </div>
+              </div>
+            </td>
+            <td>664-987-6543</td>
+            <td>Plan Pareja</td>
+            <td>30 Jun 2026</td>
+            <td><span class="badge badge-green">✅ Activo</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00138</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧔</div>
+                <div>
+                  <div class="client-name">Luis Hernández Torres</div>
+                  <div class="client-id">Registrado: 10 Nov 2025</div>
+                </div>
+              </div>
+            </td>
+            <td>664-555-0011</td>
+            <td>Semestre</td>
+            <td>10 May 2026</td>
+            <td><span class="badge badge-red">❌ Vencido</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00201</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👩‍🦱</div>
+                <div>
+                  <div class="client-name">Sofía Ramírez Vega</div>
+                  <div class="client-id">Registrado: 1 Jun 2026</div>
+                </div>
+              </div>
+            </td>
+            <td>664-321-7890</td>
+            <td>Mensualidad</td>
+            <td>1 Jul 2026</td>
+            <td><span class="badge badge-green">✅ Activo</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00189</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧑‍🦲</div>
+                <div>
+                  <div class="client-name">Roberto Sánchez Cruz</div>
+                  <div class="client-id">Registrado: 22 Mar 2026</div>
+                </div>
+              </div>
+            </td>
+            <td>664-777-2233</td>
+            <td>Semana</td>
+            <td>22 Jun 2026</td>
+            <td><span class="badge badge-yellow">⚠️ Por vencer</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00155</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👱‍♀️</div>
+                <div>
+                  <div class="client-name">Valeria López Mora</div>
+                  <div class="client-id">Registrado: 5 Dic 2025</div>
+                </div>
+              </div>
+            </td>
+            <td>664-444-8899</td>
+            <td>Plan Pareja</td>
+            <td>5 Ago 2026</td>
+            <td><span class="badge badge-green">✅ Activo</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-xs">00098</td>
+            <td>
+              <div class="client-info">
+                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👨‍🦳</div>
+                <div>
+                  <div class="client-name">Fernando Castillo Reyes</div>
+                  <div class="client-id">Registrado: 8 Ago 2024</div>
+                </div>
+              </div>
+            </td>
+            <td>664-100-2020</td>
+            <td>Mensualidad</td>
+            <td>8 May 2026</td>
+            <td><span class="badge badge-red">❌ Vencido</span></td>
+            <td>
+              <div class="td-actions">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px; font-size:.85rem; color:var(--text-sm);">
+      <span>Mostrando 7 de 248 clientes</span>
+      <div style="display:flex; gap:6px;">
+        <button class="btn btn-ghost btn-sm">← Anterior</button>
+        <button class="btn btn-ghost btn-sm" style="background:var(--card2);">1</button>
+        <button class="btn btn-ghost btn-sm">2</button>
+        <button class="btn btn-ghost btn-sm">3</button>
+        <button class="btn btn-ghost btn-sm">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

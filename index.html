@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+
+      <div class="login-logo">
+        <div class="logo-big">🐍</div>
+        <h1>GymMamba 2.0</h1>
+        <p>Sistema de Gestión para Gimnasios</p>
+      </div>
+
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" placeholder="Ingresa tu usuario" value="admin" />
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" placeholder="••••••••" value="12345" />
+      </div>
+
+      <a href="dashboard.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">
+        Iniciar Sesión
+      </a>
+
+      <div style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 18px;">
+        <p class="text-xs" style="text-align:center; margin-bottom: 12px;">ACCESO BIOMÉTRICO</p>
+        <div class="fp-area" onclick="window.location='dashboard.html'">
+          <span class="fp-icon">👆</span>
+          <span class="fp-label">Toca para escanear huella</span>
+        </div>
+      </div>
+
+      <p class="text-xs" style="text-align:center; margin-top:16px; color: var(--text-xs);">
+        GymMamba v2.0 · Demo sin base de datos
+      </p>
+    </div>
+  </div>
+</body>
+</html>

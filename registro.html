@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Registro de Cliente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="registro">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">➕ Registro de Nuevo Cliente</div>
+        <div class="page-subtitle">Completa el formulario para registrar un nuevo miembro</div>
+      </div>
+      <a href="clientes.html" class="btn btn-ghost">← Volver a Clientes</a>
+    </div>
+
+    <div class="grid-2" style="align-items:start;">
+
+      <!-- Form -->
+      <div class="card">
+        <div class="card-title mb-4">Datos Personales</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre(s)</label>
+            <input type="text" placeholder="Carlos" />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" placeholder="García López" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="664-123-4567" />
+          </div>
+          <div class="form-group">
+            <label>Edad</label>
+            <input type="number" placeholder="25" min="5" max="100" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Contacto de Emergencia</label>
+          <input type="text" placeholder="Nombre y teléfono" />
+        </div>
+
+        <hr style="border:none; border-top:1px solid var(--border); margin: 20px 0;" />
+        <div class="card-title mb-4">Membresía Inicial</div>
+
+        <div class="form-group">
+          <label>Plan / Tipo de Membresía</label>
+          <div class="plan-grid mt-4" style="margin-top:8px;">
+            <div class="plan-card selected">
+              <div class="plan-name">Mensualidad</div>
+              <div class="plan-price">$550</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Mes Efectivo</div>
+              <div class="plan-price">$500</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Plan Pareja</div>
+              <div class="plan-price">$475</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Semestre</div>
+              <div class="plan-price">$2,300</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Semana</div>
+              <div class="plan-price">$200</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Visita</div>
+              <div class="plan-price">$100</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Apertura</div>
+              <div class="plan-price">$100</div>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Promoción</div>
+              <div class="plan-price">$250</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-4">
+          <label>Precio Personalizado (opcional)</label>
+          <input type="number" placeholder="0.00" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de Inicio</label>
+            <input type="date" value="2026-06-15" />
+          </div>
+          <div class="form-group">
+            <label>Método de Pago</label>
+            <select>
+              <option>💵 Efectivo</option>
+              <option>💳 Tarjeta / Transferencia</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <a href="clientes.html" class="btn btn-primary" style="flex:1; justify-content:center;">
+            ✅ Registrar Cliente
+          </a>
+          <a href="clientes.html" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </div>
+
+      <!-- Right: Photo + Fingerprint -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+
+        <div class="card">
+          <div class="card-title mb-4">📷 Fotografía</div>
+          <div style="width:100%; aspect-ratio:4/3; background:var(--bg3); border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; border:1.5px dashed var(--border2); margin-bottom:14px;">
+            <span style="font-size:3rem; opacity:.5;">📷</span>
+            <span class="text-sm">Vista previa de cámara</span>
+          </div>
+          <button class="btn btn-ghost" style="width:100%; justify-content:center;">📷 Capturar Foto</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title mb-4">👆 Huella Digital</div>
+          <div class="fp-area">
+            <span class="fp-icon">👆</span>
+            <span class="fp-label">Coloca el dedo en el lector para registrar</span>
+          </div>
+          <p class="text-xs" style="text-align:center; margin-top:8px;">Opcional — se puede registrar después</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title mb-4">🗓️ Horario Personalizado</div>
+          <p class="text-sm" style="margin-bottom:12px;">Opcional: define días y horas permitidos</p>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+            <button class="btn btn-ghost btn-sm" style="border-color:#555;">Lun</button>
+            <button class="btn btn-ghost btn-sm">Mar</button>
+            <button class="btn btn-ghost btn-sm" style="border-color:#555;">Mié</button>
+            <button class="btn btn-ghost btn-sm">Jue</button>
+            <button class="btn btn-ghost btn-sm" style="border-color:#555;">Vie</button>
+            <button class="btn btn-ghost btn-sm">Sáb</button>
+            <button class="btn btn-ghost btn-sm">Dom</button>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Hora Inicio</label>
+              <input type="time" value="06:00" />
+            </div>
+            <div class="form-group">
+              <label>Hora Fin</label>
+              <input type="time" value="22:00" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

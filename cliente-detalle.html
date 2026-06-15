@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Ficha de Cliente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="clientes">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div class="flex-gap">
+        <a href="clientes.html" class="btn btn-ghost btn-sm">← Clientes</a>
+        <div>
+          <div class="page-title">Ficha del Cliente</div>
+          <div class="page-subtitle">ID: 00142</div>
+        </div>
+      </div>
+      <div class="flex-gap">
+        <a href="editar-cliente.html" class="btn btn-ghost">✏️ Editar</a>
+        <a href="renovacion.html" class="btn btn-success">🔄 Renovar Membresía</a>
+        <button class="btn btn-danger btn-sm">🗑️ Eliminar</button>
+      </div>
+    </div>
+
+    <div class="detail-layout">
+
+      <!-- Sidebar -->
+      <div class="detail-sidebar">
+        <div class="card" style="text-align:center; margin-bottom:16px;">
+          <div class="client-photo lg" style="margin: 0 auto 14px;">🧑</div>
+          <div style="font-size:1.2rem; font-weight:700;">Carlos García López</div>
+          <div class="text-xs" style="margin-top:4px;">ID: 00142</div>
+          <div style="margin-top:12px;">
+            <span class="badge badge-yellow">⚠️ Por Vencer</span>
+          </div>
+
+          <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+            <div style="font-size:1.8rem; font-weight:800; color: var(--yellow);">5</div>
+            <div class="text-xs">días restantes</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="section-title">Estado de Membresía</p>
+          <div class="info-row">
+            <span class="info-label">Plan</span>
+            <span class="info-value">Mensualidad</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Inicio</span>
+            <span class="info-value">20 May 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Vencimiento</span>
+            <span class="info-value text-yellow">20 Jun 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Último pago</span>
+            <span class="info-value">$550</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Método</span>
+            <span class="info-value">💵 Efectivo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div>
+        <div class="card mb-4">
+          <p class="section-title">Datos Personales</p>
+          <div class="info-row">
+            <span class="info-label">Nombre completo</span>
+            <span class="info-value">Carlos García López</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Teléfono</span>
+            <span class="info-value">664-123-4567</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Edad</span>
+            <span class="info-value">28 años</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Contacto emergencia</span>
+            <span class="info-value">María López · 664-999-8888</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Fecha de registro</span>
+            <span class="info-value">15 Enero 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Huella registrada</span>
+            <span class="info-value text-green">✅ Sí</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Horario</span>
+            <span class="info-value">Lun · Mié · Vie · 06:00–22:00</span>
+          </div>
+        </div>
+
+        <!-- Historial de pagos -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <p class="section-title" style="margin-bottom:0;">Historial de Pagos</p>
+            <a href="historial.html" class="btn btn-ghost btn-sm">Ver Todo</a>
+          </div>
+          <div class="table-wrap" style="border:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Concepto</th>
+                  <th>Monto</th>
+                  <th>Método</th>
+                  <th>Folio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20 May 2026</td>
+                  <td>Mensualidad</td>
+                  <td class="text-green bold">$550</td>
+                  <td>💵 Efectivo</td>
+                  <td class="text-xs">#REN-0412</td>
+                </tr>
+                <tr>
+                  <td>20 Abr 2026</td>
+                  <td>Mensualidad</td>
+                  <td class="text-green bold">$550</td>
+                  <td>💳 Tarjeta</td>
+                  <td class="text-xs">#REN-0388</td>
+                </tr>
+                <tr>
+                  <td>20 Mar 2026</td>
+                  <td>Mensualidad</td>
+                  <td class="text-green bold">$550</td>
+                  <td>💵 Efectivo</td>
+                  <td class="text-xs">#REN-0361</td>
+                </tr>
+                <tr>
+                  <td>15 Ene 2026</td>
+                  <td>Registro + Apertura</td>
+                  <td class="text-green bold">$650</td>
+                  <td>💵 Efectivo</td>
+                  <td class="text-xs">#REG-0142</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Compras en tienda -->
+        <div class="card">
+          <div class="card-header">
+            <p class="section-title" style="margin-bottom:0;">Compras en Tienda</p>
+          </div>
+          <div class="table-wrap" style="border:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Cant.</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>14 Jun 2026</td>
+                  <td>💧 Agua + 🥤 Proteína</td>
+                  <td>2</td>
+                  <td class="text-green">$95</td>
+                </tr>
+                <tr>
+                  <td>10 Jun 2026</td>
+                  <td>🍫 Barra energética</td>
+                  <td>1</td>
+                  <td class="text-green">$35</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

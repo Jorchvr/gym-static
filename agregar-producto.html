@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Agregar Producto</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="backoffice">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">📦 Agregar / Editar Producto</div>
+        <div class="page-subtitle">Catálogo de tienda</div>
+      </div>
+      <a href="backoffice.html" class="btn btn-ghost">← Volver a Backoffice</a>
+    </div>
+
+    <div style="max-width: 560px;">
+      <div class="card">
+        <div class="form-group">
+          <label>Nombre del Producto</label>
+          <input type="text" placeholder="Ej: Agua 600ml" value="Agua 600ml" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Precio de Venta</label>
+            <input type="number" placeholder="0.00" value="15" />
+          </div>
+          <div class="form-group">
+            <label>Costo</label>
+            <input type="number" placeholder="0.00" value="6" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Ganancia estimada</label>
+          <div style="background:var(--bg3); border:1px solid var(--border2); border-radius:var(--radius); padding:9px 12px; color:var(--green); font-weight:700;">
+            $9.00 (60%)
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Stock Actual</label>
+            <input type="number" placeholder="0" value="42" />
+          </div>
+          <div class="form-group">
+            <label>Alerta Stock Mínimo</label>
+            <input type="number" placeholder="5" value="5" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Categoría</label>
+          <select>
+            <option>Bebidas</option>
+            <option>Suplementos</option>
+            <option>Ropa y Accesorios</option>
+            <option>Equipo</option>
+            <option>Snacks</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <a href="backoffice.html" class="btn btn-primary" style="flex:1; justify-content:center;">
+            ✅ Guardar Producto
+          </a>
+          <a href="backoffice.html" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

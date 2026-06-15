@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Editar Cliente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="clientes">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">✏️ Editar Cliente</div>
+        <div class="page-subtitle">Carlos García López · ID: 00142</div>
+      </div>
+      <a href="cliente-detalle.html" class="btn btn-ghost">← Volver a Ficha</a>
+    </div>
+
+    <div class="grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="card-title mb-4">Datos Personales</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre(s)</label>
+            <input type="text" value="Carlos" />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" value="García López" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" value="664-123-4567" />
+          </div>
+          <div class="form-group">
+            <label>Edad</label>
+            <input type="number" value="28" min="5" max="100" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Contacto de Emergencia</label>
+          <input type="text" value="María López · 664-999-8888" />
+        </div>
+
+        <hr style="border:none; border-top:1px solid var(--border); margin:20px 0;" />
+        <div class="card-title mb-4">Horario Personalizado</div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Lun</button>
+          <button class="btn btn-ghost btn-sm">Mar</button>
+          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Mié</button>
+          <button class="btn btn-ghost btn-sm">Jue</button>
+          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Vie</button>
+          <button class="btn btn-ghost btn-sm">Sáb</button>
+          <button class="btn btn-ghost btn-sm">Dom</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Hora Inicio</label>
+            <input type="time" value="06:00" />
+          </div>
+          <div class="form-group">
+            <label>Hora Fin</label>
+            <input type="time" value="22:00" />
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <a href="cliente-detalle.html" class="btn btn-primary" style="flex:1; justify-content:center;">
+            ✅ Guardar Cambios
+          </a>
+          <a href="cliente-detalle.html" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card">
+          <div class="card-title mb-4">📷 Foto del Cliente</div>
+          <div style="width:100%; aspect-ratio:1; max-width:220px; background:var(--bg3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:5rem; margin:0 auto 14px; border:2px solid var(--border2);">
+            🧑
+          </div>
+          <button class="btn btn-ghost" style="width:100%; justify-content:center;">📷 Cambiar Foto</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title mb-4">👆 Huella Digital</div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+            <span class="badge badge-green">✅ Registrada</span>
+          </div>
+          <div class="fp-area">
+            <span class="fp-icon">👆</span>
+            <span class="fp-label">Coloca el dedo para actualizar la huella</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

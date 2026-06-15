@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="dashboard">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page-full">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-label">Visitas Hoy</div>
+        <div class="stat-value">34</div>
+        <div class="stat-sub">+8 vs. ayer</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💵</div>
+        <div class="stat-label">Caja Hoy (Efectivo)</div>
+        <div class="stat-value text-green">$4,250</div>
+        <div class="stat-sub">12 pagos en efectivo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💳</div>
+        <div class="stat-label">Caja Hoy (Tarjeta)</div>
+        <div class="stat-value text-blue">$1,800</div>
+        <div class="stat-sub">5 pagos con tarjeta</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🆕</div>
+        <div class="stat-label">Nuevos Miembros</div>
+        <div class="stat-value">3</div>
+        <div class="stat-sub">Registrados hoy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-label">Por Vencer</div>
+        <div class="stat-value text-yellow">7</div>
+        <div class="stat-sub">En los próximos 3 días</div>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid-60-40" style="align-items: start;">
+
+      <!-- LEFT — Access Control -->
+      <div>
+        <div class="card mb-4">
+          <div class="card-header">
+            <span class="card-title">Control de Acceso</span>
+            <span class="text-xs">Escanea huella o ingresa ID</span>
+          </div>
+
+          <!-- Search -->
+          <div style="display:flex; gap:10px; margin-bottom:16px;">
+            <div class="search-bar" style="max-width:100%; flex:1;">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Buscar por nombre, ID o código de barras…" value="García" />
+            </div>
+            <button class="btn btn-ghost">Buscar</button>
+          </div>
+
+          <!-- Fingerprint -->
+          <div class="fp-area" style="margin-bottom:16px;">
+            <span class="fp-icon">👆</span>
+            <span class="fp-label">Lector biométrico activo — coloca el dedo</span>
+          </div>
+
+          <!-- Access Result Card -->
+          <div class="access-card" style="border-color: #14532d; background: #061a0f;">
+            <div class="client-photo lg">🧑</div>
+            <div class="access-result">
+              <div class="access-status access-allowed">✅ ACCESO PERMITIDO</div>
+              <div style="font-size:1.1rem; font-weight:700; margin-top:6px;">Carlos García López</div>
+              <div class="text-sm" style="margin-top:2px;">ID: 00142 &nbsp;·&nbsp; Mensualidad</div>
+              <div class="text-sm" style="margin-top:4px;">Vence: <strong>20 Jun 2026</strong> &nbsp;·&nbsp; 5 días restantes</div>
+              <div class="flex-gap mt-4">
+                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver Ficha</a>
+                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+          <div class="card-title mb-4">Acciones Rápidas</div>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a href="registro.html"   class="btn btn-ghost">➕ Nuevo Cliente</a>
+            <a href="renovacion.html" class="btn btn-ghost">🔄 Renovar Membresía</a>
+            <a href="corte.html"      class="btn btn-ghost">📊 Corte del Día</a>
+            <a href="historial.html"  class="btn btn-ghost">📋 Historial</a>
+            <a href="backoffice.html" class="btn btn-ghost">📦 Backoffice</a>
+            <a href="gastos.html"     class="btn btn-ghost">💸 Registrar Gasto</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Point of Sale -->
+      <div class="card" style="position: sticky; top: 80px;">
+        <div class="card-header">
+          <span class="card-title">🛒 Tienda</span>
+          <a href="ventas.html" class="btn btn-ghost btn-sm">Ver Todas</a>
+        </div>
+
+        <p class="section-title">Productos Rápidos</p>
+        <div class="quick-products">
+          <div class="product-btn">💧 Agua<br><small>$15</small></div>
+          <div class="product-btn">🥤 Proteína<br><small>$80</small></div>
+          <div class="product-btn">🍫 Barra<br><small>$35</small></div>
+          <div class="product-btn">👕 Playera<br><small>$220</small></div>
+          <div class="product-btn">🧢 Gorra<br><small>$180</small></div>
+          <div class="product-btn">🔑 Candado<br><small>$60</small></div>
+        </div>
+
+        <p class="section-title mt-4">Carrito</p>
+        <div>
+          <div class="cart-item">
+            <span>💧 Agua x1</span>
+            <span>$15</span>
+          </div>
+          <div class="cart-item">
+            <span>🥤 Proteína x2</span>
+            <span>$160</span>
+          </div>
+          <div class="cart-item">
+            <span>🍫 Barra x1</span>
+            <span>$35</span>
+          </div>
+        </div>
+
+        <div class="cart-total">
+          <span>Total</span>
+          <span>$210</span>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <p class="section-title">Método de Pago</p>
+          <div style="display:flex; gap:12px; margin-bottom:14px; font-size:.88rem;">
+            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
+              <input type="radio" name="pay" checked style="width:auto;"> 💵 Efectivo
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
+              <input type="radio" name="pay" style="width:auto;"> 💳 Tarjeta
+            </label>
+          </div>
+          <a href="ventas.html" class="btn btn-primary" style="width:100%; justify-content:center;">
+            Cobrar $210
+          </a>
+        </div>
+      </div>
+
+    </div><!-- end grid -->
+  </div><!-- end page -->
+</body>
+</html>

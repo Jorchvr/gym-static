@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Corte del Día</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="corte">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">📊 Corte del Día</div>
+        <div class="page-subtitle">Domingo, 15 de junio de 2026</div>
+      </div>
+      <div class="flex-gap">
+        <input type="date" value="2026-06-15" style="width:auto;" />
+        <button class="btn btn-ghost">🖨️ Imprimir Corte</button>
+        <button class="btn btn-ghost">📥 Exportar</button>
+      </div>
+    </div>
+
+    <div class="grid-2" style="align-items:start;">
+
+      <!-- Left: Summary cards -->
+      <div>
+        <div class="stats-row" style="grid-template-columns:1fr 1fr; margin-bottom:16px;">
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-label">Visitas</div>
+            <div class="stat-value">34</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🆕</div>
+            <div class="stat-label">Nuevos Miembros</div>
+            <div class="stat-value">3</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔄</div>
+            <div class="stat-label">Renovaciones</div>
+            <div class="stat-value">17</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🛒</div>
+            <div class="stat-label">Ventas Tienda</div>
+            <div class="stat-value">28</div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-title mb-4">Resumen de Ingresos</div>
+          <div class="info-row">
+            <span class="info-label">Membresías (efectivo)</span>
+            <span class="info-value text-green bold">$4,250</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Membresías (tarjeta)</span>
+            <span class="info-value text-blue bold">$1,800</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Tienda (efectivo)</span>
+            <span class="info-value text-green bold">$680</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Tienda (tarjeta)</span>
+            <span class="info-value text-blue bold">$210</span>
+          </div>
+          <div class="info-row" style="border-top:1px solid var(--border2); padding-top:10px; margin-top:4px;">
+            <span class="info-label">Total Efectivo</span>
+            <span class="info-value text-green bold" style="font-size:1.1rem;">$4,930</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Total Tarjeta</span>
+            <span class="info-value text-blue bold" style="font-size:1.1rem;">$2,010</span>
+          </div>
+          <div class="info-row" style="border-top:2px solid var(--border2); padding-top:10px; margin-top:4px;">
+            <span class="info-label bold">TOTAL INGRESOS</span>
+            <span class="info-value bold" style="font-size:1.3rem;">$6,940</span>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-title mb-4">Gastos del Día</div>
+          <div class="info-row">
+            <span class="info-label">Limpieza y mantenimiento</span>
+            <span class="info-value text-red">−$450</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Reembolsos</span>
+            <span class="info-value text-yellow">−$200</span>
+          </div>
+          <div class="info-row" style="border-top:1px solid var(--border2); padding-top:10px; margin-top:4px;">
+            <span class="info-label bold">TOTAL EGRESOS</span>
+            <span class="info-value text-red bold" style="font-size:1.1rem;">−$650</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-color:#14532d; background:#061a0f;">
+          <div class="flex-between">
+            <div>
+              <div class="card-title">NETO DEL DÍA</div>
+              <div class="text-xs" style="margin-top:2px;">Ingresos − Egresos</div>
+            </div>
+            <div style="font-size:2.2rem; font-weight:800; color:var(--green);">$6,290</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Receipt-style printable -->
+      <div>
+        <p class="section-title" style="margin-bottom:14px;">Vista Imprimible del Corte</p>
+        <div class="receipt" style="max-width:100%;">
+          <div class="receipt-logo">🐍 GYMMAMBA 2.0</div>
+          <div class="receipt-sub">Av. Principal #123, Tijuana, B.C.</div>
+          <div class="receipt-sub">Tel: 664-000-0000</div>
+          <hr />
+          <div class="receipt-row"><span>CORTE DEL DÍA</span></div>
+          <div class="receipt-row"><span>Fecha:</span><span>15/06/2026</span></div>
+          <div class="receipt-row"><span>Hora:</span><span>11:45 PM</span></div>
+          <div class="receipt-row"><span>Usuario:</span><span>admin</span></div>
+          <hr />
+          <div class="receipt-row"><span>MEMBRESÍAS</span></div>
+          <div class="receipt-row"><span>  Efectivo:</span><span>$4,250</span></div>
+          <div class="receipt-row"><span>  Tarjeta:</span><span>$1,800</span></div>
+          <div class="receipt-row"><span>  Subtotal:</span><span>$6,050</span></div>
+          <hr />
+          <div class="receipt-row"><span>TIENDA</span></div>
+          <div class="receipt-row"><span>  Efectivo:</span><span>$680</span></div>
+          <div class="receipt-row"><span>  Tarjeta:</span><span>$210</span></div>
+          <div class="receipt-row"><span>  Subtotal:</span><span>$890</span></div>
+          <hr />
+          <div class="receipt-row"><span>EGRESOS</span></div>
+          <div class="receipt-row"><span>  Gastos:</span><span>-$450</span></div>
+          <div class="receipt-row"><span>  Reembolsos:</span><span>-$200</span></div>
+          <div class="receipt-row"><span>  Subtotal:</span><span>-$650</span></div>
+          <hr />
+          <div class="receipt-row receipt-total"><span>NETO:</span><span>$6,290</span></div>
+          <hr />
+          <div class="receipt-row"><span>Visitas hoy:</span><span>34</span></div>
+          <div class="receipt-row"><span>Nuevos miembros:</span><span>3</span></div>
+          <div class="receipt-row"><span>Renovaciones:</span><span>17</span></div>
+          <div class="receipt-row"><span>Ventas tienda:</span><span>28</span></div>
+          <hr />
+          <div style="text-align:center; font-size:.72rem; margin-top:6px;">— Fin del corte —</div>
+          <div style="text-align:center; font-size:.72rem;">GymMamba v2.0</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

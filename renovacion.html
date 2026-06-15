@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Renovar Membresía</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="clientes">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">🔄 Renovar Membresía</div>
+        <div class="page-subtitle">Carlos García López · ID: 00142</div>
+      </div>
+      <a href="cliente-detalle.html" class="btn btn-ghost">← Volver a Ficha</a>
+    </div>
+
+    <div class="grid-2" style="align-items:start; max-width:860px;">
+
+      <!-- Renewal form -->
+      <div class="card">
+        <div class="card-title mb-4">Seleccionar Plan</div>
+
+        <div class="plan-grid">
+          <div class="plan-card selected">
+            <div class="plan-name">Mensualidad</div>
+            <div class="plan-price">$550</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Mes Efectivo</div>
+            <div class="plan-price">$500</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Plan Pareja</div>
+            <div class="plan-price">$475</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Semestre</div>
+            <div class="plan-price">$2,300</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Semana</div>
+            <div class="plan-price">$200</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Visita</div>
+            <div class="plan-price">$100</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Promoción</div>
+            <div class="plan-price">$250</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Personalizado</div>
+            <div class="plan-price">$—</div>
+          </div>
+        </div>
+
+        <div class="form-group mt-4">
+          <label>Precio Personalizado (opcional)</label>
+          <input type="number" placeholder="0.00" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de Inicio</label>
+            <input type="date" value="2026-06-20" />
+          </div>
+          <div class="form-group">
+            <label>Método de Pago</label>
+            <select>
+              <option>💵 Efectivo</option>
+              <option>💳 Tarjeta / Transferencia</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <a href="cliente-detalle.html" class="btn btn-success" style="flex:1; justify-content:center;">
+            ✅ Confirmar Renovación
+          </a>
+          <a href="cliente-detalle.html" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card">
+          <p class="section-title">Resumen del Cliente</p>
+          <div class="client-info" style="margin-bottom:16px;">
+            <div class="client-photo">🧑</div>
+            <div>
+              <div class="client-name">Carlos García López</div>
+              <div class="client-id">ID: 00142</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Vencimiento actual</span>
+            <span class="info-value text-yellow">20 Jun 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Días restantes</span>
+            <span class="info-value">5 días</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Plan actual</span>
+            <span class="info-value">Mensualidad</span>
+          </div>
+        </div>
+
+        <!-- Ticket preview -->
+        <div class="card">
+          <p class="section-title" style="margin-bottom:14px;">Vista previa del ticket</p>
+          <div class="receipt">
+            <div class="receipt-logo">🐍 GymMamba 2.0</div>
+            <div class="receipt-sub">Av. Principal #123, Tijuana, B.C.</div>
+            <div class="receipt-sub">Tel: 664-000-0000</div>
+            <hr />
+            <div class="receipt-row"><span>RENOVACIÓN</span></div>
+            <div class="receipt-row"><span>Folio:</span><span>#REN-0413</span></div>
+            <div class="receipt-row"><span>Fecha:</span><span>20/06/2026</span></div>
+            <hr />
+            <div class="receipt-row"><span>Cliente:</span><span>Carlos G.L.</span></div>
+            <div class="receipt-row"><span>ID:</span><span>00142</span></div>
+            <div class="receipt-row"><span>Plan:</span><span>Mensualidad</span></div>
+            <div class="receipt-row"><span>Vence:</span><span>20/07/2026</span></div>
+            <hr />
+            <div class="receipt-row receipt-total"><span>TOTAL:</span><span>$550.00</span></div>
+            <div class="receipt-row"><span>Pago:</span><span>Efectivo</span></div>
+            <div class="receipt-row"><span>Cambio:</span><span>$0.00</span></div>
+            <hr />
+            <div style="text-align:center; font-size:.72rem; margin-top:6px;">¡Gracias por tu preferencia!</div>
+            <div style="text-align:center; font-size:.72rem;">Visita aceptable con este comprobante</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" style="margin-top:12px; width:100%; justify-content:center;">🖨️ Imprimir Ticket</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

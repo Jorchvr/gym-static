@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymMamba 2.0 — Ventas Externas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="ventas">
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">🛒 Ventas Externas</div>
+        <div class="page-subtitle">Punto de venta de productos y servicios complementarios</div>
+      </div>
+    </div>
+
+    <div class="grid-60-40" style="align-items:start;">
+
+      <!-- Products -->
+      <div>
+        <div class="card mb-4">
+          <div class="card-header">
+            <span class="card-title">Catálogo de Productos</span>
+            <div class="search-bar" style="max-width:220px;">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Buscar…" />
+            </div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">💧</div>
+              <div>Agua 600ml</div>
+              <div class="text-green bold">$15</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🥤</div>
+              <div>Proteína 30g</div>
+              <div class="text-green bold">$80</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🍫</div>
+              <div>Barra Energética</div>
+              <div class="text-green bold">$35</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">👕</div>
+              <div>Playera</div>
+              <div class="text-green bold">$220</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🧢</div>
+              <div>Gorra</div>
+              <div class="text-green bold">$180</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🔑</div>
+              <div>Candado</div>
+              <div class="text-green bold">$60</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🥛</div>
+              <div>Leche Almendra</div>
+              <div class="text-green bold">$45</div>
+            </div>
+            <div class="product-btn" style="min-width:110px;">
+              <div style="font-size:1.4rem;">🏋️</div>
+              <div>Guantes</div>
+              <div class="text-green bold">$280</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent sales table -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Ventas Recientes</span>
+            <a href="historial.html" class="btn btn-ghost btn-sm">Ver historial</a>
+          </div>
+          <div class="table-wrap" style="border:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Hora</th>
+                  <th>Productos</th>
+                  <th>Total</th>
+                  <th>Método</th>
+                  <th>Ticket</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10:34</td>
+                  <td>Agua x2 + Proteína x1</td>
+                  <td class="text-green">$110</td>
+                  <td>💵 Efectivo</td>
+                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
+                </tr>
+                <tr>
+                  <td>09:51</td>
+                  <td>Barra x3</td>
+                  <td class="text-green">$105</td>
+                  <td>💳 Tarjeta</td>
+                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
+                </tr>
+                <tr>
+                  <td>09:10</td>
+                  <td>Playera + Gorra</td>
+                  <td class="text-green">$400</td>
+                  <td>💵 Efectivo</td>
+                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
+                </tr>
+                <tr>
+                  <td>08:45</td>
+                  <td>Agua x1 + Candado</td>
+                  <td class="text-green">$75</td>
+                  <td>💵 Efectivo</td>
+                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart -->
+      <div class="card" style="position:sticky; top:80px;">
+        <div class="card-header">
+          <span class="card-title">🛒 Carrito</span>
+          <button class="btn btn-danger btn-sm">Limpiar</button>
+        </div>
+
+        <div style="min-height:160px;">
+          <div class="cart-item">
+            <div>
+              <div>💧 Agua 600ml</div>
+              <div class="text-xs">x2 · $15 c/u</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="bold">$30</span>
+              <button class="btn btn-ghost btn-sm btn-icon">✕</button>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div>
+              <div>🥤 Proteína 30g</div>
+              <div class="text-xs">x1 · $80 c/u</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="bold">$80</span>
+              <button class="btn btn-ghost btn-sm btn-icon">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-total">
+          <span>Total</span>
+          <span>$110</span>
+        </div>
+
+        <div style="margin-top:16px;">
+          <p class="section-title">Método de Pago</p>
+          <div style="display:flex; gap:12px; margin-bottom:14px; font-size:.88rem;">
+            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
+              <input type="radio" name="pay2" checked style="width:auto;"> 💵 Efectivo
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
+              <input type="radio" name="pay2" style="width:auto;"> 💳 Tarjeta
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label>Efectivo recibido</label>
+            <input type="number" placeholder="0.00" value="110" />
+          </div>
+
+          <div style="display:flex; justify-content:space-between; font-size:.88rem; margin-bottom:14px; color:var(--text-sm);">
+            <span>Cambio:</span>
+            <span class="text-green bold">$0.00</span>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%; justify-content:center;">
+            ✅ Cobrar $110
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

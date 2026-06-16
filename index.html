@@ -7,41 +7,47 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="login-page">
-    <div class="login-box">
+<div class="login-page">
+  <div class="login-box">
 
-      <div class="login-logo">
-        <div class="logo-big">🐍</div>
-        <h1>GymMamba 2.0</h1>
-        <p>Sistema de Gestión para Gimnasios</p>
-      </div>
+    <!-- Logo: exact white box 320x200 CornerRadius 15 from XAML -->
+    <div class="login-logo-box">🐍</div>
 
-      <div class="form-group">
-        <label>Usuario</label>
-        <input type="text" placeholder="Ingresa tu usuario" value="admin" />
-      </div>
+    <div class="login-title">Iniciar Sesión</div>
+    <div class="login-subtitle">Accede al sistema</div>
 
-      <div class="form-group">
-        <label>Contraseña</label>
-        <input type="password" placeholder="••••••••" value="12345" />
-      </div>
-
-      <a href="dashboard.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">
-        Iniciar Sesión
-      </a>
-
-      <div style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 18px;">
-        <p class="text-xs" style="text-align:center; margin-bottom: 12px;">ACCESO BIOMÉTRICO</p>
-        <div class="fp-area" onclick="window.location='dashboard.html'">
-          <span class="fp-icon">👆</span>
-          <span class="fp-label">Toca para escanear huella</span>
-        </div>
-      </div>
-
-      <p class="text-xs" style="text-align:center; margin-top:16px; color: var(--text-xs);">
-        GymMamba v2.0 · Demo sin base de datos
-      </p>
+    <div class="form-group">
+      <div class="login-label">Usuario</div>
+      <input class="login-input" type="text" value="admin" placeholder="Usuario" />
     </div>
+
+    <div class="form-group">
+      <div class="login-label">Contraseña</div>
+      <input class="login-input" type="password" value="12345" placeholder="••••••••" />
+    </div>
+
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; margin-bottom:0;">
+      <label style="display:flex; align-items:center; gap:6px; color:var(--text-aa); font-size:14px; text-transform:none; letter-spacing:0; cursor:pointer;">
+        <input type="checkbox" checked style="width:auto;" /> Recordarme
+      </label>
+      <a href="#" class="login-help">¿Problemas de acceso?</a>
+    </div>
+
+    <a href="dashboard.html">
+      <button class="login-btn">ENTRAR AL SISTEMA</button>
+    </a>
+
+    <!-- Fingerprint access -->
+    <div style="border-top:1px solid var(--border2); padding-top:18px;">
+      <div class="sec-label" style="text-align:center; margin-bottom:12px;">Acceso Biométrico</div>
+      <div class="fp-area" onclick="window.location='dashboard.html'" style="padding:20px;">
+        <span class="fp-icon">👆</span>
+        <span class="fp-label">Toca para escanear huella digital</span>
+      </div>
+    </div>
+
+    <div class="login-footer" style="margin-top:20px;">Sistema de Gestión v2.0</div>
   </div>
+</div>
 </body>
 </html>

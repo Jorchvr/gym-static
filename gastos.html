@@ -7,88 +7,61 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="historial">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">💸 Registrar Gasto</div>
-        <div class="page-subtitle">Lleva el control de egresos del negocio</div>
+  <div class="flex-between mb-20">
+    <div style="font-size:24px; font-weight:700;">💸 Registrar Gasto / Egreso</div>
+    <a href="historial.html" class="btn btn-primary" style="padding:10px 20px; font-size:14px; border-radius:5px;">← Volver al Historial</a>
+  </div>
+
+  <div style="max-width:520px;">
+    <div style="background:var(--card3); border:1px solid var(--border2); border-radius:10px; padding:20px;">
+      <div class="form-group">
+        <label style="color:var(--text-aa);">Descripción de Gasto</label>
+        <input type="text" placeholder="Ej: Limpieza, renta, servicios…" style="background:#121212; border-color:#444;" />
       </div>
-      <a href="historial.html" class="btn btn-ghost">← Historial</a>
-    </div>
 
-    <div class="grid-2" style="align-items:start; max-width:800px;">
-      <div class="card">
+      <div class="form-group">
+        <label style="color:var(--text-aa);">Categoría</label>
+        <select style="background:#121212; border-color:#444;">
+          <option>Mantenimiento</option>
+          <option>Servicios (luz, agua, internet)</option>
+          <option>Nómina / Personal</option>
+          <option>Inventario</option>
+          <option>Publicidad</option>
+          <option>Renta</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
         <div class="form-group">
-          <label>Concepto</label>
-          <input type="text" placeholder="Ej: Limpieza, renta, servicios…" />
+          <label style="color:var(--text-aa);">Monto</label>
+          <input type="number" placeholder="0.00" style="background:#121212; border-color:#444; color:var(--accent); font-weight:600;" />
         </div>
-
         <div class="form-group">
-          <label>Categoría</label>
-          <select>
-            <option>Mantenimiento</option>
-            <option>Servicios (luz, agua, internet)</option>
-            <option>Nómina / Personal</option>
-            <option>Compra de inventario</option>
-            <option>Publicidad</option>
-            <option>Renta</option>
-            <option>Otro</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Monto</label>
-            <input type="number" placeholder="0.00" />
-          </div>
-          <div class="form-group">
-            <label>Fecha</label>
-            <input type="date" value="2026-06-15" />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Notas (opcional)</label>
-          <textarea rows="3" placeholder="Descripción adicional…" style="resize:vertical;"></textarea>
-        </div>
-
-        <div style="display:flex; gap:10px; margin-top:8px;">
-          <a href="historial.html" class="btn btn-primary" style="flex:1; justify-content:center;">
-            ✅ Registrar Gasto
-          </a>
-          <a href="historial.html" class="btn btn-ghost">Cancelar</a>
+          <label style="color:var(--text-aa);">Fecha</label>
+          <input type="date" value="2026-06-15" style="background:#121212; border-color:#444;" />
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-title mb-4">Gastos Recientes</div>
-        <div class="info-row">
-          <span class="info-label">Limpieza</span>
-          <span class="info-value text-red">−$450</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Luz (junio)</span>
-          <span class="info-value text-red">−$1,200</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Internet</span>
-          <span class="info-value text-red">−$600</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Agua</span>
-          <span class="info-value text-red">−$180</span>
-        </div>
-        <div class="info-row" style="border-top:1px solid var(--border2); padding-top:10px; margin-top:4px;">
-          <span class="info-label bold">Total este mes</span>
-          <span class="info-value text-red bold" style="font-size:1.1rem;">−$2,430</span>
-        </div>
+      <div class="form-group">
+        <label style="color:var(--text-aa);">Notas (opcional)</label>
+        <textarea rows="3" placeholder="Descripción adicional…" style="background:#121212; border-color:#444; resize:vertical;"></textarea>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:8px;">
+        <a href="historial.html" style="color:var(--text-66); font-size:14px; text-decoration:none;">Cancelar</a>
+        <a href="historial.html" class="btn btn-primary" style="height:42px; padding:0 18px; font-size:16px; border-radius:5px;">
+          ✅ Registrar Gasto
+        </a>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>

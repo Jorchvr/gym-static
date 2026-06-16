@@ -7,104 +7,116 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="clientes">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">✏️ Editar Cliente</div>
-        <div class="page-subtitle">Carlos García López · ID: 00142</div>
-      </div>
-      <a href="cliente-detalle.html" class="btn btn-ghost">← Volver a Ficha</a>
-    </div>
+  <div class="mb-25">
+    <div style="font-size:26px; font-weight:900; color:var(--accent);">EDITAR DATOS</div>
+    <div style="font-size:13px; color:var(--text-66);">Carlos García López · ID: 00142</div>
+  </div>
 
-    <div class="grid-2" style="align-items:start;">
-      <div class="card">
-        <div class="card-title mb-4">Datos Personales</div>
+  <div style="display:grid; grid-template-columns:minmax(270px,420px) 20px 1.8fr; gap:0; align-items:start;">
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nombre(s)</label>
-            <input type="text" value="Carlos" />
-          </div>
-          <div class="form-group">
-            <label>Apellidos</label>
-            <input type="text" value="García López" />
-          </div>
+    <!-- LEFT -->
+    <div>
+      <div class="card mb-14">
+        <div class="sec-label">FOTO DEL SOCIO</div>
+        <div class="camera-preview" style="border:2px solid var(--border2);">🧑</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+          <button class="btn btn-ghost btn-sm" style="background:#2D2D2D; border:1px solid #444; border-radius:6px; margin-right:4px;">Encender</button>
+          <button class="btn btn-primary btn-sm" style="border-radius:6px; margin-left:4px;">Capturar</button>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Teléfono</label>
+      <div class="card mb-14">
+        <div class="sec-label mb-14">DATOS PERSONALES</div>
+        <div class="form-group">
+          <label style="color:var(--text-88);">Nombre(s)</label>
+          <input type="text" value="Carlos" />
+        </div>
+        <div class="form-group">
+          <label style="color:var(--text-88);">Apellidos</label>
+          <input type="text" value="García López" />
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 10px 80px; gap:0;" class="form-group">
+          <div>
+            <label style="color:var(--text-88);">Teléfono</label>
             <input type="tel" value="664-123-4567" />
           </div>
-          <div class="form-group">
-            <label>Edad</label>
-            <input type="number" value="28" min="5" max="100" />
+          <div></div>
+          <div>
+            <label style="color:var(--text-88);">Edad</label>
+            <input type="number" value="28" />
           </div>
         </div>
-
-        <div class="form-group">
-          <label>Contacto de Emergencia</label>
-          <input type="text" value="María López · 664-999-8888" />
-        </div>
-
-        <hr style="border:none; border-top:1px solid var(--border); margin:20px 0;" />
-        <div class="card-title mb-4">Horario Personalizado</div>
-
-        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
-          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Lun</button>
-          <button class="btn btn-ghost btn-sm">Mar</button>
-          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Mié</button>
-          <button class="btn btn-ghost btn-sm">Jue</button>
-          <button class="btn btn-ghost btn-sm" style="border-color:#777; color:var(--text);">Vie</button>
-          <button class="btn btn-ghost btn-sm">Sáb</button>
-          <button class="btn btn-ghost btn-sm">Dom</button>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Hora Inicio</label>
-            <input type="time" value="06:00" />
-          </div>
-          <div class="form-group">
-            <label>Hora Fin</label>
-            <input type="time" value="22:00" />
-          </div>
-        </div>
-
-        <div style="display:flex; gap:10px; margin-top:8px;">
-          <a href="cliente-detalle.html" class="btn btn-primary" style="flex:1; justify-content:center;">
-            ✅ Guardar Cambios
-          </a>
-          <a href="cliente-detalle.html" class="btn btn-ghost">Cancelar</a>
+        <div class="inner-card">
+          <div class="sec-label" style="margin-bottom:8px;">Contacto de Emergencia</div>
+          <input type="text" value="María López" style="margin-bottom:8px;" />
+          <input type="tel" value="664-999-8888" />
         </div>
       </div>
 
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div class="card">
-          <div class="card-title mb-4">📷 Foto del Cliente</div>
-          <div style="width:100%; aspect-ratio:1; max-width:220px; background:var(--bg3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:5rem; margin:0 auto 14px; border:2px solid var(--border2);">
-            🧑
-          </div>
-          <button class="btn btn-ghost" style="width:100%; justify-content:center;">📷 Cambiar Foto</button>
+      <div class="card">
+        <div class="sec-label mb-14">HUELLA DIGITAL</div>
+        <div class="flex-gap mb-10">
+          <span class="badge badge-active">✅ Registrada</span>
         </div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="fp-progress"><div class="fp-progress-fill" style="width:75%;"></div></div>
+          <span style="font-size:12px; color:var(--text-55);">3/4 escaneos</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="background:#2D2D2D; border:1px solid #444; border-radius:6px; font-size:11px; padding:8px 14px;">
+          👆 ACTUALIZAR HUELLA
+        </button>
+      </div>
+    </div>
 
-        <div class="card">
-          <div class="card-title mb-4">👆 Huella Digital</div>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-            <span class="badge badge-green">✅ Registrada</span>
+    <div></div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="card mb-14">
+        <div style="font-size:14px; font-weight:600; color:var(--text); margin-bottom:18px;">HORARIO PERSONALIZADO</div>
+
+        <div class="schedule-panel" style="display:block; background:var(--card); border:1px solid #1E3A5F;">
+          <div class="schedule-title">CONFIGURAR HORARIO DE ACCESO</div>
+          <div style="display:flex; flex-wrap:wrap; margin-bottom:12px;">
+            <button class="day-btn active" onclick="this.classList.toggle('active')">Lun</button>
+            <button class="day-btn" onclick="this.classList.toggle('active')">Mar</button>
+            <button class="day-btn active" onclick="this.classList.toggle('active')">Mié</button>
+            <button class="day-btn" onclick="this.classList.toggle('active')">Jue</button>
+            <button class="day-btn active" onclick="this.classList.toggle('active')">Vie</button>
+            <button class="day-btn" onclick="this.classList.toggle('active')">Sáb</button>
+            <button class="day-btn" onclick="this.classList.toggle('active')">Dom</button>
           </div>
-          <div class="fp-area">
-            <span class="fp-icon">👆</span>
-            <span class="fp-label">Coloca el dedo para actualizar la huella</span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+              <div class="sec-label">Hora Inicio</div>
+              <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+                <option>06:00</option><option>07:00</option>
+              </select>
+            </div>
+            <div>
+              <div class="sec-label">Hora Fin</div>
+              <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+                <option>22:00</option><option>21:00</option>
+              </select>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:20px;">
+        <a href="cliente-detalle.html" style="color:var(--text-66); font-size:14px; text-decoration:none;">Cancelar</a>
+        <a href="cliente-detalle.html" class="btn btn-primary" style="padding:14px 36px; font-size:14px; border-radius:7px;">
+          💾 GUARDAR CAMBIOS
+        </a>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>

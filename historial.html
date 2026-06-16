@@ -7,199 +7,227 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="historial">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
+  <!-- Header — exact "Historial (Día)" FontSize 24 Bold -->
+  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:15px;">Historial del Día</div>
+
+  <!-- Filter card — exact #181818, CornerRadius 8, Padding 15, Border #333 -->
+  <div style="background:var(--card2); border:1px solid var(--border2); border-radius:8px; padding:15px; margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+
+    <div class="flex-gap" style="flex-wrap:wrap;">
+      <!-- Date: #AAAAAA label, DatePicker Width 150 -->
       <div>
-        <div class="page-title">📋 Historial de Transacciones</div>
-        <div class="page-subtitle">Registro de todos los movimientos</div>
+        <div style="color:var(--text-aa); font-size:12px; margin-bottom:4px;">Fecha</div>
+        <input type="date" value="2026-06-15" style="width:150px; height:30px; font-size:13px; padding:4px 8px;" />
       </div>
-      <div class="flex-gap">
-        <input type="date" value="2026-06-15" style="width:auto;" />
-        <button class="btn btn-ghost">📥 Exportar Excel</button>
+
+      <!-- Balance indicators — exact colors -->
+      <div class="balance-row" style="margin-left:20px;">
+        <div class="balance-item">
+          <div class="balance-lbl">BALANCE NETO</div>
+          <!-- #00E676 FontWeight Bold FontSize 16 -->
+          <div class="balance-val bal-green">$5,400</div>
+        </div>
+        <div class="balance-item">
+          <div class="balance-lbl">EFECTIVO (Caja)</div>
+          <!-- White, FontWeight Bold, FontSize 14 -->
+          <div class="balance-val bal-white" style="font-size:14px;">$4,930</div>
+        </div>
+        <div class="balance-item">
+          <div class="balance-lbl">TARJETA</div>
+          <!-- #29B6F6 FontWeight Bold FontSize 14 -->
+          <div class="balance-val bal-blue" style="font-size:14px;">$2,010</div>
+        </div>
       </div>
     </div>
 
-    <!-- Filter tabs -->
-    <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
-      <button class="btn btn-ghost btn-sm" style="border-color:#555; color:var(--text);">Todo</button>
-      <button class="btn btn-ghost btn-sm">Renovaciones</button>
-      <button class="btn btn-ghost btn-sm">Registros</button>
-      <button class="btn btn-ghost btn-sm">Ventas</button>
-      <button class="btn btn-ghost btn-sm">Gastos</button>
-      <button class="btn btn-ghost btn-sm">Reembolsos</button>
-    </div>
-
-    <!-- Summary row -->
-    <div class="stats-row" style="grid-template-columns: repeat(4,1fr); margin-bottom: 20px;">
-      <div class="stat-card">
-        <div class="stat-label">Ingresos (hoy)</div>
-        <div class="stat-value text-green">$6,050</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Gastos (hoy)</div>
-        <div class="stat-value text-red">$450</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Reembolsos</div>
-        <div class="stat-value text-yellow">$200</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Neto</div>
-        <div class="stat-value">$5,400</div>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Folio</th>
-            <th>Hora</th>
-            <th>Tipo</th>
-            <th>Cliente / Concepto</th>
-            <th>Monto</th>
-            <th>Método</th>
-            <th>Usuario</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-xs">#REN-0413</td>
-            <td>11:20</td>
-            <td><span class="badge badge-green">Renovación</span></td>
-            <td>Carlos García López (ID 00142)</td>
-            <td class="text-green bold">+$550</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#VTA-0214</td>
-            <td>10:34</td>
-            <td><span class="badge badge-blue">Venta</span></td>
-            <td>Agua x2 + Proteína x1</td>
-            <td class="text-green bold">+$110</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#REN-0412</td>
-            <td>10:05</td>
-            <td><span class="badge badge-green">Renovación</span></td>
-            <td>Ana Martínez Ruiz (ID 00143)</td>
-            <td class="text-green bold">+$475</td>
-            <td>💳 Tarjeta</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#REG-0201</td>
-            <td>09:42</td>
-            <td><span class="badge badge-gray">Registro</span></td>
-            <td>Nuevo cliente: Sofía Ramírez Vega</td>
-            <td class="text-green bold">+$650</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#GAS-0041</td>
-            <td>09:10</td>
-            <td><span class="badge badge-red">Gasto</span></td>
-            <td>Limpieza y mantenimiento</td>
-            <td class="text-red bold">−$450</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">Ver</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#VTA-0213</td>
-            <td>09:05</td>
-            <td><span class="badge badge-blue">Venta</span></td>
-            <td>Playera + Gorra</td>
-            <td class="text-green bold">+$400</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#REF-0018</td>
-            <td>08:55</td>
-            <td><span class="badge badge-yellow">Reembolso</span></td>
-            <td>Roberto Sánchez Cruz — Semana</td>
-            <td class="text-yellow bold">−$200</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">Ver</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">#REN-0411</td>
-            <td>08:30</td>
-            <td><span class="badge badge-green">Renovación</span></td>
-            <td>Fernando Castillo Reyes (ID 00098)</td>
-            <td class="text-green bold">+$550</td>
-            <td>💵 Efectivo</td>
-            <td>admin</td>
-            <td>
-              <div class="td-actions">
-                <button class="btn btn-ghost btn-sm">🖨️</button>
-                <a href="reembolso.html" class="btn btn-ghost btn-sm">↩️ Reembolso</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px; font-size:.85rem; color:var(--text-sm);">
-      <span>8 de 38 transacciones hoy</span>
-      <div style="display:flex; gap:6px;">
-        <button class="btn btn-ghost btn-sm">← Anterior</button>
-        <button class="btn btn-ghost btn-sm" style="background:var(--card2);">1</button>
-        <button class="btn btn-ghost btn-sm">2</button>
-        <button class="btn btn-ghost btn-sm">Siguiente →</button>
-      </div>
+    <!-- Back button — exact #E0E0E0, Black, Bold, Padding 20,10, CornerRadius 5 -->
+    <div class="flex-gap">
+      <button class="btn btn-ghost" style="padding:10px 20px; font-size:14px; border-radius:5px;">📥 Exportar Excel</button>
+      <a href="dashboard.html" class="btn btn-primary" style="padding:10px 20px; font-size:14px; border-radius:5px;">← Volver al Inicio</a>
     </div>
   </div>
+
+  <!-- GASTOS section — exact Border #E0E0E0, title #FF8A80 -->
+  <div style="border:1px solid var(--accent); border-radius:8px; padding:15px; margin-bottom:16px; background:var(--card2);">
+    <div style="color:var(--red2); font-weight:700; margin-bottom:12px;">▼ Salidas de Dinero / Gastos / Devoluciones</div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th style="width:80px;">Hora</th>
+          <th>Descripción</th>
+          <th style="width:150px;">Usuario</th>
+          <th style="width:100px;">Método</th>
+          <!-- Monto: #FF5252 Bold -->
+          <th style="width:100px; color:var(--red);">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;">09:10</td>
+          <td style="height:35px;">Limpieza y mantenimiento</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--red); font-weight:700;">−$450</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">08:55</td>
+          <td style="height:35px;">Devolución — Roberto Sánchez</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--red); font-weight:700;">−$200</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MEMBERSHIP SALES — exact "Ventas de Membresía" White Bold -->
+  <div style="background:var(--card2); border:1px solid var(--border2); border-radius:8px; padding:15px; margin-bottom:16px;">
+    <div style="font-weight:700; margin-bottom:12px; color:var(--text);">Ventas de Membresía</div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th style="width:80px;">Hora</th>
+          <th style="width:120px;">Usuario</th>
+          <th>Concepto / Cliente</th>
+          <th style="width:100px;">Pago</th>
+          <!-- Monto: #00E676 -->
+          <th style="width:100px; color:var(--green);">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;">11:20</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Renovación — Carlos García López (00142)</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$550</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">10:05</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Renovación — Ana Martínez Ruiz (00143)</td>
+          <td style="height:35px;">💳 Tarjeta</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$475</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">09:42</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Nuevo registro — Sofía Ramírez Vega</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$650</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">08:30</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Renovación — Fernando Castillo (00098)</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$550</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- STORE SALES — exact "Ventas de Tienda / Externas" -->
+  <div style="background:var(--card2); border:1px solid var(--border2); border-radius:8px; padding:15px; margin-bottom:16px;">
+    <div style="font-weight:700; margin-bottom:12px; color:var(--text);">Ventas de Tienda / Externas</div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th style="width:80px;">Hora</th>
+          <th style="width:120px;">Usuario</th>
+          <th>Concepto</th>
+          <th style="width:100px;">Pago</th>
+          <th style="width:100px; color:var(--green);">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;">10:34</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Agua x2 + Proteína x1</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$110</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">09:05</td>
+          <td style="height:35px;">admin</td>
+          <td style="height:35px;">Playera + Gorra</td>
+          <td style="height:35px;">💵 Efectivo</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">+$400</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PRODUCT SUMMARY -->
+  <div style="background:var(--card2); border:1px solid var(--border2); border-radius:8px; padding:15px; margin-bottom:16px;">
+    <div style="font-weight:700; margin-bottom:12px; color:var(--text);">Resumen de Productos Vendidos (Agrupado)</div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th style="width:120px;">Cant. Vendida</th>
+          <th style="width:120px;">Ingreso Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;">💧 Agua 600ml</td>
+          <td style="height:35px; text-align:center;">8</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">$120</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">🥤 Proteína 30g</td>
+          <td style="height:35px; text-align:center;">3</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">$240</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">👕 Playera</td>
+          <td style="height:35px; text-align:center;">1</td>
+          <td style="height:35px; color:var(--green); font-weight:700;">$220</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NEW CLIENTS -->
+  <div style="background:var(--card2); border:1px solid var(--border2); border-radius:8px; padding:15px;">
+    <div style="font-weight:700; margin-bottom:12px; color:var(--text);">
+      Nuevos Clientes <span style="color:var(--text-aa);">(3)</span>
+    </div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th style="width:150px;">Fecha/Hora</th>
+          <th>Nombre</th>
+          <th style="width:150px;">Registró</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;">15/06/2026 09:42</td>
+          <td style="height:35px;">Sofía Ramírez Vega</td>
+          <td style="height:35px;">admin</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">15/06/2026 08:15</td>
+          <td style="height:35px;">Miguel Torres Ríos</td>
+          <td style="height:35px;">admin</td>
+        </tr>
+        <tr>
+          <td style="height:35px;">15/06/2026 07:50</td>
+          <td style="height:35px;">Daniela Fuentes Campos</td>
+          <td style="height:35px;">admin</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </body>
 </html>

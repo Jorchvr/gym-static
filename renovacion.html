@@ -6,143 +6,192 @@
   <title>GymMamba 2.0 — Renovar Membresía</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-page="clientes">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<body data-page="clientes" style="background:#181818;">
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">🔄 Renovar Membresía</div>
-        <div class="page-subtitle">Carlos García López · ID: 00142</div>
+  <!-- Header — exact "Renovación de Membresía" FontSize 26 SemiBold
+       subtitle #AAAAAA FontSize 14, Separator #2A2A2A -->
+  <div class="flex-between mb-18">
+    <div>
+      <div style="font-size:26px; font-weight:600; color:var(--text);">Renovación de Membresía</div>
+      <div style="font-size:14px; color:var(--text-aa); margin-top:4px;">Busca al socio y selecciona el plan de renovación</div>
+    </div>
+    <a href="clientes.html" style="color:var(--text-66); text-decoration:none; font-size:14px; cursor:pointer;">✕ Cerrar</a>
+  </div>
+  <div style="height:1px; background:#2A2A2A; margin-bottom:20px;"></div>
+
+  <!-- Exact: 3 cols 360 | 40 | * -->
+  <div style="display:grid; grid-template-columns:360px 40px 1fr; gap:0; align-items:start;">
+
+    <!-- ═══ LEFT — Client search ═══ -->
+    <div>
+      <!-- Search box — exact "BUSCAR SOCIO" #AAAAAA, FontSize 11, Bold -->
+      <div class="sec-label">BUSCAR SOCIO</div>
+      <div class="flex-gap mb-14" style="align-items:center;">
+        <input type="text" value="García" style="font-size:15px;" />
+        <!-- Search btn: #333 bg, White, Width 46, CornerRadius 6, FontSize 16 -->
+        <button class="btn btn-ghost btn-icon" style="width:46px; height:46px; border-radius:6px; font-size:16px; flex-shrink:0;">🔍</button>
       </div>
-      <a href="cliente-detalle.html" class="btn btn-ghost">← Volver a Ficha</a>
+
+      <!-- Client info panel — exact #202020, CornerRadius 10, Padding 22, Border #333 -->
+      <div style="background:#202020; border:1px solid var(--border2); border-radius:10px; padding:22px;">
+        <div style="font-size:11px; color:var(--text-aa); margin-bottom:8px;">Socio encontrado</div>
+
+        <div class="flex-gap mb-14">
+          <!-- Photo: 72x72, CornerRadius 36, bg #111, border #333 -->
+          <div class="photo-circle photo-md" style="border-color:var(--border2);">🧑</div>
+          <div style="margin-left:16px;">
+            <div style="font-size:18px; font-weight:600; color:var(--text); line-height:1.3;">Carlos García López</div>
+            <div style="font-size:13px; color:var(--text-aa); margin-top:2px;">ID: 00142</div>
+          </div>
+        </div>
+
+        <!-- Status badge — exact #181818 bg, CornerRadius 6, Padding 12,8 -->
+        <div style="background:#181818; border-radius:6px; padding:8px 12px;">
+          <span style="color:var(--text-aa); font-size:13px;">Estado: </span>
+          <span style="color:var(--green2); font-weight:700; font-size:13px;">ACTIVO</span>
+        </div>
+        <div style="margin-top:10px; font-size:13px; color:var(--text-aa);">
+          <div>Vence: <span style="color:var(--yellow); font-weight:600;">20 Jun 2026</span></div>
+          <div style="margin-top:4px;">Plan actual: Mensualidad</div>
+        </div>
+      </div>
     </div>
 
-    <div class="grid-2" style="align-items:start; max-width:860px;">
+    <div></div>
 
-      <!-- Renewal form -->
-      <div class="card">
-        <div class="card-title mb-4">Seleccionar Plan</div>
+    <!-- ═══ RIGHT — Plan selection ═══ -->
+    <div>
+      <div class="sec-label mb-14">SELECCIONAR PLAN</div>
 
-        <div class="plan-grid">
-          <div class="plan-card selected">
-            <div class="plan-name">Mensualidad</div>
-            <div class="plan-price">$550</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Mes Efectivo</div>
-            <div class="plan-price">$500</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Plan Pareja</div>
-            <div class="plan-price">$475</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Semestre</div>
-            <div class="plan-price">$2,300</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Semana</div>
-            <div class="plan-price">$200</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Visita</div>
-            <div class="plan-price">$100</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Promoción</div>
-            <div class="plan-price">$250</div>
-          </div>
-          <div class="plan-card">
-            <div class="plan-name">Personalizado</div>
-            <div class="plan-price">$—</div>
-          </div>
+      <!-- Exact: Uniform 2-col, PlanBtn style
+           #272727 bg, White, Bold, FontSize 16, CornerRadius 8, Border #333 -->
+      <div class="plan-grid">
+        <button class="plan-btn selected" onclick="selectPlan(this)">
+          <span class="plan-name">Mensualidad</span>
+          <span class="plan-price">$550</span>
+        </button>
+        <!-- Exact: "Mensualidad Efec" special bg #2A2A18 -->
+        <button class="plan-btn" onclick="selectPlan(this)" style="background:#2A2A18;">
+          <span class="plan-name">Mes Efectivo</span>
+          <span class="plan-price">$500</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Plan Pareja</span>
+          <span class="plan-price">$475</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Semestre</span>
+          <span class="plan-price">$2,300</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Semana</span>
+          <span class="plan-price">$200</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Visita</span>
+          <span class="plan-price">$100</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Promoción</span>
+          <span class="plan-price">$250</span>
+        </button>
+        <button class="plan-btn" onclick="selectPlan(this)">
+          <span class="plan-name">Precio Libre</span>
+          <span class="plan-price">$—</span>
+        </button>
+      </div>
+      <!-- Horario personalizado: exact #1A2A3A bg, #64B5F6 text -->
+      <div style="margin:4px;">
+        <button class="plan-btn" onclick="toggleSchedule()" style="width:100%; background:#1A2A3A; border-color:#1E3A5F; color:var(--blue2); height:52px; border-radius:8px; margin:0; font-size:14px;">
+          🕐 Horario Personalizado
+        </button>
+      </div>
+
+      <!-- Custom price row -->
+      <div style="display:grid; grid-template-columns:1fr 80px; gap:6px; margin-top:14px;">
+        <input type="number" placeholder="Monto libre…" style="font-size:15px; padding:10px; background:#222; border-color:#444;" />
+        <button class="plan-btn" style="margin:0; width:80px; border-radius:6px; font-size:14px;">Aplicar</button>
+      </div>
+
+      <!-- Schedule panel -->
+      <div class="schedule-panel mt-14" id="schedule-panel" style="display:none;">
+        <div class="schedule-title">CONFIGURAR HORARIO DE ACCESO</div>
+        <div style="display:flex; flex-wrap:wrap; margin-bottom:12px;">
+          <button class="day-btn active" onclick="this.classList.toggle('active')">Lun</button>
+          <button class="day-btn" onclick="this.classList.toggle('active')">Mar</button>
+          <button class="day-btn active" onclick="this.classList.toggle('active')">Mié</button>
+          <button class="day-btn" onclick="this.classList.toggle('active')">Jue</button>
+          <button class="day-btn active" onclick="this.classList.toggle('active')">Vie</button>
+          <button class="day-btn" onclick="this.classList.toggle('active')">Sáb</button>
+          <button class="day-btn" onclick="this.classList.toggle('active')">Dom</button>
         </div>
-
-        <div class="form-group mt-4">
-          <label>Precio Personalizado (opcional)</label>
-          <input type="number" placeholder="0.00" />
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de Inicio</label>
-            <input type="date" value="2026-06-20" />
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div>
+            <div class="sec-label">Hora Inicio</div>
+            <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+              <option>06:00</option><option>07:00</option><option>08:00</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label>Método de Pago</label>
-            <select>
-              <option>💵 Efectivo</option>
-              <option>💳 Tarjeta / Transferencia</option>
+          <div>
+            <div class="sec-label">Hora Fin</div>
+            <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+              <option>22:00</option><option>21:00</option><option>20:00</option>
             </select>
           </div>
         </div>
-
-        <div style="display:flex; gap:10px; margin-top:8px;">
-          <a href="cliente-detalle.html" class="btn btn-success" style="flex:1; justify-content:center;">
-            ✅ Confirmar Renovación
-          </a>
-          <a href="cliente-detalle.html" class="btn btn-ghost">Cancelar</a>
-        </div>
       </div>
 
-      <!-- Summary -->
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div class="card">
-          <p class="section-title">Resumen del Cliente</p>
-          <div class="client-info" style="margin-bottom:16px;">
-            <div class="client-photo">🧑</div>
-            <div>
-              <div class="client-name">Carlos García López</div>
-              <div class="client-id">ID: 00142</div>
-            </div>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Vencimiento actual</span>
-            <span class="info-value text-yellow">20 Jun 2026</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Días restantes</span>
-            <span class="info-value">5 días</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Plan actual</span>
-            <span class="info-value">Mensualidad</span>
+      <!-- Summary card — exact #202020, CornerRadius 10, Padding 20, Border #333 -->
+      <div style="background:#202020; border:1px solid var(--border2); border-radius:10px; padding:20px; margin-top:18px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <!-- Concept: White, FontSize 15, SemiBold -->
+          <span style="font-size:15px; font-weight:600; color:var(--text);">Mensualidad</span>
+          <!-- Total: #E0E0E0, FontSize 30, Bold, Right -->
+          <span style="font-size:30px; font-weight:700; color:var(--accent);">$550</span>
+        </div>
+        <div class="flex-between">
+          <div>
+            <div class="sec-label">Nueva fecha de vencimiento</div>
+            <span style="font-size:15px; color:var(--accent);">20 Jul 2026</span>
           </div>
         </div>
 
-        <!-- Ticket preview -->
-        <div class="card">
-          <p class="section-title" style="margin-bottom:14px;">Vista previa del ticket</p>
-          <div class="receipt">
-            <div class="receipt-logo">🐍 GymMamba 2.0</div>
-            <div class="receipt-sub">Av. Principal #123, Tijuana, B.C.</div>
-            <div class="receipt-sub">Tel: 664-000-0000</div>
-            <hr />
-            <div class="receipt-row"><span>RENOVACIÓN</span></div>
-            <div class="receipt-row"><span>Folio:</span><span>#REN-0413</span></div>
-            <div class="receipt-row"><span>Fecha:</span><span>20/06/2026</span></div>
-            <hr />
-            <div class="receipt-row"><span>Cliente:</span><span>Carlos G.L.</span></div>
-            <div class="receipt-row"><span>ID:</span><span>00142</span></div>
-            <div class="receipt-row"><span>Plan:</span><span>Mensualidad</span></div>
-            <div class="receipt-row"><span>Vence:</span><span>20/07/2026</span></div>
-            <hr />
-            <div class="receipt-row receipt-total"><span>TOTAL:</span><span>$550.00</span></div>
-            <div class="receipt-row"><span>Pago:</span><span>Efectivo</span></div>
-            <div class="receipt-row"><span>Cambio:</span><span>$0.00</span></div>
-            <hr />
-            <div style="text-align:center; font-size:.72rem; margin-top:6px;">¡Gracias por tu preferencia!</div>
-            <div style="text-align:center; font-size:.72rem;">Visita aceptable con este comprobante</div>
-          </div>
-          <button class="btn btn-ghost btn-sm" style="margin-top:12px; width:100%; justify-content:center;">🖨️ Imprimir Ticket</button>
+        <div style="height:1px; background:var(--border); margin:14px 0;"></div>
+
+        <!-- Payment method: Efectivo White SemiBold, Tarjeta White SemiBold -->
+        <div style="display:flex; gap:14px; margin-bottom:14px;">
+          <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-weight:600; cursor:pointer; font-size:14px; text-transform:none; letter-spacing:0;">
+            <input type="radio" name="renpay" checked style="width:auto;" /> 💵 Efectivo
+          </label>
+          <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-weight:600; cursor:pointer; font-size:14px; text-transform:none; letter-spacing:0;">
+            <input type="radio" name="renpay" style="width:auto;" /> 💳 Tarjeta
+          </label>
         </div>
+
+        <!-- Confirm button: exact #E0E0E0, Black, Bold, FontSize 15, Padding 0,15, CornerRadius 8 -->
+        <a href="cliente-detalle.html" class="btn btn-primary btn-full" style="padding:15px 0; font-size:15px; border-radius:8px;">
+          CONFIRMAR PAGO
+        </a>
       </div>
-
     </div>
+
   </div>
+</div>
+
+<script>
+function selectPlan(btn) {
+  document.querySelectorAll('.plan-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function toggleSchedule() {
+  const p = document.getElementById('schedule-panel');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
+}
+</script>
 </body>
 </html>

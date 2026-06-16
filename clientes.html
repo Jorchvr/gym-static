@@ -7,218 +7,158 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="clientes">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">👥 Directorio de Clientes</div>
-        <div class="page-subtitle">248 miembros registrados</div>
-      </div>
-      <div class="flex-gap">
-        <div class="search-bar">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Buscar cliente…" />
-        </div>
-        <a href="registro.html" class="btn btn-primary">➕ Nuevo Cliente</a>
-        <button class="btn btn-ghost">📥 Importar Excel</button>
-      </div>
+  <!-- Header — exact FontSize 32, Bold, subtitle FontSize 16 Gray -->
+  <div class="page-header">
+    <div>
+      <div class="page-title">Directorio de Clientes</div>
+      <div class="page-subtitle">Base de datos general</div>
     </div>
-
-    <!-- Filter tabs -->
-    <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
-      <button class="btn btn-ghost btn-sm" style="border-color:#555; color:var(--text);">Todos (248)</button>
-      <button class="btn btn-ghost btn-sm">Activos (196)</button>
-      <button class="btn btn-ghost btn-sm">Vencidos (38)</button>
-      <button class="btn btn-ghost btn-sm">Por Vencer (14)</button>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Teléfono</th>
-            <th>Plan</th>
-            <th>Vencimiento</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-xs">00142</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧑</div>
-                <div>
-                  <div class="client-name">Carlos García López</div>
-                  <div class="client-id">Registrado: 15 Ene 2026</div>
-                </div>
-              </div>
-            </td>
-            <td>664-123-4567</td>
-            <td>Mensualidad</td>
-            <td>20 Jun 2026</td>
-            <td><span class="badge badge-yellow">⚠️ Por vencer</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00143</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👩</div>
-                <div>
-                  <div class="client-name">Ana Martínez Ruiz</div>
-                  <div class="client-id">Registrado: 3 Feb 2026</div>
-                </div>
-              </div>
-            </td>
-            <td>664-987-6543</td>
-            <td>Plan Pareja</td>
-            <td>30 Jun 2026</td>
-            <td><span class="badge badge-green">✅ Activo</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00138</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧔</div>
-                <div>
-                  <div class="client-name">Luis Hernández Torres</div>
-                  <div class="client-id">Registrado: 10 Nov 2025</div>
-                </div>
-              </div>
-            </td>
-            <td>664-555-0011</td>
-            <td>Semestre</td>
-            <td>10 May 2026</td>
-            <td><span class="badge badge-red">❌ Vencido</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00201</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👩‍🦱</div>
-                <div>
-                  <div class="client-name">Sofía Ramírez Vega</div>
-                  <div class="client-id">Registrado: 1 Jun 2026</div>
-                </div>
-              </div>
-            </td>
-            <td>664-321-7890</td>
-            <td>Mensualidad</td>
-            <td>1 Jul 2026</td>
-            <td><span class="badge badge-green">✅ Activo</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00189</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">🧑‍🦲</div>
-                <div>
-                  <div class="client-name">Roberto Sánchez Cruz</div>
-                  <div class="client-id">Registrado: 22 Mar 2026</div>
-                </div>
-              </div>
-            </td>
-            <td>664-777-2233</td>
-            <td>Semana</td>
-            <td>22 Jun 2026</td>
-            <td><span class="badge badge-yellow">⚠️ Por vencer</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00155</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👱‍♀️</div>
-                <div>
-                  <div class="client-name">Valeria López Mora</div>
-                  <div class="client-id">Registrado: 5 Dic 2025</div>
-                </div>
-              </div>
-            </td>
-            <td>664-444-8899</td>
-            <td>Plan Pareja</td>
-            <td>5 Ago 2026</td>
-            <td><span class="badge badge-green">✅ Activo</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-xs">00098</td>
-            <td>
-              <div class="client-info">
-                <div class="client-photo" style="width:38px;height:38px;font-size:1.1rem;">👨‍🦳</div>
-                <div>
-                  <div class="client-name">Fernando Castillo Reyes</div>
-                  <div class="client-id">Registrado: 8 Ago 2024</div>
-                </div>
-              </div>
-            </td>
-            <td>664-100-2020</td>
-            <td>Mensualidad</td>
-            <td>8 May 2026</td>
-            <td><span class="badge badge-red">❌ Vencido</span></td>
-            <td>
-              <div class="td-actions">
-                <a href="cliente-detalle.html" class="btn btn-ghost btn-sm">Ver</a>
-                <a href="renovacion.html" class="btn btn-success btn-sm">Renovar</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Pagination -->
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px; font-size:.85rem; color:var(--text-sm);">
-      <span>Mostrando 7 de 248 clientes</span>
-      <div style="display:flex; gap:6px;">
-        <button class="btn btn-ghost btn-sm">← Anterior</button>
-        <button class="btn btn-ghost btn-sm" style="background:var(--card2);">1</button>
-        <button class="btn btn-ghost btn-sm">2</button>
-        <button class="btn btn-ghost btn-sm">3</button>
-        <button class="btn btn-ghost btn-sm">Siguiente →</button>
+    <div class="flex-gap" style="flex-wrap:wrap;">
+      <!-- Search: #252525 bg, CornerRadius 5 -->
+      <div class="search-wrap" style="min-width:250px;">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar cliente…" />
       </div>
+      <!-- Buttons: #E0E0E0 bg, Black text, Bold, Padding 22,12, CornerRadius 5 -->
+      <a href="registro.html" class="btn btn-primary" style="padding:12px 22px; font-size:15px;">➕ Nuevo Cliente</a>
+      <button class="btn btn-ghost" style="padding:12px 22px; font-size:15px;">📥 Importar Excel</button>
+      <a href="dashboard.html" class="btn btn-ghost" style="background:#333; padding:12px 22px; font-size:15px;">🏠 Inicio</a>
     </div>
   </div>
+
+  <!-- DataGrid — exact from XAML:
+       Background #1E1E1E, RowBackground #252525, AlternatingRowBackground #2A2A2A
+       Header: #111, HeaderForeground #AAAAAA, RowHeight 70 -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:80px;">ID</th>
+          <th style="width:100px;">Foto</th>
+          <th>Nombre Completo</th>
+          <th style="width:150px;">Estado</th>
+          <th style="width:150px;">Vence</th>
+          <th style="width:220px;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text-aa);">00142</td>
+          <td><div class="photo-circle photo-sm">🧑</div></td>
+          <td style="font-weight:600; font-size:16px;">Carlos García López</td>
+          <td>
+            <!-- Exact: Background=binding ColorFondoEstado, CornerRadius 4, Padding 10,5 -->
+            <span class="badge badge-warning">⚠️ Por Vencer</span>
+          </td>
+          <td style="color:var(--text-aa);">20 Jun 2026</td>
+          <td>
+            <div class="td-actions">
+              <!-- "📝 Editar / Ficha": #E0E0E0 bg, Black, Bold, FontSize 14, Padding 16,10, CornerRadius 4 -->
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00143</td>
+          <td><div class="photo-circle photo-sm">👩</div></td>
+          <td style="font-weight:600; font-size:16px;">Ana Martínez Ruiz</td>
+          <td><span class="badge badge-active">✅ Activo</span></td>
+          <td style="color:var(--text-aa);">30 Jun 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00138</td>
+          <td><div class="photo-circle photo-sm">🧔</div></td>
+          <td style="font-weight:600; font-size:16px;">Luis Hernández Torres</td>
+          <td><span class="badge badge-expired">❌ Vencido</span></td>
+          <td style="color:var(--text-aa);">10 May 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00201</td>
+          <td><div class="photo-circle photo-sm">👩‍🦱</div></td>
+          <td style="font-weight:600; font-size:16px;">Sofía Ramírez Vega</td>
+          <td><span class="badge badge-active">✅ Activo</span></td>
+          <td style="color:var(--text-aa);">1 Jul 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00189</td>
+          <td><div class="photo-circle photo-sm">🧑‍🦲</div></td>
+          <td style="font-weight:600; font-size:16px;">Roberto Sánchez Cruz</td>
+          <td><span class="badge badge-warning">⚠️ Por Vencer</span></td>
+          <td style="color:var(--text-aa);">22 Jun 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00155</td>
+          <td><div class="photo-circle photo-sm">👱‍♀️</div></td>
+          <td style="font-weight:600; font-size:16px;">Valeria López Mora</td>
+          <td><span class="badge badge-active">✅ Activo</span></td>
+          <td style="color:var(--text-aa);">5 Ago 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-aa);">00098</td>
+          <td><div class="photo-circle photo-sm">👨‍🦳</div></td>
+          <td style="font-weight:600; font-size:16px;">Fernando Castillo Reyes</td>
+          <td><span class="badge badge-expired">❌ Vencido</span></td>
+          <td style="color:var(--text-aa);">8 May 2026</td>
+          <td>
+            <div class="td-actions">
+              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
+              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer — exact "Registrados: 0" Gray, "Activos: 0" #4CAF50 -->
+  <div class="flex-between mt-14">
+    <div class="flex-gap">
+      <span style="color:var(--text-aa); font-size:14px;">Registrados: 248</span>
+      <span style="color:var(--green2); font-size:14px; font-weight:700;">Activos: 196</span>
+      <span style="color:var(--text-aa); font-size:14px;">Vencidos: 38</span>
+      <span style="color:var(--yellow); font-size:14px;">Por Vencer: 14</span>
+    </div>
+    <button style="background:transparent; border:none; color:var(--red3); font-size:14px; cursor:pointer; font-family:var(--font);">
+      ⚠️ Borrar Toda la Base de Datos
+    </button>
+  </div>
+</div>
 </body>
 </html>

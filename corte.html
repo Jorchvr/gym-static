@@ -5,153 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GymMamba 2.0 — Corte del Día</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* DailyCutWindow: Width 400, Height 700, NoResize */
+    .cut-window {
+      max-width: 440px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body data-page="corte">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">📊 Corte del Día</div>
-        <div class="page-subtitle">Domingo, 15 de junio de 2026</div>
-      </div>
-      <div class="flex-gap">
-        <input type="date" value="2026-06-15" style="width:auto;" />
-        <button class="btn btn-ghost">🖨️ Imprimir Corte</button>
-        <button class="btn btn-ghost">📥 Exportar</button>
-      </div>
+  <div class="cut-window">
+    <div class="flex-between mb-20">
+      <div style="font-size:20px; font-weight:700;">Corte del Día</div>
+      <div style="font-size:14px; color:var(--text-aa);">15/06/2026</div>
     </div>
 
-    <div class="grid-2" style="align-items:start;">
+    <!-- RECEIPT — exact: White bg, CornerRadius 0, Padding 15, Width 300, DropShadow -->
+    <div class="receipt">
+      <!-- "Two Gym" / Logo — FontSize 18 FontWeight Black Black Center -->
+      <div class="receipt-logo">🐍 GymMamba 2.0</div>
+      <!-- "CORTE DE CAJA" FontSize 14 Bold Black Center -->
+      <div class="receipt-title">CORTE DE CAJA</div>
 
-      <!-- Left: Summary cards -->
-      <div>
-        <div class="stats-row" style="grid-template-columns:1fr 1fr; margin-bottom:16px;">
-          <div class="stat-card">
-            <div class="stat-icon">👥</div>
-            <div class="stat-label">Visitas</div>
-            <div class="stat-value">34</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🆕</div>
-            <div class="stat-label">Nuevos Miembros</div>
-            <div class="stat-value">3</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🔄</div>
-            <div class="stat-label">Renovaciones</div>
-            <div class="stat-value">17</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🛒</div>
-            <div class="stat-label">Ventas Tienda</div>
-            <div class="stat-value">28</div>
-          </div>
-        </div>
+      <!-- exact: "--------------------------------" dashes separator -->
+      <div class="receipt-div">--------------------------------</div>
 
-        <div class="card mb-4">
-          <div class="card-title mb-4">Resumen de Ingresos</div>
-          <div class="info-row">
-            <span class="info-label">Membresías (efectivo)</span>
-            <span class="info-value text-green bold">$4,250</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Membresías (tarjeta)</span>
-            <span class="info-value text-blue bold">$1,800</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Tienda (efectivo)</span>
-            <span class="info-value text-green bold">$680</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Tienda (tarjeta)</span>
-            <span class="info-value text-blue bold">$210</span>
-          </div>
-          <div class="info-row" style="border-top:1px solid var(--border2); padding-top:10px; margin-top:4px;">
-            <span class="info-label">Total Efectivo</span>
-            <span class="info-value text-green bold" style="font-size:1.1rem;">$4,930</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Total Tarjeta</span>
-            <span class="info-value text-blue bold" style="font-size:1.1rem;">$2,010</span>
-          </div>
-          <div class="info-row" style="border-top:2px solid var(--border2); padding-top:10px; margin-top:4px;">
-            <span class="info-label bold">TOTAL INGRESOS</span>
-            <span class="info-value bold" style="font-size:1.3rem;">$6,940</span>
-          </div>
-        </div>
+      <!-- Date/Cajero section FontSize 11 -->
+      <div class="receipt-row"><span>Fecha:</span><span>15/06/2026</span></div>
+      <div class="receipt-row"><span>Hora:</span><span>11:45 PM</span></div>
+      <div class="receipt-row"><span>Cajero:</span><span>admin</span></div>
 
-        <div class="card mb-4">
-          <div class="card-title mb-4">Gastos del Día</div>
-          <div class="info-row">
-            <span class="info-label">Limpieza y mantenimiento</span>
-            <span class="info-value text-red">−$450</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Reembolsos</span>
-            <span class="info-value text-yellow">−$200</span>
-          </div>
-          <div class="info-row" style="border-top:1px solid var(--border2); padding-top:10px; margin-top:4px;">
-            <span class="info-label bold">TOTAL EGRESOS</span>
-            <span class="info-value text-red bold" style="font-size:1.1rem;">−$650</span>
-          </div>
-        </div>
+      <div class="receipt-div">--------------------------------</div>
 
-        <div class="card" style="border-color:#14532d; background:#061a0f;">
-          <div class="flex-between">
-            <div>
-              <div class="card-title">NETO DEL DÍA</div>
-              <div class="text-xs" style="margin-top:2px;">Ingresos − Egresos</div>
-            </div>
-            <div style="font-size:2.2rem; font-weight:800; color:var(--green);">$6,290</div>
-          </div>
-        </div>
+      <!-- "RESUMEN GENERAL" Bold Black Center -->
+      <div class="receipt-section">RESUMEN GENERAL</div>
+      <div class="receipt-row"><span>Total operaciones:</span><span>38</span></div>
+      <div class="receipt-row"><span>Total ingresos:</span><span>$6,940</span></div>
+      <div class="receipt-row"><span>Total egresos:</span><span>$650</span></div>
+
+      <div class="receipt-div">--------------------------------</div>
+
+      <!-- Grand total FontSize 14 Black -->
+      <div class="receipt-row receipt-total"><span>NETO:</span><span>$6,290</span></div>
+
+      <div class="receipt-div">--------------------------------</div>
+
+      <!-- "METODOS PAGO" Bold Black Center -->
+      <div class="receipt-section">METODOS PAGO</div>
+      <div class="receipt-row"><span>Efectivo:</span><span>$4,930</span></div>
+      <div class="receipt-row"><span>Tarjeta/Transfer:</span><span>$2,010</span></div>
+
+      <div class="receipt-div">--------------------------------</div>
+
+      <!-- Nuevos Socios FontSize 11 Bold Black -->
+      <div style="font-size:11px; font-weight:700; color:#111; margin:6px 0 3px;">Nuevos Socios (Hoy)</div>
+      <div style="font-size:10px; color:#444; margin-bottom:2px;">• Sofía Ramírez Vega</div>
+      <div style="font-size:10px; color:#444; margin-bottom:2px;">• Miguel Torres Ríos</div>
+      <div style="font-size:10px; color:#444; margin-bottom:6px;">• Daniela Fuentes Campos</div>
+
+      <div class="receipt-div">--------------------------------</div>
+
+      <!-- STOCK PUNTO DE VENTA — exact headers #888, FontSize 9 Bold -->
+      <div class="receipt-section">STOCK PUNTO DE VENTA</div>
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:4px; margin-bottom:4px;">
+        <span style="font-size:9px; color:#888; font-weight:700;">Producto</span>
+        <span style="font-size:9px; color:#888; font-weight:700; text-align:center;">Vend.</span>
+        <span style="font-size:9px; color:#888; font-weight:700; text-align:right;">Stock</span>
+      </div>
+      <!-- Product name FontSize 10 Black, Sold #D32F2F Bold Center, Stock Black Right -->
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:4px; margin-bottom:3px;">
+        <span style="font-size:10px; color:#111;">💧 Agua 600ml</span>
+        <span style="font-size:10px; color:#D32F2F; font-weight:700; text-align:center;">8</span>
+        <span style="font-size:10px; color:#111; text-align:right;">42</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:4px; margin-bottom:3px;">
+        <span style="font-size:10px; color:#111;">🥤 Proteína 30g</span>
+        <span style="font-size:10px; color:#D32F2F; font-weight:700; text-align:center;">3</span>
+        <span style="font-size:10px; color:#111; text-align:right;">18</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:4px; margin-bottom:3px;">
+        <span style="font-size:10px; color:#111;">🍫 Barra</span>
+        <span style="font-size:10px; color:#D32F2F; font-weight:700; text-align:center;">2</span>
+        <span style="font-size:10px; color:#111; text-align:right;">4</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:4px;">
+        <span style="font-size:10px; color:#111;">👕 Playera</span>
+        <span style="font-size:10px; color:#D32F2F; font-weight:700; text-align:center;">1</span>
+        <span style="font-size:10px; color:#111; text-align:right;">12</span>
       </div>
 
-      <!-- Right: Receipt-style printable -->
-      <div>
-        <p class="section-title" style="margin-bottom:14px;">Vista Imprimible del Corte</p>
-        <div class="receipt" style="max-width:100%;">
-          <div class="receipt-logo">🐍 GYMMAMBA 2.0</div>
-          <div class="receipt-sub">Av. Principal #123, Tijuana, B.C.</div>
-          <div class="receipt-sub">Tel: 664-000-0000</div>
-          <hr />
-          <div class="receipt-row"><span>CORTE DEL DÍA</span></div>
-          <div class="receipt-row"><span>Fecha:</span><span>15/06/2026</span></div>
-          <div class="receipt-row"><span>Hora:</span><span>11:45 PM</span></div>
-          <div class="receipt-row"><span>Usuario:</span><span>admin</span></div>
-          <hr />
-          <div class="receipt-row"><span>MEMBRESÍAS</span></div>
-          <div class="receipt-row"><span>  Efectivo:</span><span>$4,250</span></div>
-          <div class="receipt-row"><span>  Tarjeta:</span><span>$1,800</span></div>
-          <div class="receipt-row"><span>  Subtotal:</span><span>$6,050</span></div>
-          <hr />
-          <div class="receipt-row"><span>TIENDA</span></div>
-          <div class="receipt-row"><span>  Efectivo:</span><span>$680</span></div>
-          <div class="receipt-row"><span>  Tarjeta:</span><span>$210</span></div>
-          <div class="receipt-row"><span>  Subtotal:</span><span>$890</span></div>
-          <hr />
-          <div class="receipt-row"><span>EGRESOS</span></div>
-          <div class="receipt-row"><span>  Gastos:</span><span>-$450</span></div>
-          <div class="receipt-row"><span>  Reembolsos:</span><span>-$200</span></div>
-          <div class="receipt-row"><span>  Subtotal:</span><span>-$650</span></div>
-          <hr />
-          <div class="receipt-row receipt-total"><span>NETO:</span><span>$6,290</span></div>
-          <hr />
-          <div class="receipt-row"><span>Visitas hoy:</span><span>34</span></div>
-          <div class="receipt-row"><span>Nuevos miembros:</span><span>3</span></div>
-          <div class="receipt-row"><span>Renovaciones:</span><span>17</span></div>
-          <div class="receipt-row"><span>Ventas tienda:</span><span>28</span></div>
-          <hr />
-          <div style="text-align:center; font-size:.72rem; margin-top:6px;">— Fin del corte —</div>
-          <div style="text-align:center; font-size:.72rem;">GymMamba v2.0</div>
-        </div>
-      </div>
+      <div class="receipt-div" style="margin-top:8px;">--------------------------------</div>
 
+      <!-- Footer: "Impreso: ..." FontSize 9 Black Center -->
+      <div class="receipt-foot">Impreso: 15/06/2026 23:45</div>
+      <div class="receipt-foot">*** FIN DEL REPORTE ***</div>
+    </div>
+
+    <!-- Action buttons — exact: Cerrar #333/White, Imprimir ActionBtn #E0E0E0/Black/Bold -->
+    <div class="flex-between mt-18">
+      <a href="dashboard.html" class="btn btn-ghost" style="padding:10px 25px; border-radius:5px;">
+        Cerrar
+      </a>
+      <!-- ActionBtn: #E0E0E0, Black, Bold, FontSize 16, Padding 22,12, CornerRadius 5 -->
+      <button class="btn btn-primary" style="padding:12px 22px; font-size:16px; border-radius:5px;">
+        🖨️ Imprimir (58mm)
+      </button>
     </div>
   </div>
+</div>
 </body>
 </html>

@@ -7,190 +7,144 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="backoffice">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">📦 Backoffice — Productos</div>
-        <div class="page-subtitle">Gestión de inventario y catálogo de tienda</div>
-      </div>
-      <div class="flex-gap">
-        <div class="search-bar">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Buscar producto…" />
-        </div>
-        <a href="agregar-producto.html" class="btn btn-primary">➕ Nuevo Producto</a>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats-row" style="grid-template-columns: repeat(4, 1fr);">
-      <div class="stat-card">
-        <div class="stat-icon">📦</div>
-        <div class="stat-label">Total Productos</div>
-        <div class="stat-value">24</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">⚠️</div>
-        <div class="stat-label">Stock Bajo</div>
-        <div class="stat-value text-yellow">3</div>
-        <div class="stat-sub">Menos de 5 unidades</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">💵</div>
-        <div class="stat-label">Valor de Inventario</div>
-        <div class="stat-value">$12,400</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📈</div>
-        <div class="stat-label">Vendidos Hoy</div>
-        <div class="stat-value text-green">$680</div>
-        <div class="stat-sub">17 unidades</div>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Precio Venta</th>
-            <th>Costo</th>
-            <th>Ganancia</th>
-            <th>Margen</th>
-            <th>Stock</th>
-            <th>Vendidos (mes)</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>💧 Agua 600ml</strong></td>
-            <td>$15</td>
-            <td>$6</td>
-            <td class="text-green">$9</td>
-            <td class="text-green">60%</td>
-            <td><span class="badge badge-green">42 pzs</span></td>
-            <td>86</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🥤 Proteína 30g</strong></td>
-            <td>$80</td>
-            <td>$45</td>
-            <td class="text-green">$35</td>
-            <td class="text-green">43%</td>
-            <td><span class="badge badge-green">18 pzs</span></td>
-            <td>34</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🍫 Barra Energética</strong></td>
-            <td>$35</td>
-            <td>$18</td>
-            <td class="text-green">$17</td>
-            <td class="text-green">48%</td>
-            <td><span class="badge badge-yellow">4 pzs</span></td>
-            <td>21</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>👕 Playera GymMamba</strong></td>
-            <td>$220</td>
-            <td>$120</td>
-            <td class="text-green">$100</td>
-            <td class="text-green">45%</td>
-            <td><span class="badge badge-green">12 pzs</span></td>
-            <td>8</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🧢 Gorra GymMamba</strong></td>
-            <td>$180</td>
-            <td>$80</td>
-            <td class="text-green">$100</td>
-            <td class="text-green">55%</td>
-            <td><span class="badge badge-green">7 pzs</span></td>
-            <td>5</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🔑 Candado</strong></td>
-            <td>$60</td>
-            <td>$30</td>
-            <td class="text-green">$30</td>
-            <td class="text-green">50%</td>
-            <td><span class="badge badge-red">2 pzs</span></td>
-            <td>3</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🥛 Leche de Almendra</strong></td>
-            <td>$45</td>
-            <td>$28</td>
-            <td class="text-green">$17</td>
-            <td class="text-green">37%</td>
-            <td><span class="badge badge-green">22 pzs</span></td>
-            <td>19</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>🏋️ Guantes</strong></td>
-            <td>$280</td>
-            <td>$150</td>
-            <td class="text-green">$130</td>
-            <td class="text-green">46%</td>
-            <td><span class="badge badge-yellow">3 pzs</span></td>
-            <td>6</td>
-            <td>
-              <div class="td-actions">
-                <a href="agregar-producto.html" class="btn btn-ghost btn-sm">Editar</a>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- Header — exact "Productos" FontSize 28 Bold
+       Buttons: MiniBtn #E0E0E0/Black for "Nuevo producto", #333/White for others -->
+  <div class="flex-between mb-20">
+    <div style="font-size:28px; font-weight:700; color:var(--text);">Productos</div>
+    <div class="flex-gap">
+      <a href="dashboard.html" class="btn btn-ghost" style="padding:8px 14px; font-size:14px; font-weight:700; border-radius:4px; margin-right:5px;">Ir a Inicio</a>
+      <a href="agregar-producto.html" class="btn btn-primary" style="padding:8px 14px; font-size:14px; font-weight:700; border-radius:4px;">Nuevo Producto</a>
     </div>
   </div>
+
+  <!-- Search — exact #222 bg, CornerRadius 5 -->
+  <div style="background:#222; border-radius:5px; padding:5px; display:flex; align-items:center; margin-bottom:20px; border:1px solid var(--border2);">
+    <input type="text" placeholder="Buscar producto…" style="background:transparent; border:none; padding:10px; font-size:14px; color:var(--text); flex:1;" />
+    <button class="btn btn-primary btn-sm" style="padding:8px 14px; font-size:14px; border-radius:4px;">Buscar</button>
+  </div>
+
+  <!-- DataGrid — exact: Transparent bg, RowHeight 50, Header Transparent/#AAA/Bold -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th style="width:100px;">Precio</th>
+          <th style="width:100px;">Costo</th>
+          <th style="width:100px;">Ganancia</th>
+          <th style="width:80px;">Margen</th>
+          <th style="width:80px;">Stock</th>
+          <th style="width:200px;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:50px; font-weight:600;">💧 Agua 600ml</td>
+          <td style="height:50px;">$15</td>
+          <td style="height:50px;">$6</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$9</td>
+          <td style="height:50px; color:var(--green);">60%</td>
+          <td style="height:50px;">42</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">🥤 Proteína 30g</td>
+          <td style="height:50px;">$80</td>
+          <td style="height:50px;">$45</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$35</td>
+          <td style="height:50px; color:var(--green);">43%</td>
+          <td style="height:50px;">18</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">🍫 Barra Energética</td>
+          <td style="height:50px;">$35</td>
+          <td style="height:50px;">$18</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$17</td>
+          <td style="height:50px; color:var(--green);">48%</td>
+          <td style="height:50px; color:var(--yellow);">4</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">👕 Playera GymMamba</td>
+          <td style="height:50px;">$220</td>
+          <td style="height:50px;">$120</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$100</td>
+          <td style="height:50px; color:var(--green);">45%</td>
+          <td style="height:50px;">12</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">🧢 Gorra GymMamba</td>
+          <td style="height:50px;">$180</td>
+          <td style="height:50px;">$80</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$100</td>
+          <td style="height:50px; color:var(--green);">55%</td>
+          <td style="height:50px;">7</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">🔑 Candado</td>
+          <td style="height:50px;">$60</td>
+          <td style="height:50px;">$30</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$30</td>
+          <td style="height:50px; color:var(--green);">50%</td>
+          <td style="height:50px; color:var(--red);">2</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:50px; font-weight:600;">🏋️ Guantes</td>
+          <td style="height:50px;">$280</td>
+          <td style="height:50px;">$150</td>
+          <td style="height:50px; color:var(--green); font-weight:700;">$130</td>
+          <td style="height:50px; color:var(--green);">46%</td>
+          <td style="height:50px; color:var(--yellow);">3</td>
+          <td style="height:50px;">
+            <div class="td-actions">
+              <a href="agregar-producto.html" class="btn btn-primary btn-xs" style="border-radius:4px;">Editar</a>
+              <button class="btn btn-primary btn-xs" style="border-radius:4px;">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </body>
 </html>

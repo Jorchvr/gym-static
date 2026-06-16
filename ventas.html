@@ -7,190 +7,117 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="ventas">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div>
-        <div class="page-title">🛒 Ventas Externas</div>
-        <div class="page-subtitle">Punto de venta de productos y servicios complementarios</div>
+  <!-- Header — exact "Ventas Externas" FontSize 28 Bold -->
+  <div class="flex-between mb-20">
+    <div style="font-size:28px; font-weight:700; color:var(--text);">Ventas Externas</div>
+    <!-- "Volver": #333 bg, White, Bold, Padding 20,10, CornerRadius 5 -->
+    <a href="dashboard.html" class="btn btn-ghost" style="padding:10px 20px; border-radius:5px; font-weight:700;">Volver</a>
+  </div>
+
+  <!-- Exact 900x600 layout: input card + cart -->
+  <div style="display:grid; grid-template-columns:1fr 340px; gap:15px; align-items:start;">
+
+    <!-- ═══ LEFT — Input + recent sales ═══ -->
+    <div>
+      <!-- Input card — exact #1E1E1E, CornerRadius 10, Padding 20, Border #333 -->
+      <div style="background:var(--card3); border:1px solid var(--border2); border-radius:10px; padding:20px; margin-bottom:15px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr auto; gap:15px; align-items:flex-end;">
+          <div>
+            <!-- "Descripción de servicio" label: #AAAAAA Bold, margin-bottom 5 -->
+            <div style="color:var(--text-aa); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:5px;">Descripción de servicio</div>
+            <input type="text" placeholder="Producto o servicio…" style="background:#121212; border-color:#444; font-size:14px;" />
+          </div>
+          <div>
+            <!-- "Monto" label: #AAAAAA Bold -->
+            <div style="color:var(--text-aa); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:5px;">Monto</div>
+            <!-- Monto input: #E0E0E0 foreground, #121212 bg, #444 border -->
+            <input type="number" placeholder="0.00" style="background:#121212; border-color:#444; font-size:14px; color:var(--accent); font-weight:600;" />
+          </div>
+          <!-- "Agregar" RedBtn: #E0E0E0, Black, Bold, FontSize 16, Height 42, CornerRadius 5 -->
+          <button class="btn btn-primary" style="height:42px; padding:0 18px; font-size:16px; border-radius:5px; white-space:nowrap;">Agregar</button>
+        </div>
+
+        <!-- Info message — exact ℹ️ #2196F3, text #AAAAAA FontSize 12 -->
+        <div style="display:flex; align-items:center; gap:5px; margin-top:12px;">
+          <span style="color:#2196F3; font-size:14px;">ℹ️</span>
+          <span style="color:var(--text-aa); font-size:12px;">Esta sección es para ventas de servicios o productos no registrados en el catálogo principal.</span>
+        </div>
+      </div>
+
+      <!-- Recent list as product buttons (like tienda online) -->
+      <div style="background:var(--card3); border:1px solid var(--border2); border-radius:10px; padding:20px;">
+        <div class="sec-label mb-14">Productos del Catálogo</div>
+        <div style="display:flex; flex-wrap:wrap; gap:0;">
+          <button class="product-btn"><span class="emoji">💧</span>Agua<br><small>$15</small></button>
+          <button class="product-btn"><span class="emoji">🥤</span>Proteína<br><small>$80</small></button>
+          <button class="product-btn"><span class="emoji">🍫</span>Barra<br><small>$35</small></button>
+          <button class="product-btn"><span class="emoji">👕</span>Playera<br><small>$220</small></button>
+          <button class="product-btn"><span class="emoji">🧢</span>Gorra<br><small>$180</small></button>
+          <button class="product-btn"><span class="emoji">🔑</span>Candado<br><small>$60</small></button>
+          <button class="product-btn"><span class="emoji">🥛</span>Leche<br><small>$45</small></button>
+          <button class="product-btn"><span class="emoji">🏋️</span>Guantes<br><small>$280</small></button>
+        </div>
       </div>
     </div>
 
-    <div class="grid-60-40" style="align-items:start;">
+    <!-- ═══ RIGHT — Cart ═══ -->
+    <!-- Cart: #1E1E1E bg, CornerRadius 10, Padding 20, Border #333 -->
+    <div style="background:var(--card3); border:1px solid var(--border2); border-radius:10px; padding:20px; position:sticky; top:80px;">
 
-      <!-- Products -->
+      <!-- "🛒 Carrito" White Bold FontSize 16 -->
+      <div style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:10px;">🛒 Carrito</div>
+
+      <!-- Items: ListBox transparent, item #252525 CornerRadius 5 Padding 10 -->
+      <div style="min-height:160px; margin-bottom:14px;">
+        <!-- Item template: #252525, CornerRadius 5, Padding 10, margin 0,0,5 -->
+        <div style="background:var(--row); border-radius:5px; padding:10px; margin-bottom:5px; display:flex; align-items:center; justify-content:space-between;">
+          <div>
+            <div style="font-weight:700; font-size:14px; color:var(--text);">💧 Agua 600ml</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:var(--accent); font-weight:700; font-size:14px; margin-right:15px;">$15</span>
+            <button style="color:#666; background:transparent; border:none; cursor:pointer; font-size:16px;">❌</button>
+          </div>
+        </div>
+        <div style="background:var(--row); border-radius:5px; padding:10px; margin-bottom:5px; display:flex; align-items:center; justify-content:space-between;">
+          <div>
+            <div style="font-weight:700; font-size:14px; color:var(--text);">🥤 Proteína 30g</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:var(--accent); font-weight:700; font-size:14px; margin-right:15px;">$80</span>
+            <button style="color:#666; background:transparent; border:none; cursor:pointer; font-size:16px;">❌</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total — FontSize 32 Bold White -->
       <div>
-        <div class="card mb-4">
-          <div class="card-header">
-            <span class="card-title">Catálogo de Productos</span>
-            <div class="search-bar" style="max-width:220px;">
-              <span class="search-icon">🔍</span>
-              <input type="text" placeholder="Buscar…" />
-            </div>
-          </div>
-
-          <div style="display:flex; flex-wrap:wrap; gap:10px;">
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">💧</div>
-              <div>Agua 600ml</div>
-              <div class="text-green bold">$15</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🥤</div>
-              <div>Proteína 30g</div>
-              <div class="text-green bold">$80</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🍫</div>
-              <div>Barra Energética</div>
-              <div class="text-green bold">$35</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">👕</div>
-              <div>Playera</div>
-              <div class="text-green bold">$220</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🧢</div>
-              <div>Gorra</div>
-              <div class="text-green bold">$180</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🔑</div>
-              <div>Candado</div>
-              <div class="text-green bold">$60</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🥛</div>
-              <div>Leche Almendra</div>
-              <div class="text-green bold">$45</div>
-            </div>
-            <div class="product-btn" style="min-width:110px;">
-              <div style="font-size:1.4rem;">🏋️</div>
-              <div>Guantes</div>
-              <div class="text-green bold">$280</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recent sales table -->
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Ventas Recientes</span>
-            <a href="historial.html" class="btn btn-ghost btn-sm">Ver historial</a>
-          </div>
-          <div class="table-wrap" style="border:none;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Hora</th>
-                  <th>Productos</th>
-                  <th>Total</th>
-                  <th>Método</th>
-                  <th>Ticket</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>10:34</td>
-                  <td>Agua x2 + Proteína x1</td>
-                  <td class="text-green">$110</td>
-                  <td>💵 Efectivo</td>
-                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
-                </tr>
-                <tr>
-                  <td>09:51</td>
-                  <td>Barra x3</td>
-                  <td class="text-green">$105</td>
-                  <td>💳 Tarjeta</td>
-                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
-                </tr>
-                <tr>
-                  <td>09:10</td>
-                  <td>Playera + Gorra</td>
-                  <td class="text-green">$400</td>
-                  <td>💵 Efectivo</td>
-                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
-                </tr>
-                <tr>
-                  <td>08:45</td>
-                  <td>Agua x1 + Candado</td>
-                  <td class="text-green">$75</td>
-                  <td>💵 Efectivo</td>
-                  <td><button class="btn btn-ghost btn-sm">🖨️</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <div style="font-size:12px; color:var(--text-aa);">Total a Cobrar</div>
+        <div style="font-size:32px; font-weight:700; color:var(--text); margin-bottom:12px;">$95</div>
       </div>
 
-      <!-- Cart -->
-      <div class="card" style="position:sticky; top:80px;">
-        <div class="card-header">
-          <span class="card-title">🛒 Carrito</span>
-          <button class="btn btn-danger btn-sm">Limpiar</button>
-        </div>
-
-        <div style="min-height:160px;">
-          <div class="cart-item">
-            <div>
-              <div>💧 Agua 600ml</div>
-              <div class="text-xs">x2 · $15 c/u</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="bold">$30</span>
-              <button class="btn btn-ghost btn-sm btn-icon">✕</button>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div>
-              <div>🥤 Proteína 30g</div>
-              <div class="text-xs">x1 · $80 c/u</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="bold">$80</span>
-              <button class="btn btn-ghost btn-sm btn-icon">✕</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cart-total">
-          <span>Total</span>
-          <span>$110</span>
-        </div>
-
-        <div style="margin-top:16px;">
-          <p class="section-title">Método de Pago</p>
-          <div style="display:flex; gap:12px; margin-bottom:14px; font-size:.88rem;">
-            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
-              <input type="radio" name="pay2" checked style="width:auto;"> 💵 Efectivo
-            </label>
-            <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:.88rem; text-transform:none; letter-spacing:0;">
-              <input type="radio" name="pay2" style="width:auto;"> 💳 Tarjeta
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label>Efectivo recibido</label>
-            <input type="number" placeholder="0.00" value="110" />
-          </div>
-
-          <div style="display:flex; justify-content:space-between; font-size:.88rem; margin-bottom:14px; color:var(--text-sm);">
-            <span>Cambio:</span>
-            <span class="text-green bold">$0.00</span>
-          </div>
-
-          <button class="btn btn-primary" style="width:100%; justify-content:center;">
-            ✅ Cobrar $110
-          </button>
-        </div>
+      <!-- Payment radios -->
+      <div style="display:flex; gap:14px; margin-bottom:14px;">
+        <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:14px; cursor:pointer; text-transform:none; letter-spacing:0;">
+          <input type="radio" name="extpay" checked style="width:auto;" /> 💵 Efectivo
+        </label>
+        <label style="display:flex; align-items:center; gap:6px; color:var(--text); font-size:14px; cursor:pointer; text-transform:none; letter-spacing:0;">
+          <input type="radio" name="extpay" style="width:auto;" /> 💳 Tarjeta
+        </label>
       </div>
+
+      <!-- "✅ COBRAR" RedBtn: #E0E0E0 Black Bold, Height 50, Width 150 (full) -->
+      <button class="btn btn-primary btn-full" style="height:50px; font-size:16px; border-radius:5px;">
+        ✅ COBRAR $95
+      </button>
     </div>
   </div>
+</div>
 </body>
 </html>

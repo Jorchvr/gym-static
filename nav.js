@@ -1,9 +1,9 @@
-// Injects the shared navbar and marks the active link
+// Injects the shared navbar styled exactly like the app's header buttons
 (function () {
   const navHTML = `
   <nav class="navbar">
     <a href="dashboard.html" class="nav-brand">
-      <div class="logo-icon">🐍</div>
+      <div class="logo-box">🐍</div>
       GymMamba 2.0
     </a>
     <ul class="nav-links">
@@ -17,8 +17,7 @@
     </ul>
     <div class="nav-right">
       <div class="nav-user">
-        <div class="avatar">👤</div>
-        <span>admin</span>
+        <span style="color:var(--text-aa); font-size:14px;">admin</span>
       </div>
       <a href="index.html" class="btn btn-ghost btn-sm">Salir</a>
     </div>
@@ -26,7 +25,6 @@
 
   document.getElementById('nav-placeholder').innerHTML = navHTML;
 
-  // Mark active
   const page = document.body.dataset.page;
   if (page) {
     const link = document.querySelector(`[data-page="${page}"]`);

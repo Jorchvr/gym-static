@@ -7,190 +7,130 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="clientes">
-  <div id="nav-placeholder"></div>
-  <script src="nav.js"></script>
+<div id="nav-placeholder"></div>
+<script src="nav.js"></script>
 
-  <div class="page">
-    <div class="demo-banner">⚠️ Modo demo — sin base de datos. Los datos mostrados son ficticios.</div>
+<div class="page">
+  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-    <div class="page-header">
-      <div class="flex-gap">
-        <a href="clientes.html" class="btn btn-ghost btn-sm">← Clientes</a>
-        <div>
-          <div class="page-title">Ficha del Cliente</div>
-          <div class="page-subtitle">ID: 00142</div>
-        </div>
-      </div>
-      <div class="flex-gap">
-        <a href="editar-cliente.html" class="btn btn-ghost">✏️ Editar</a>
-        <a href="renovacion.html" class="btn btn-success">🔄 Renovar Membresía</a>
-        <button class="btn btn-danger btn-sm">🗑️ Eliminar</button>
-      </div>
+  <!-- Header — exact FontSize 30, FontWeight SemiBold -->
+  <div class="flex-between mb-25">
+    <div style="font-size:30px; font-weight:600; color:var(--text);">Ficha de Cliente</div>
+    <div class="flex-gap">
+      <!-- OutlineBtn: transparent bg, White, Bold, FontSize 16, Border #444, Padding 20,12, CornerRadius 6 -->
+      <a href="dashboard.html" class="btn btn-outline" style="padding:12px 20px; font-size:16px;">🏠 Inicio</a>
+      <a href="clientes.html"  class="btn btn-outline" style="padding:12px 20px; font-size:16px;">👥 Clientes</a>
+      <a href="editar-cliente.html" class="btn btn-outline" style="background:#222; border-color:#444; padding:12px 20px; font-size:16px;">✏️ Editar Datos</a>
     </div>
+  </div>
 
-    <div class="detail-layout">
+  <!-- Main info card — exact #1A1A1A, CornerRadius 12, Padding 30, Border #2A2A2A -->
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:30px; margin-bottom:20px;">
+    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:start;">
 
-      <!-- Sidebar -->
-      <div class="detail-sidebar">
-        <div class="card" style="text-align:center; margin-bottom:16px;">
-          <div class="client-photo lg" style="margin: 0 auto 14px;">🧑</div>
-          <div style="font-size:1.2rem; font-weight:700;">Carlos García López</div>
-          <div class="text-xs" style="margin-top:4px;">ID: 00142</div>
-          <div style="margin-top:12px;">
-            <span class="badge badge-yellow">⚠️ Por Vencer</span>
-          </div>
+      <!-- Photo — exact 150x150, CornerRadius 75, Background #111, Border #333, BorderThickness 2 -->
+      <div class="photo-circle photo-xl" style="border-color:var(--border2);">🧑</div>
 
-          <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
-            <div style="font-size:1.8rem; font-weight:800; color: var(--yellow);">5</div>
-            <div class="text-xs">días restantes</div>
-          </div>
+      <!-- Client data -->
+      <div>
+        <!-- Name: FontSize 30, Bold, margin-bottom 6 -->
+        <div style="font-size:30px; font-weight:700; color:var(--text); margin-bottom:6px;">Carlos García López</div>
+
+        <div class="flex-gap mb-10">
+          <!-- ID: FontSize 16, #999 -->
+          <span style="font-size:16px; color:#999; margin-right:16px;">ID: 00142</span>
+          <!-- Membership badge: #252525, CornerRadius 5, Padding 10,4, Border #333 -->
+          <span style="background:var(--row); border:1px solid var(--border2); border-radius:5px; padding:4px 10px; font-weight:600; font-size:13px; color:var(--text);">Mensualidad</span>
         </div>
 
-        <div class="card">
-          <p class="section-title">Estado de Membresía</p>
-          <div class="info-row">
-            <span class="info-label">Plan</span>
-            <span class="info-value">Mensualidad</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Inicio</span>
-            <span class="info-value">20 May 2026</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Vencimiento</span>
-            <span class="info-value text-yellow">20 Jun 2026</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Último pago</span>
-            <span class="info-value">$550</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Método</span>
-            <span class="info-value">💵 Efectivo</span>
-          </div>
+        <div class="flex-gap mb-10">
+          <span style="font-size:12px; color:#999;">Inscripción: 15 Ene 2026</span>
+          <!-- Expiry: FontSize 20, Bold, #E0E0E0 -->
+          <span style="font-size:20px; font-weight:700; color:var(--accent); margin-left:16px;">Vence: 20 Jun 2026</span>
+          <!-- Age -->
+          <span style="font-size:16px; font-weight:600; width:60px; margin-left:16px;">28 años</span>
+        </div>
+
+        <div class="flex-gap">
+          <span style="font-size:12px; color:#999;">Teléfono:</span>
+          <span style="font-size:15px; margin-left:4px;">664-123-4567</span>
+          <span style="font-size:12px; color:#999; margin-left:16px;">Contacto emergencia:</span>
+          <span style="font-size:15px; margin-left:4px;">María López · 664-999-8888</span>
         </div>
       </div>
 
-      <!-- Main content -->
+      <!-- Action — exact YellowBtn: #E0E0E0 bg, Black, Bold, FontSize 16, Padding 24,13, CornerRadius 6 -->
       <div>
-        <div class="card mb-4">
-          <p class="section-title">Datos Personales</p>
-          <div class="info-row">
-            <span class="info-label">Nombre completo</span>
-            <span class="info-value">Carlos García López</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Teléfono</span>
-            <span class="info-value">664-123-4567</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Edad</span>
-            <span class="info-value">28 años</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Contacto emergencia</span>
-            <span class="info-value">María López · 664-999-8888</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Fecha de registro</span>
-            <span class="info-value">15 Enero 2026</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Huella registrada</span>
-            <span class="info-value text-green">✅ Sí</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Horario</span>
-            <span class="info-value">Lun · Mié · Vie · 06:00–22:00</span>
-          </div>
-        </div>
-
-        <!-- Historial de pagos -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <p class="section-title" style="margin-bottom:0;">Historial de Pagos</p>
-            <a href="historial.html" class="btn btn-ghost btn-sm">Ver Todo</a>
-          </div>
-          <div class="table-wrap" style="border:none;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Fecha</th>
-                  <th>Concepto</th>
-                  <th>Monto</th>
-                  <th>Método</th>
-                  <th>Folio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>20 May 2026</td>
-                  <td>Mensualidad</td>
-                  <td class="text-green bold">$550</td>
-                  <td>💵 Efectivo</td>
-                  <td class="text-xs">#REN-0412</td>
-                </tr>
-                <tr>
-                  <td>20 Abr 2026</td>
-                  <td>Mensualidad</td>
-                  <td class="text-green bold">$550</td>
-                  <td>💳 Tarjeta</td>
-                  <td class="text-xs">#REN-0388</td>
-                </tr>
-                <tr>
-                  <td>20 Mar 2026</td>
-                  <td>Mensualidad</td>
-                  <td class="text-green bold">$550</td>
-                  <td>💵 Efectivo</td>
-                  <td class="text-xs">#REN-0361</td>
-                </tr>
-                <tr>
-                  <td>15 Ene 2026</td>
-                  <td>Registro + Apertura</td>
-                  <td class="text-green bold">$650</td>
-                  <td>💵 Efectivo</td>
-                  <td class="text-xs">#REG-0142</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Compras en tienda -->
-        <div class="card">
-          <div class="card-header">
-            <p class="section-title" style="margin-bottom:0;">Compras en Tienda</p>
-          </div>
-          <div class="table-wrap" style="border:none;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Fecha</th>
-                  <th>Producto</th>
-                  <th>Cant.</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>14 Jun 2026</td>
-                  <td>💧 Agua + 🥤 Proteína</td>
-                  <td>2</td>
-                  <td class="text-green">$95</td>
-                </tr>
-                <tr>
-                  <td>10 Jun 2026</td>
-                  <td>🍫 Barra energética</td>
-                  <td>1</td>
-                  <td class="text-green">$35</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+        <a href="renovacion.html" class="btn btn-primary" style="width:200px; padding:13px 24px; font-size:16px; border-radius:6px; display:flex; justify-content:center;">
+          💳 Cobrar Membresía
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- Fingerprint card — exact #1A1A1A, CornerRadius 12, Border #2A2A2A
+       Header: #222 bg, Border bottom #2A2A2A -->
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:20px; overflow:hidden;">
+    <!-- Header: #222 bg, Padding 22,14, CornerRadius top only -->
+    <div style="background:#222; border-bottom:1px solid var(--border); padding:14px 22px; display:flex; align-items:center; justify-content:space-between;">
+      <span style="font-size:15px; font-weight:600; color:var(--text);">🔒 Gestión de Huella Digital</span>
+      <!-- Pill: #1A1A1A, CornerRadius 5, Padding 10,4, Border #333 -->
+      <span style="background:var(--card); border:1px solid var(--border2); border-radius:5px; padding:4px 10px; font-size:12px; color:var(--text-88);">✅ Registrada</span>
+    </div>
+    <div style="padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <!-- Left card: #111 bg, CornerRadius 8, Padding 18, Border #2A2A2A -->
+      <div style="background:#111; border:1px solid var(--border); border-radius:8px; padding:18px;">
+        <div class="sec-label mb-10">Actualizar Huella</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+          <div class="fp-progress" style="width:90px;"><div class="fp-progress-fill" style="width:75%;"></div></div>
+          <span style="font-size:12px; color:var(--text-55);">3/4 escaneos</span>
+        </div>
+        <button class="btn btn-primary btn-sm" style="padding:9px 18px; font-size:12px;">👆 Iniciar Escaneo</button>
+      </div>
+      <!-- Right card: #111 bg, Opacity 0.6 -->
+      <div style="background:#111; border:1px solid var(--border); border-radius:8px; padding:18px; opacity:.6;">
+        <div class="sec-label mb-10">Información</div>
+        <p style="font-size:12px; color:var(--text-55); line-height:1.6;">
+          El sistema almacena hasta 4 lecturas de huella por socio para mayor precisión.
+          La huella se usa para acceso rápido sin necesidad de buscar manualmente.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment history -->
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px; margin-bottom:20px;">
+    <div class="flex-between mb-14">
+      <span style="font-size:15px; font-weight:600;">Historial de Pagos</span>
+      <a href="historial.html" class="btn btn-primary btn-sm" style="padding:10px 20px; font-size:14px;">← Ver historial completo</a>
+    </div>
+    <div class="table-wrap" style="border:none;">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Concepto</th><th>Monto</th><th>Método</th><th>Folio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>20 May 2026</td><td>Mensualidad</td>
+            <td class="text-green text-bold">$550</td><td>💵 Efectivo</td>
+            <td class="text-88">#REN-0412</td>
+          </tr>
+          <tr>
+            <td>20 Abr 2026</td><td>Mensualidad</td>
+            <td class="text-green text-bold">$550</td><td>💳 Tarjeta</td>
+            <td class="text-88">#REN-0388</td>
+          </tr>
+          <tr>
+            <td>15 Ene 2026</td><td>Registro + Apertura</td>
+            <td class="text-green text-bold">$650</td><td>💵 Efectivo</td>
+            <td class="text-88">#REG-0142</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 </body>
 </html>

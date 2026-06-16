@@ -338,7 +338,7 @@ textarea { resize: vertical; border-radius: 6px; }
 .mb-18 { margin-bottom: 18px; }
 
 /* ── Extra color vars ─────────────────────────────────── */
-:root { --card2: #181818; --card3: #1E1E1E; }
+:root { --card2: #181818; --card3: #1E1E1E; --text-55: #555555; }
 
 /* ── Global plain table styling (dark theme) ─────────── */
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
@@ -383,6 +383,11 @@ tr:last-child td { border-bottom: none; }
 .text-bold { font-weight: 700; }
 .text-green { color: #4CAF50; }
 .emoji     { font-size: 2rem; }
+
+/* ── Info row (client detail key/value pairs) ────────── */
+.info-row   { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2A2A2A; }
+.info-label { color: #888; font-size: 13px; }
+.info-value { color: #fff; font-size: 13px; font-weight: 600; }
 
 /* ── Cut window (daily cut / receipt wrapper) ─────────── */
 .cut-window {

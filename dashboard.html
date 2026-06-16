@@ -6,7 +6,7 @@
 <title>GymMamba 2.0 — Dashboard</title>
 <link rel="stylesheet" href="styles.css"/>
 <style>
-  body { background: #121212; min-height: 100vh; }
+  body { background: #121212; min-height: 100vh; overflow: hidden; }
 
   /* exact 3-col Grid: * | 2px | 1.2* */
   .main-grid {
@@ -19,8 +19,10 @@
   /* Left col */
   .col-left {
     padding: 20px;
-    display: flex; flex-direction: column;
-    overflow-y: auto; gap: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 0;
   }
 
   /* Divider: #222, Margin 0,20 */
@@ -29,45 +31,51 @@
   /* Right col */
   .col-right {
     padding: 20px;
-    display: flex; flex-direction: column;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
   }
 
   /* Logo box: 140x80 white CornerRadius 10 */
   .logo-white {
-    width: 140px; height: 80px; background: #fff; border-radius: 10px;
+    width: 140px; height: 80px;
+    background: #fff; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; margin: 0 auto 6px;
+    margin: 0 auto 6px; overflow: hidden;
   }
+  .logo-white img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
 
-  /* Search card: #181818 CornerRadius 5 Padding 5 */
+  /* Search bar: #181818 CornerRadius 5 Padding 5 */
   .search-card {
     background: #181818; border-radius: 5px; padding: 5px;
-    display: flex; align-items: center; margin-bottom: 15px;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; margin-bottom: 15px;
   }
   .search-card input {
     background: transparent; border: none; border-radius: 0;
     color: #AAAAAA; font-size: 16px; padding: 5px;
-    flex: 1;
   }
   .search-card input:focus { border: none; }
 
-  /* Idle card */
+  /* Idle card: #181818 CornerRadius 10 Padding 30 */
   .idle-card {
     background: #181818; border-radius: 10px; padding: 30px;
     flex: 1; display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 10px; opacity: .5; margin-bottom: 15px;
+    flex-direction: column; gap: 10px; margin-bottom: 15px;
   }
+  .idle-inner { opacity: 0.5; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .idle-inner span:first-child { font-size: 40px; }
+  .idle-inner span:last-child { color: #fff; font-size: 14px; }
 
-  /* Result card: #181818, CornerRadius 15, Padding 20, Border #333
-     Shows on search */
+  /* Result card: #181818 CornerRadius 15 Padding 20 Border #333 */
   .result-card {
     background: #181818; border: 1px solid #333; border-radius: 15px;
     padding: 20px; margin-bottom: 15px;
     display: flex; flex-direction: column; align-items: center;
+    flex: 1; justify-content: center;
   }
 
-  /* Photo: 140x140, CornerRadius 70, #333 bg, border #E0E0E0 3px */
+  /* Photo: 140x140 CornerRadius 70 #333 bg border #E0E0E0 3px */
   .access-photo {
     width: 140px; height: 140px; border-radius: 50%;
     background: #333; border: 3px solid #E0E0E0;
@@ -75,16 +83,15 @@
     font-size: 4.5rem; margin-bottom: 12px; overflow: hidden;
   }
 
-  /* Name: FontSize 26, Black weight */
   .access-name { font-size: 26px; font-weight: 900; color: #fff; text-align: center; margin-bottom: 5px; }
 
-  /* ID/Expiry badges: #333 bg, CornerRadius 5, Padding 8,2 */
+  /* ID/Expiry badges: #333 CornerRadius 5 Padding 8,2 */
   .access-badge {
     background: #333; border-radius: 5px; padding: 2px 8px;
     color: #AAA; font-weight: 700; margin: 0 2px;
   }
 
-  /* Status box: #004D40, CornerRadius 10, Padding 15, BorderThickness 2 */
+  /* Status box */
   .status-box {
     border-radius: 10px; padding: 15px; border-width: 2px; border-style: solid;
     text-align: center; width: 100%; margin-top: 10px;
@@ -100,36 +107,28 @@
     background: #181818; border-radius: 8px; padding: 15px; margin-bottom: 10px;
   }
 
-  /* Visitor counter */
+  /* Visitors */
   .visitors-card {
     background: #181818; border-radius: 8px; padding: 15px; margin-bottom: 10px;
   }
 
-  /* Bottom nav — 5 UniversalBtns */
+  /* Bottom nav: 5-col UniformGrid */
   .bottom-nav {
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
-    margin-top: 4px;
   }
 
-  /* Right column header */
-  .store-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  /* Products area: #181818 CornerRadius 8 Padding 15 */
+  /* Right col: products card fills */
   .products-card {
     background: #181818; border-radius: 8px; padding: 15px;
     margin-bottom: 10px; flex: 1; overflow-y: auto;
+    display: flex; flex-direction: column;
   }
 
-  /* Cart area */
   .cart-scroll {
     background: #181818; border: 1px solid #2A2A2A; border-radius: 8px;
     height: 140px; overflow-y: auto; padding: 6px 8px; margin-bottom: 10px;
   }
 
-  /* Total + cobrar row */
   .cobrar-row { display: flex; align-items: center; justify-content: space-between; }
 </style>
 </head>
@@ -141,8 +140,10 @@
 
     <!-- Row 0: Logo + user + buttons -->
     <div style="margin-bottom:10px;">
-      <div class="logo-white">🐍</div>
-      <div style="text-align:center; color:#AAAAAA; font-size:14px; margin-top:4px;">admin</div>
+      <div class="logo-white">
+        <img src="logo.jpg" alt="Logo" />
+      </div>
+      <div id="txtUsuario" style="text-align:center; color:#AAAAAA; font-size:14px; margin-top:4px;">admin</div>
       <div style="text-align:center; color:#888; font-size:12px; margin-top:2px;">Licencia Activa</div>
       <div style="display:flex; justify-content:center; margin-top:10px;">
         <a href="index.html" class="btn btn-sm" style="width:130px; height:42px; font-size:15px;">Salir</a>
@@ -152,12 +153,22 @@
 
     <!-- Row 1: Search bar -->
     <div class="search-card">
-      <input type="text" placeholder="Buscar..." value="Buscar..." />
-      <button class="btn btn-sm" style="height:36px; margin:0; font-size:14px;">Buscar</button>
+      <input id="txtBuscar" type="text" placeholder="Buscar..." value="Buscar..."
+             onfocus="this.value==='Buscar...'&&(this.value='')"
+             onblur="this.value===''&&(this.value='Buscar...')"
+             onkeydown="if(event.key==='Enter')buscar()" />
+      <button class="btn btn-sm" style="height:36px; margin:0; font-size:14px;" onclick="buscar()">Buscar</button>
     </div>
 
-    <!-- Row 2: Result card (simulating a found client) -->
-    <div class="result-card" style="flex:1; margin-bottom:15px;">
+    <!-- Row 2: Idle card (default) / Result card (after search) -->
+    <div id="cardIdle" class="idle-card">
+      <div class="idle-inner">
+        <span>👆</span>
+        <span>Escanea huella o escribe ID</span>
+      </div>
+    </div>
+
+    <div id="cardResultado" class="result-card" style="display:none;">
       <div class="access-photo">🧑</div>
       <div class="access-name">Carlos García López</div>
       <div style="display:flex; gap:4px; margin-bottom:10px; flex-wrap:wrap; justify-content:center;">
@@ -165,10 +176,10 @@
         <span class="access-badge">Vence: 20 Jun 2026</span>
       </div>
       <div style="display:flex; gap:8px; margin-bottom:15px;">
-        <button class="btn" style="background:transparent; color:#fff; border:1px solid #E0E0E0; height:40px; font-size:15px; padding:0 18px; margin:5px;">Ver ficha completa</button>
+        <a href="cliente-detalle.html" class="btn" style="background:transparent; color:#fff; border:1px solid #E0E0E0; height:40px; font-size:15px; padding:0 18px; margin:5px;">Ver ficha completa</a>
         <a href="renovacion.html" class="btn" style="height:40px; font-size:15px; padding:0 18px; margin:5px;">RENOVAR AHORA</a>
       </div>
-      <div class="status-box status-allowed">
+      <div class="status-box status-allowed" style="width:100%;">
         <div class="status-title">¡BIENVENIDO!</div>
         <div class="status-sub">Acceso concedido.</div>
       </div>
@@ -178,10 +189,12 @@
     <div class="cash-card">
       <div class="flex-between" style="margin-bottom:5px;">
         <span style="color:#fff; font-weight:700;">Caja de Hoy (Neto)</span>
-        <button class="btn btn-dark" style="height:22px; font-size:10px; padding:0 5px; margin:0;">Ocultar</button>
+        <button class="btn btn-dark" style="height:22px; font-size:10px; padding:0 5px; margin:0;" onclick="toggleCaja()">Ocultar</button>
       </div>
-      <div style="font-size:22px; color:#fff; font-weight:700; margin:5px 0;">$6,940</div>
-      <div style="color:#AAAAAA; font-size:12px; margin-bottom:10px;">17 ventas</div>
+      <div id="panelCaja">
+        <div style="font-size:22px; color:#fff; font-weight:700; margin:5px 0;">$0.0</div>
+        <div style="color:#AAAAAA; font-size:12px; margin-bottom:10px;">0 ventas</div>
+      </div>
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;">
         <button class="btn btn-sm" style="font-size:14px; margin:2px;">Ajustes</button>
         <a href="historial.html" class="btn btn-sm" style="font-size:14px; margin:2px;">Historial</a>
@@ -193,10 +206,10 @@
     <!-- Row 4: Personas hoy -->
     <div class="visitors-card">
       <div style="color:#fff; font-weight:700;">Personas hoy</div>
-      <div style="font-size:26px; font-weight:700; color:#fff; margin-top:4px;">34</div>
+      <div style="font-size:26px; font-weight:700; color:#fff; margin-top:4px;">0</div>
     </div>
 
-    <!-- Row 5: Nav buttons - 5 col UniformGrid -->
+    <!-- Row 5: Nav buttons -->
     <div class="bottom-nav">
       <a href="clientes.html"   class="btn" style="font-size:15px; margin:5px;">Clientes</a>
       <a href="registro.html"   class="btn" style="font-size:15px; margin:5px;">Registro</a>
@@ -206,14 +219,14 @@
     </div>
   </div>
 
-  <!-- DIVIDER: #222, Margin 0,20 -->
+  <!-- DIVIDER -->
   <div class="col-div"></div>
 
   <!-- ═══════════ RIGHT COLUMN ═══════════ -->
   <div class="col-right">
 
-    <!-- Header: "Tienda Online" + Backoffice + Crear Usr -->
-    <div class="store-header" style="margin-bottom:10px;">
+    <!-- Header: Tienda Online + Backoffice + Crear Usr -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
       <span style="color:#fff; font-size:20px; font-weight:700;">Tienda Online</span>
       <div>
         <a href="backoffice.html" class="btn" style="width:130px; height:40px; font-size:14px; margin:2px;">Backoffice</a>
@@ -221,21 +234,21 @@
       </div>
     </div>
 
-    <!-- Products card: #181818, CornerRadius 8, Padding 15 -->
+    <!-- Products card: fills remaining height -->
     <div class="products-card">
       <div class="flex-between mb-5">
         <span style="color:#fff; font-weight:700;">Productos rápidos</span>
         <span style="color:#AAAAAA; font-size:11px;">Toca para agregar</span>
       </div>
-      <div class="flex-wrap">
-        <button class="product-btn">🥤<br>Proteína<br><small>$80</small></button>
-        <button class="product-btn">💧<br>Agua<br><small>$15</small></button>
-        <button class="product-btn">🍫<br>Barra<br><small>$35</small></button>
-        <button class="product-btn">👕<br>Playera<br><small>$220</small></button>
-        <button class="product-btn">🧢<br>Gorra<br><small>$180</small></button>
-        <button class="product-btn">🔑<br>Candado<br><small>$60</small></button>
-        <button class="product-btn">🥛<br>Leche<br><small>$45</small></button>
-        <button class="product-btn">🏋️<br>Guantes<br><small>$280</small></button>
+      <div class="flex-wrap" style="flex:1; align-content:flex-start;">
+        <button class="product-btn" onclick="addCart('Proteína 30g',80)">🥤<br>Proteína<br><small>$80</small></button>
+        <button class="product-btn" onclick="addCart('Agua 600ml',15)">💧<br>Agua<br><small>$15</small></button>
+        <button class="product-btn" onclick="addCart('Barra Energética',35)">🍫<br>Barra<br><small>$35</small></button>
+        <button class="product-btn" onclick="addCart('Playera',220)">👕<br>Playera<br><small>$220</small></button>
+        <button class="product-btn" onclick="addCart('Gorra',180)">🧢<br>Gorra<br><small>$180</small></button>
+        <button class="product-btn" onclick="addCart('Candado',60)">🔑<br>Candado<br><small>$60</small></button>
+        <button class="product-btn" onclick="addCart('Leche',45)">🥛<br>Leche<br><small>$45</small></button>
+        <button class="product-btn" onclick="addCart('Guantes',280)">🏋️<br>Guantes<br><small>$280</small></button>
       </div>
     </div>
 
@@ -243,28 +256,14 @@
     <div>
       <div class="flex-between mb-10" style="margin-top:0;">
         <span style="color:#fff; font-weight:700; font-size:16px;">Carrito</span>
-        <button class="btn btn-dark" style="height:34px; font-size:14px; padding:0 12px; margin:0;">Vaciar</button>
+        <button class="btn btn-dark" style="height:34px; font-size:14px; padding:0 12px; margin:0;" onclick="clearCart()">Vaciar</button>
       </div>
 
-      <div class="cart-scroll">
-        <div class="cart-item">
-          <span style="font-size:13px; font-weight:600; color:#fff;">Agua 600ml</span>
-          <span class="cart-qty">x1</span>
-          <span style="font-size:13px; font-weight:700; color:#fff; text-align:right;">$15</span>
-        </div>
-        <div class="cart-item">
-          <span style="font-size:13px; font-weight:600; color:#fff;">Proteína 30g</span>
-          <span class="cart-qty">x2</span>
-          <span style="font-size:13px; font-weight:700; color:#fff; text-align:right;">$160</span>
-        </div>
-        <div class="cart-item">
-          <span style="font-size:13px; font-weight:600; color:#fff;">Barra Energética</span>
-          <span class="cart-qty">x1</span>
-          <span style="font-size:13px; font-weight:700; color:#fff; text-align:right;">$35</span>
-        </div>
+      <div class="cart-scroll" id="cartList">
+        <div style="color:#555; font-size:13px; text-align:center; padding:20px 0;">Carrito vacío</div>
       </div>
 
-      <!-- Payment radios (exact RadioButton template) -->
+      <!-- Payment radios -->
       <div class="pay-radio mb-10">
         <div class="pay-opt">
           <input type="radio" name="pay" id="pay1" checked />
@@ -278,12 +277,66 @@
 
       <!-- Total + COBRAR VENTA -->
       <div class="cobrar-row">
-        <span style="color:#fff; font-size:24px; font-weight:700;">Total: $210</span>
-        <button class="btn" style="width:140px; font-size:17px; margin:0;">COBRAR VENTA</button>
+        <span id="lblTotal" style="color:#fff; font-size:24px; font-weight:700;">Total: $0.0</span>
+        <button class="btn" style="width:140px; font-size:17px; margin:0;" onclick="cobrar()">COBRAR VENTA</button>
       </div>
     </div>
 
-  </div><!-- end right col -->
-</div><!-- end main-grid -->
+  </div>
+</div>
+
+<script>
+/* Search toggle */
+function buscar() {
+  var q = document.getElementById('txtBuscar').value.trim();
+  if (!q || q === 'Buscar...') return;
+  document.getElementById('cardIdle').style.display = 'none';
+  document.getElementById('cardResultado').style.display = 'flex';
+}
+
+/* Caja toggle */
+var cajaVisible = true;
+function toggleCaja() {
+  cajaVisible = !cajaVisible;
+  document.getElementById('panelCaja').style.display = cajaVisible ? '' : 'none';
+  event.target.textContent = cajaVisible ? 'Ocultar' : 'Mostrar';
+}
+
+/* Cart */
+var cart = [];
+function addCart(name, price) {
+  var item = cart.find(i => i.name === name);
+  if (item) { item.qty++; }
+  else { cart.push({name, price, qty:1}); }
+  renderCart();
+}
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+function cobrar() {
+  if (!cart.length) return;
+  alert('Venta realizada: ' + document.getElementById('lblTotal').textContent);
+  clearCart();
+}
+function renderCart() {
+  var el = document.getElementById('cartList');
+  var total = 0;
+  if (!cart.length) {
+    el.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:20px 0;">Carrito vacío</div>';
+    document.getElementById('lblTotal').textContent = 'Total: $0.0';
+    return;
+  }
+  el.innerHTML = cart.map(i => {
+    total += i.price * i.qty;
+    return '<div class="cart-item">' +
+      '<span style="font-size:13px;font-weight:600;color:#fff;">' + i.name + '</span>' +
+      '<span class="cart-qty">x' + i.qty + '</span>' +
+      '<span style="font-size:13px;font-weight:700;color:#fff;text-align:right;">$' + (i.price*i.qty) + '</span>' +
+    '</div>';
+  }).join('');
+  document.getElementById('lblTotal').textContent = 'Total: $' + total.toFixed(1);
+}
+</script>
 </body>
 </html>

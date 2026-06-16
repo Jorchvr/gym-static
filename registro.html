@@ -1,244 +1,228 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GymMamba 2.0 — Registro</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GymMamba 2.0 — Nuevo Registro</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  body { background: #121212; min-height: 100vh; }
+  .page { padding: 22px 22px 18px; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+
+  /* 3-col grid: minmax(270,420) | 20px | 1.8* */
+  .reg-grid {
+    display: grid;
+    grid-template-columns: minmax(270px,420px) 20px 1.8fr;
+    flex: 1; overflow: hidden; align-items: start;
+  }
+  .reg-grid > div:first-child { overflow-y: auto; height: 100%; padding-right: 4px; }
+  .reg-grid > div:last-child  { overflow-y: auto; height: 100%; }
+</style>
 </head>
-<body data-page="registro">
-<div id="nav-placeholder"></div>
-<script src="nav.js"></script>
-
+<body>
 <div class="page">
-  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-  <!-- Header — exact "NUEVO REGISTRO" #E0E0E0, FontSize 26, FontWeight Black
-       subtitle #666, FontSize 13 -->
-  <div class="mb-25">
-    <div style="font-size:26px; font-weight:900; color:var(--accent);">NUEVO REGISTRO</div>
-    <div style="font-size:13px; color:var(--text-66);">Complete el perfil del socio para registrarlo en el sistema</div>
+  <!-- Header: "NUEVO REGISTRO" #E0E0E0 26px Black, subtitle #666 13px -->
+  <div style="margin-bottom:22px;">
+    <div style="font-size:26px; font-weight:900; color:#E0E0E0;">NUEVO REGISTRO</div>
+    <div style="font-size:13px; color:#666; margin-top:4px;">Complete el perfil del socio y seleccione su plan de acceso.</div>
   </div>
 
-  <!-- 3 columns: * | 20px | 1.8* -->
-  <div style="display:grid; grid-template-columns:minmax(270px,420px) 20px 1.8fr; gap:0; align-items:start;">
+  <div class="reg-grid">
 
-    <!-- ═══ LEFT COLUMN ═══ -->
+    <!-- ══ LEFT COLUMN ══ -->
     <div>
 
-      <!-- Camera section — exact #1A1A1A, CornerRadius 10, Padding 18, Border #2A2A2A -->
-      <div class="card mb-14">
-        <div class="sec-label">FOTO DEL SOCIO</div>
+      <!-- Camera card: #1A1A1A, CornerRadius 10, Padding 18, Border #2A2A2A -->
+      <div class="card">
+        <div class="sec-label" style="text-align:center; margin-bottom:10px;">FOTO DEL SOCIO</div>
         <select style="height:30px; font-size:12px; margin-bottom:12px;">
           <option>Cámara 0 (Default)</option>
           <option>Cámara 1 (USB)</option>
         </select>
-        <!-- Photo: 150x150, CornerRadius 75 -->
-        <div class="camera-preview" style="width:150px; height:150px; font-size:3.5rem; border:2px solid var(--border2);">📷</div>
+        <!-- Photo: 150x150, CornerRadius 75, #111, Border #333 2px -->
+        <div style="width:150px; height:150px; border-radius:75px; background:#111; border:2px solid #333;
+                    display:flex; align-items:center; justify-content:center; margin:0 auto 12px; overflow:hidden; font-size:3.5rem;">📷</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
-          <!-- "Encender": #2D2D2D bg, White, Border #444 -->
-          <button class="btn btn-ghost btn-sm" style="background:#2D2D2D; border:1px solid #444; border-radius:6px; margin-right:4px;">Encender</button>
-          <!-- "Capturar": #E0E0E0 bg, Black, Bold -->
-          <button class="btn btn-primary btn-sm" style="border-radius:6px; margin-left:4px;">Capturar</button>
+          <button style="background:#2D2D2D; color:#fff; border:1px solid #444; border-radius:6px; padding:8px 10px; cursor:pointer; margin-right:4px; font-family:'Segoe UI',sans-serif;">Encender</button>
+          <button class="btn" style="margin-left:4px; height:auto; padding:8px 10px; font-size:14px; border-radius:6px;">Capturar</button>
         </div>
       </div>
 
-      <!-- Datos Personales — exact #1A1A1A, Padding 18, Border #2A2A2A -->
-      <div class="card mb-14">
-        <div class="sec-label mb-14">DATOS PERSONALES</div>
+      <!-- Personal data: #1A1A1A, CornerRadius 10, Padding 18, Border #2A2A2A -->
+      <div class="card">
+        <div class="sec-label" style="margin-bottom:14px;">DATOS PERSONALES</div>
 
         <div class="form-group">
-          <label style="color:var(--text-88);">Nombre(s)</label>
-          <input type="text" placeholder="Nombre(s)" />
-        </div>
-        <div class="form-group">
-          <label style="color:var(--text-88);">Apellidos</label>
-          <input type="text" placeholder="Apellidos" />
+          <label>NOMBRE COMPLETO</label>
+          <input type="text" placeholder="Nombre completo" />
         </div>
 
-        <!-- Phone / Age grid: * | 10px | 80px -->
+        <!-- Phone / Age: * | 10px | 80px -->
         <div style="display:grid; grid-template-columns:1fr 10px 80px; gap:0;" class="form-group">
           <div>
-            <label style="color:var(--text-88);">Teléfono</label>
+            <div class="sec-label">TELÉFONO</div>
             <input type="tel" placeholder="664-000-0000" />
           </div>
           <div></div>
           <div>
-            <label style="color:var(--text-88);">Edad</label>
-            <input type="number" placeholder="25" />
+            <div class="sec-label">EDAD</div>
+            <input type="number" placeholder="25" style="text-align:center;" />
           </div>
         </div>
 
-        <!-- Emergency contact — exact #1E1E1E, CornerRadius 6, Padding 12, Border #2E2E2E -->
+        <!-- Emergency contact: #1E1E1E, CornerRadius 6, Padding 12, Border #2E2E2E -->
+        <div class="sec-label" style="margin-bottom:8px;">CONTACTO DE EMERGENCIA</div>
         <div class="inner-card">
-          <div class="sec-label" style="margin-bottom:8px;">Contacto de Emergencia</div>
+          <div class="sec-label">NOMBRE</div>
           <input type="text" placeholder="Nombre del contacto" style="margin-bottom:8px;" />
+          <div class="sec-label">TELÉFONO</div>
           <input type="tel" placeholder="Teléfono de emergencia" />
         </div>
       </div>
 
-      <!-- Fingerprint — exact #1A1A1A, Padding 18 -->
-      <div class="card">
-        <div class="sec-label mb-14">HUELLA DIGITAL</div>
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-          <div class="fp-progress"><div class="fp-progress-fill" style="width:0%"></div></div>
-          <span style="font-size:12px; font-weight:600; color:var(--text-aa);">Sin escanear</span>
+      <!-- Fingerprint: #1A1A1A, CornerRadius 10, Padding 18 -->
+      <div class="card" style="margin-bottom:0;">
+        <div class="sec-label" style="margin-bottom:12px;">HUELLA DIGITAL</div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <div>
+            <div style="color:gray; font-size:12px; font-weight:600;">Sin escanear</div>
+            <div class="progress" style="margin-top:4px;"><div class="progress-fill" style="width:0%;"></div></div>
+          </div>
+          <button style="background:#2D2D2D; color:#fff; border:1px solid #444; border-radius:6px;
+                         font-size:11px; font-weight:700; padding:8px 14px; cursor:pointer; font-family:'Segoe UI',sans-serif;">
+            👆 ESCANEAR
+          </button>
         </div>
-        <!-- Button: #2D2D2D bg, White, Border #444, FontSize 11, FontWeight Bold -->
-        <button class="btn btn-ghost btn-sm" style="background:#2D2D2D; border:1px solid #444; border-radius:6px; font-size:11px; padding:8px 14px;">
-          👆 ESCANEAR
-        </button>
       </div>
+    </div>
 
-    </div><!-- end left column -->
+    <div></div><!-- gap col -->
 
-    <div></div><!-- gap column -->
-
-    <!-- ═══ RIGHT COLUMN ═══ -->
+    <!-- ══ RIGHT COLUMN ══ -->
     <div>
 
-      <!-- Membership selection — exact #1A1A1A, Padding 28, Border #2A2A2A -->
-      <div class="card mb-14">
-        <div style="font-size:14px; font-weight:600; color:var(--text); margin-bottom:18px;">SELECCIONAR MEMBRESÍA</div>
+      <!-- Membership card: #1A1A1A, CornerRadius 10, Padding 28, Border #2A2A2A -->
+      <div class="card" style="padding:28px;">
+        <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:18px;">SELECCIONAR MEMBRESÍA</div>
 
-        <!-- Uniform grid 2 cols, 5 rows
-             Template: #242424 bg, CornerRadius 6, Border #333
-             Selected: #E0E0E0 bg, White border, Black Bold -->
-        <div class="plan-grid">
-          <button class="plan-btn selected" onclick="selectPlan(this)">
-            <span class="plan-name">Mensualidad</span>
-            <span class="plan-price">$550</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Mes Efectivo</span>
-            <span class="plan-price">$500</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Plan Pareja</span>
-            <span class="plan-price">$475</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Semestre</span>
-            <span class="plan-price">$2,300</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Semana</span>
-            <span class="plan-price">$200</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Visita</span>
-            <span class="plan-price">$100</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Apertura</span>
-            <span class="plan-price">$100</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Promoción</span>
-            <span class="plan-price">$250</span>
-          </button>
-          <button class="plan-btn" onclick="selectPlan(this)">
-            <span class="plan-name">Precio Libre</span>
-            <span class="plan-price">$—</span>
-          </button>
-          <button class="plan-btn" style="background:#1A2A3A; border-color:#1E3A5F; color:var(--blue2); font-weight:700;" onclick="toggleSchedule()">
-            <span style="font-size:13px;">🕐 Horario Personalizado</span>
-          </button>
+        <!-- UniformGrid 2x5: RadioButton template #242424 bg, CornerRadius 6, Border #333
+             Selected: #E0E0E0 bg, white border, Black Bold -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; margin-bottom:14px;">
+          <button class="plan-btn active" onclick="selPlan(this,'Mensualidad',550)">Mensualidad ($550)</button>
+          <button class="plan-btn" style="background:#2A2A18;" onclick="selPlan(this,'Mensualidad Efectivo',500)">Mes Efectivo ($500)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Plan Pareja',475)">Pareja ($475)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Semestre',2300)">Semestre ($2300)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Semana',200)">Semana ($200)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Visita',100)">Visita ($100)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Apertura',100)">Apertura ($100)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Promoción',250)">Promoción ($250)</button>
+          <button class="plan-btn" onclick="selPlan(this,'Precio Libre',-1)">Otro / Precio Libre</button>
+          <button class="plan-btn horario" onclick="toggleSchedule()">🕐 Horario Personalizado</button>
         </div>
 
-        <!-- Custom price -->
-        <div style="display:grid; grid-template-columns:1fr auto; gap:6px; margin-top:14px;">
-          <input type="number" placeholder="Monto libre…" style="font-size:15px; padding:10px; background:#222; border-color:#444;" />
-          <button class="plan-btn" style="margin:0; width:80px; border-radius:6px; font-size:14px;">Aplicar</button>
-        </div>
-
-        <!-- Custom schedule panel — exact #141414, #1E3A5F border, #64B5F6 title -->
-        <div class="schedule-panel" id="schedule-panel" style="display:none;">
+        <!-- Custom schedule panel: #141414, Border #1E3A5F, title #64B5F6 -->
+        <div class="schedule-panel" id="horario-panel" style="display:none;">
           <div class="schedule-title">CONFIGURAR HORARIO DE ACCESO</div>
-          <div style="display:flex; flex-wrap:wrap; margin-bottom:12px;">
-            <button class="day-btn active" onclick="this.classList.toggle('active')">Lun</button>
-            <button class="day-btn" onclick="this.classList.toggle('active')">Mar</button>
-            <button class="day-btn active" onclick="this.classList.toggle('active')">Mié</button>
-            <button class="day-btn" onclick="this.classList.toggle('active')">Jue</button>
-            <button class="day-btn active" onclick="this.classList.toggle('active')">Vie</button>
-            <button class="day-btn" onclick="this.classList.toggle('active')">Sáb</button>
-            <button class="day-btn" onclick="this.classList.toggle('active')">Dom</button>
+          <div style="color:#888; font-size:11px; font-weight:700; margin-bottom:8px;">DÍAS PERMITIDOS</div>
+          <div style="display:grid; grid-template-columns:repeat(7,1fr); margin-bottom:14px;">
+            <button class="day-btn checked" onclick="this.classList.toggle('checked')">Lun</button>
+            <button class="day-btn" onclick="this.classList.toggle('checked')">Mar</button>
+            <button class="day-btn checked" onclick="this.classList.toggle('checked')">Mié</button>
+            <button class="day-btn" onclick="this.classList.toggle('checked')">Jue</button>
+            <button class="day-btn checked" onclick="this.classList.toggle('checked')">Vie</button>
+            <button class="day-btn" onclick="this.classList.toggle('checked')">Sáb</button>
+            <button class="day-btn" onclick="this.classList.toggle('checked')">Dom</button>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div style="display:grid; grid-template-columns:1fr 12px 1fr; gap:0; margin-bottom:14px;">
             <div>
-              <div class="sec-label">Hora Inicio</div>
-              <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+              <div style="color:#888; font-size:11px; font-weight:700; margin-bottom:5px;">HORA ENTRADA</div>
+              <select style="background:#2D2D2D; border-color:#444; padding:6px 8px; border-radius:4px; height:34px; font-size:13px;">
                 <option>06:00</option><option>07:00</option><option>08:00</option>
               </select>
             </div>
+            <div></div>
             <div>
-              <div class="sec-label">Hora Fin</div>
-              <select style="background:#2D2D2D; border-color:#444; font-size:13px; padding:6px 8px; border-radius:4px;">
+              <div style="color:#888; font-size:11px; font-weight:700; margin-bottom:5px;">HORA SALIDA</div>
+              <select style="background:#2D2D2D; border-color:#444; padding:6px 8px; border-radius:4px; height:34px; font-size:13px;">
                 <option>22:00</option><option>21:00</option><option>20:00</option>
               </select>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Divider: #2A2A2A -->
-      <div style="height:1px; background:#2A2A2A; margin:18px 0;"></div>
-
-      <!-- Summary card — exact #111 bg, CornerRadius 8, Padding 20 -->
-      <div class="summary-card mb-14">
-        <div class="sec-label mb-10">Resumen</div>
-        <div class="flex-between mb-10">
-          <span class="summary-concept">Mensualidad</span>
-          <span class="summary-total">$550</span>
-        </div>
-        <div style="height:1px; background:#1E1E1E; margin-bottom:14px;"></div>
-        <div class="flex-between">
-          <div>
-            <div class="sec-label">Vence el:</div>
-            <div style="font-size:15px; font-weight:600; color:var(--accent);">15 Jul 2026</div>
-          </div>
-          <div>
-            <div class="sec-label">Inicio:</div>
-            <div style="font-size:15px; font-weight:600;">15 Jun 2026</div>
+          <div style="display:grid; grid-template-columns:1fr 12px 1fr;">
+            <div>
+              <div style="color:#888; font-size:11px; font-weight:700; margin-bottom:5px;">DURACIÓN (DÍAS)</div>
+              <input type="number" value="30" style="background:#2D2D2D; border-color:#333; padding:10px 8px; border-radius:6px;" />
+            </div>
+            <div></div>
+            <div>
+              <div style="color:#888; font-size:11px; font-weight:700; margin-bottom:5px;">PRECIO ($)</div>
+              <input type="number" value="550" id="precioHorario" style="background:#2D2D2D; border-color:#333; padding:10px 8px; border-radius:6px;" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Divider -->
-      <div style="height:1px; background:#2A2A2A; margin:18px 0;"></div>
+        <!-- Separator: #2A2A2A -->
+        <div style="height:1px; background:#2A2A2A; margin:18px 0;"></div>
 
-      <!-- Payment method — exact cash #81C784 green, card #64B5F6 blue -->
-      <div class="mb-18">
-        <div class="sec-label mb-10">Método de pago</div>
-        <div style="display:flex; gap:8px; margin-bottom:18px;">
-          <label style="display:flex; align-items:center; gap:6px; color:var(--green3); font-size:14px; font-weight:600; cursor:pointer; text-transform:none; letter-spacing:0;">
+        <!-- Payment method: Efectivo #81C784, Tarjeta #64B5F6 -->
+        <div class="sec-label" style="margin-bottom:10px;">MÉTODO DE PAGO</div>
+        <div style="display:flex; gap:16px; margin-bottom:20px;">
+          <label style="display:flex; align-items:center; gap:6px; color:#81C784; font-size:14px; font-weight:600; cursor:pointer;">
             <input type="radio" name="regpay" checked style="width:auto;" /> 💵 Efectivo
           </label>
-          <label style="display:flex; align-items:center; gap:6px; color:var(--blue2); font-size:14px; font-weight:600; cursor:pointer; text-transform:none; letter-spacing:0;">
-            <input type="radio" name="regpay" style="width:auto;" /> 💳 Tarjeta
+          <label style="display:flex; align-items:center; gap:6px; color:#64B5F6; font-size:14px; font-weight:600; cursor:pointer;">
+            <input type="radio" name="regpay" style="width:auto;" /> 💳 Tarjeta / Transf.
           </label>
+        </div>
+
+        <!-- Summary card: #111, CornerRadius 8, Padding 20, Border #2A2A2A -->
+        <div class="summary-card">
+          <div style="display:grid; grid-template-columns:1fr auto; align-items:start; margin-bottom:14px;">
+            <div>
+              <div class="sec-label" style="font-size:10px;">CONCEPTO</div>
+              <div id="txtConcepto" style="color:#fff; font-size:16px; font-weight:700;">Mensualidad</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="sec-label" style="font-size:10px; text-align:right;">TOTAL A PAGAR</div>
+              <div id="txtTotal" style="color:#E0E0E0; font-size:28px; font-weight:900;">$550</div>
+            </div>
+          </div>
+          <div style="height:1px; background:#1E1E1E; margin-bottom:14px;"></div>
+          <div style="display:flex; align-items:center; justify-content:flex-end; gap:10px;">
+            <div class="sec-label" style="margin-bottom:0;">VENCE EL:</div>
+            <div id="txtVence" style="color:#fff; font-size:16px; font-weight:700;">15 Jul 2026</div>
+          </div>
         </div>
       </div>
 
-      <!-- Footer buttons — exact: Cancelar transparent #666, Finalizar #E0E0E0 Black Bold -->
-      <div style="display:flex; align-items:center; justify-content:flex-end; gap:16px;">
-        <a href="clientes.html" style="color:var(--text-66); font-size:14px; text-decoration:none; cursor:pointer;">Cancelar</a>
-        <a href="clientes.html" class="btn btn-primary" style="padding:14px 36px; font-size:14px; border-radius:7px;">
+      <!-- Footer: Cancelar transparent #666, Finalizar #E0E0E0 Black Bold Padding 14,36 CornerRadius 7 -->
+      <div style="display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:18px;">
+        <a href="clientes.html" style="color:#666; font-size:14px; text-decoration:none; padding:10px 20px; cursor:pointer;">Cancelar</a>
+        <a href="clientes.html" class="btn" style="padding:14px 36px; font-size:14px; border-radius:7px; height:auto;">
           💾 FINALIZAR REGISTRO
         </a>
       </div>
+    </div>
 
-    </div><!-- end right column -->
-  </div><!-- end 3-col grid -->
+  </div>
 </div>
 
 <script>
-function selectPlan(btn) {
-  document.querySelectorAll('.plan-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
+var plans = {
+  'Mensualidad': 550, 'Mensualidad Efectivo': 500, 'Plan Pareja': 475,
+  'Semestre': 2300, 'Semana': 200, 'Visita': 100, 'Apertura': 100, 'Promoción': 250
+};
+function selPlan(btn, name, price) {
+  document.querySelectorAll('.plan-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('txtConcepto').textContent = name;
+  document.getElementById('txtTotal').textContent = price > 0 ? '$' + price : '$—';
+  var d = new Date(); d.setMonth(d.getMonth() + 1);
+  document.getElementById('txtVence').textContent = d.toLocaleDateString('es-MX',{day:'numeric',month:'short',year:'numeric'});
 }
 function toggleSchedule() {
-  const p = document.getElementById('schedule-panel');
+  var p = document.getElementById('horario-panel');
   p.style.display = p.style.display === 'none' ? 'block' : 'none';
 }
 </script>

@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GymMamba 2.0 — Clientes</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GymMamba 2.0 — Clientes</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  body { background: #121212; min-height: 100vh; }
+  .page { margin: 30px; display: flex; flex-direction: column; height: calc(100vh - 60px); }
+
+  /* Header: DockPanel, Title 32px Bold, subtitle Gray 16px */
+  .page-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:25px; }
+  .page-head-right { display:flex; align-items:center; gap:0; }
+
+  /* Search: #252525, CornerRadius 5, Padding 5 */
+  .search-box {
+    background: #252525; border-radius: 5px; padding: 5px;
+    display: flex; align-items: center;
+  }
+  .search-box input {
+    background: transparent; border: none; color: #fff;
+    font-size: 14px; padding: 10px; width: 250px; border-radius: 0;
+  }
+  .search-box input:focus { border: none; }
+  .search-box button {
+    background: transparent; border: none; color: #fff;
+    font-size: 14px; padding: 10px; cursor: pointer;
+  }
+
+  /* DataGrid fills remaining height */
+  .grid-wrap { flex: 1; overflow: auto; background: #1E1E1E; border-radius: 4px; }
+
+  /* Footer */
+  .footer { display:flex; align-items:center; justify-content:space-between; margin-top:20px; }
+</style>
 </head>
-<body data-page="clientes">
-<div id="nav-placeholder"></div>
-<script src="nav.js"></script>
-
+<body>
 <div class="page">
-  <div class="demo-banner">⚠️ Modo demo — sin base de datos. Datos de ejemplo.</div>
 
-  <!-- Header — exact FontSize 32, Bold, subtitle FontSize 16 Gray -->
-  <div class="page-header">
+  <!-- Header -->
+  <div class="page-head">
     <div>
-      <div class="page-title">Directorio de Clientes</div>
-      <div class="page-subtitle">Base de datos general</div>
+      <div style="color:#fff; font-size:32px; font-weight:700;">Directorio de Clientes</div>
+      <div style="color:gray; font-size:16px; margin-top:5px;">Base de datos general</div>
     </div>
-    <div class="flex-gap" style="flex-wrap:wrap;">
-      <!-- Search: #252525 bg, CornerRadius 5 -->
-      <div class="search-wrap" style="min-width:250px;">
-        <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Buscar cliente…" />
+    <div class="page-head-right">
+      <div class="search-box">
+        <input type="text" placeholder="Buscar por Nombre o ID..." />
+        <button>🔍</button>
       </div>
-      <!-- Buttons: #E0E0E0 bg, Black text, Bold, Padding 22,12, CornerRadius 5 -->
-      <a href="registro.html" class="btn btn-primary" style="padding:12px 22px; font-size:15px;">➕ Nuevo Cliente</a>
-      <button class="btn btn-ghost" style="padding:12px 22px; font-size:15px;">📥 Importar Excel</button>
-      <a href="dashboard.html" class="btn btn-ghost" style="background:#333; padding:12px 22px; font-size:15px;">🏠 Inicio</a>
+      <!-- Buttons: #E0E0E0 Black Bold Padding 22,12 CornerRadius 5 -->
+      <a href="registro.html" class="btn" style="padding:0 22px; height:48px; font-size:15px; margin-left:15px; border-radius:5px;">+ Nuevo Cliente</a>
+      <button class="btn" style="padding:0 22px; height:48px; font-size:15px; margin-left:15px; border-radius:5px;">📥 Importar Excel</button>
+      <!-- #333 bg White -->
+      <a href="dashboard.html" class="btn btn-dark" style="padding:0 22px; height:48px; font-size:15px; margin-left:15px; border-radius:5px;">🏠 Salir</a>
     </div>
   </div>
 
-  <!-- DataGrid — exact from XAML:
-       Background #1E1E1E, RowBackground #252525, AlternatingRowBackground #2A2A2A
-       Header: #111, HeaderForeground #AAAAAA, RowHeight 70 -->
-  <div class="table-wrap">
-    <table>
+  <!-- DataGrid -->
+  <div class="grid-wrap">
+    <table class="datagrid" style="width:100%;">
       <thead>
         <tr>
           <th style="width:80px;">ID</th>
@@ -49,116 +72,99 @@
       </thead>
       <tbody>
         <tr>
-          <td style="color:var(--text-aa);">00142</td>
-          <td><div class="photo-circle photo-sm">🧑</div></td>
-          <td style="font-weight:600; font-size:16px;">Carlos García López</td>
+          <td style="color:gray;">00142</td>
           <td>
-            <!-- Exact: Background=binding ColorFondoEstado, CornerRadius 4, Padding 10,5 -->
-            <span class="badge badge-warning">⚠️ Por Vencer</span>
+            <div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;overflow:hidden;">🧑</div>
           </td>
-          <td style="color:var(--text-aa);">20 Jun 2026</td>
+          <td style="font-weight:600;font-size:16px;">Carlos García López</td>
+          <td><span class="badge badge-yellow">⚠️ Por Vencer</span></td>
+          <td style="color:#AAA;">20 Jun 2026</td>
           <td>
-            <div class="td-actions">
-              <!-- "📝 Editar / Ficha": #E0E0E0 bg, Black, Bold, FontSize 14, Padding 16,10, CornerRadius 4 -->
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00143</td>
-          <td><div class="photo-circle photo-sm">👩</div></td>
-          <td style="font-weight:600; font-size:16px;">Ana Martínez Ruiz</td>
-          <td><span class="badge badge-active">✅ Activo</span></td>
-          <td style="color:var(--text-aa);">30 Jun 2026</td>
+          <td style="color:gray;">00143</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">👩</div></td>
+          <td style="font-weight:600;font-size:16px;">Ana Martínez Ruiz</td>
+          <td><span class="badge badge-green">✅ Activo</span></td>
+          <td style="color:#AAA;">30 Jun 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00138</td>
-          <td><div class="photo-circle photo-sm">🧔</div></td>
-          <td style="font-weight:600; font-size:16px;">Luis Hernández Torres</td>
-          <td><span class="badge badge-expired">❌ Vencido</span></td>
-          <td style="color:var(--text-aa);">10 May 2026</td>
+          <td style="color:gray;">00138</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🧔</div></td>
+          <td style="font-weight:600;font-size:16px;">Luis Hernández Torres</td>
+          <td><span class="badge badge-red">❌ Vencido</span></td>
+          <td style="color:#AAA;">10 May 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00201</td>
-          <td><div class="photo-circle photo-sm">👩‍🦱</div></td>
-          <td style="font-weight:600; font-size:16px;">Sofía Ramírez Vega</td>
-          <td><span class="badge badge-active">✅ Activo</span></td>
-          <td style="color:var(--text-aa);">1 Jul 2026</td>
+          <td style="color:gray;">00201</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">👩‍🦱</div></td>
+          <td style="font-weight:600;font-size:16px;">Sofía Ramírez Vega</td>
+          <td><span class="badge badge-green">✅ Activo</span></td>
+          <td style="color:#AAA;">1 Jul 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00189</td>
-          <td><div class="photo-circle photo-sm">🧑‍🦲</div></td>
-          <td style="font-weight:600; font-size:16px;">Roberto Sánchez Cruz</td>
-          <td><span class="badge badge-warning">⚠️ Por Vencer</span></td>
-          <td style="color:var(--text-aa);">22 Jun 2026</td>
+          <td style="color:gray;">00189</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🧑‍🦲</div></td>
+          <td style="font-weight:600;font-size:16px;">Roberto Sánchez Cruz</td>
+          <td><span class="badge badge-yellow">⚠️ Por Vencer</span></td>
+          <td style="color:#AAA;">22 Jun 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00155</td>
-          <td><div class="photo-circle photo-sm">👱‍♀️</div></td>
-          <td style="font-weight:600; font-size:16px;">Valeria López Mora</td>
-          <td><span class="badge badge-active">✅ Activo</span></td>
-          <td style="color:var(--text-aa);">5 Ago 2026</td>
+          <td style="color:gray;">00155</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">👱‍♀️</div></td>
+          <td style="font-weight:600;font-size:16px;">Valeria López Mora</td>
+          <td><span class="badge badge-green">✅ Activo</span></td>
+          <td style="color:#AAA;">5 Ago 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
         <tr>
-          <td style="color:var(--text-aa);">00098</td>
-          <td><div class="photo-circle photo-sm">👨‍🦳</div></td>
-          <td style="font-weight:600; font-size:16px;">Fernando Castillo Reyes</td>
-          <td><span class="badge badge-expired">❌ Vencido</span></td>
-          <td style="color:var(--text-aa);">8 May 2026</td>
+          <td style="color:gray;">00098</td>
+          <td><div style="width:50px;height:50px;border-radius:25px;background:#111;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">👨‍🦳</div></td>
+          <td style="font-weight:600;font-size:16px;">Fernando Castillo Reyes</td>
+          <td><span class="badge badge-red">❌ Vencido</span></td>
+          <td style="color:#AAA;">8 May 2026</td>
           <td>
-            <div class="td-actions">
-              <a href="cliente-detalle.html" class="btn btn-primary btn-sm" style="padding:10px 16px; font-size:14px; border-radius:4px;">📝 Editar / Ficha</a>
-              <button class="btn btn-primary btn-sm" style="padding:10px 12px; font-size:14px; border-radius:4px;">🗑️</button>
-            </div>
+            <a href="cliente-detalle.html" class="btn btn-xs">📝 Editar / Ficha</a>
+            <button class="btn btn-xs" style="margin-left:10px;">🗑️</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Footer — exact "Registrados: 0" Gray, "Activos: 0" #4CAF50 -->
-  <div class="flex-between mt-14">
-    <div class="flex-gap">
-      <span style="color:var(--text-aa); font-size:14px;">Registrados: 248</span>
-      <span style="color:var(--green2); font-size:14px; font-weight:700;">Activos: 196</span>
-      <span style="color:var(--text-aa); font-size:14px;">Vencidos: 38</span>
-      <span style="color:var(--yellow); font-size:14px;">Por Vencer: 14</span>
+  <!-- Footer: "Registrados: 0" Gray, "Activos: 0" #4CAF50, Borrar #D32F2F -->
+  <div class="footer">
+    <div style="display:flex; gap:30px;">
+      <span style="color:gray; font-size:14px;">Registrados: 248</span>
+      <span style="color:#4CAF50; font-size:14px; font-weight:700;">Activos: 196</span>
     </div>
-    <button style="background:transparent; border:none; color:var(--red3); font-size:14px; cursor:pointer; font-family:var(--font);">
+    <button style="background:transparent; border:none; color:#D32F2F; font-size:14px; cursor:pointer; font-family:'Segoe UI',sans-serif;">
       ⚠️ Borrar Toda la Base de Datos
     </button>
   </div>
+
 </div>
 </body>
 </html>

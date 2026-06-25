@@ -6,6 +6,11 @@
   <title>GymMamba 2.0 — Editar Cliente</title>
   <link rel="stylesheet" href="styles.css" />
 <script src="theme.js"></script>
+<style>
+  @media (max-width: 768px) {
+    .edit-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 <body data-page="clientes">
 <div id="nav-placeholder"></div>
@@ -19,7 +24,7 @@
     <div style="font-size:13px; color:var(--text-66);">Carlos García López · ID: 00142</div>
   </div>
 
-  <div style="display:grid; grid-template-columns:minmax(270px,420px) 20px 1.8fr; gap:0; align-items:start;">
+  <div class="edit-grid" style="display:grid; grid-template-columns:minmax(270px,420px) 20px 1.8fr; gap:0; align-items:start;">
 
     <!-- LEFT -->
     <div>

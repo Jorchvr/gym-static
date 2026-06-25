@@ -6,6 +6,12 @@
   <title>GymMamba 2.0 — Ficha de Cliente</title>
   <link rel="stylesheet" href="styles.css" />
 <script src="theme.js"></script>
+<style>
+  @media (max-width: 768px) {
+    .client-top-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .fp-inner-grid   { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 <body data-page="clientes">
 <div id="nav-placeholder"></div>
@@ -27,7 +33,7 @@
 
   <!-- Main info card — exact #1A1A1A, CornerRadius 12, Padding 30, Border #2A2A2A -->
   <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:30px; margin-bottom:20px;">
-    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:start;">
+    <div class="client-top-grid" style="display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:start;">
 
       <!-- Photo — exact 150x150, CornerRadius 75, Background #111, Border #333, BorderThickness 2 -->
       <div class="photo-circle photo-xl" style="border-color:var(--border2);">🧑</div>
@@ -78,7 +84,7 @@
       <!-- Pill: #1A1A1A, CornerRadius 5, Padding 10,4, Border #333 -->
       <span style="background:var(--card); border:1px solid var(--border2); border-radius:5px; padding:4px 10px; font-size:12px; color:var(--text-88);">✅ Registrada</span>
     </div>
-    <div style="padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="fp-inner-grid" style="padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
       <!-- Left card: #111 bg, CornerRadius 8, Padding 18, Border #2A2A2A -->
       <div style="background:#111; border:1px solid var(--border); border-radius:8px; padding:18px;">
         <div class="sec-label mb-10">Actualizar Huella</div>

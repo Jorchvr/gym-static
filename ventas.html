@@ -6,6 +6,13 @@
   <title>GymMamba 2.0 — Ventas Externas</title>
   <link rel="stylesheet" href="styles.css" />
 <script src="theme.js"></script>
+<style>
+  @media (max-width: 768px) {
+    .ventas-grid { grid-template-columns: 1fr !important; }
+    .ventas-grid > div:last-child { position: static !important; }
+    .input-row { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 <body data-page="ventas">
 <div id="nav-placeholder"></div>
@@ -22,13 +29,13 @@
   </div>
 
   <!-- Exact 900x600 layout: input card + cart -->
-  <div style="display:grid; grid-template-columns:1fr 340px; gap:15px; align-items:start;">
+  <div class="ventas-grid" style="display:grid; grid-template-columns:1fr 340px; gap:15px; align-items:start;">
 
     <!-- ═══ LEFT — Input + recent sales ═══ -->
     <div>
       <!-- Input card — exact #1E1E1E, CornerRadius 10, Padding 20, Border #333 -->
       <div style="background:var(--card3); border:1px solid var(--border2); border-radius:10px; padding:20px; margin-bottom:15px;">
-        <div style="display:grid; grid-template-columns:1fr 1fr auto; gap:15px; align-items:flex-end;">
+        <div class="input-row" style="display:grid; grid-template-columns:1fr 1fr auto; gap:15px; align-items:flex-end;">
           <div>
             <!-- "Descripción de servicio" label: #AAAAAA Bold, margin-bottom 5 -->
             <div style="color:var(--text-aa); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:5px;">Descripción de servicio</div>

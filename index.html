@@ -123,6 +123,22 @@
   }
 
   .cobrar-row { display: flex; align-items: center; justify-content: space-between; }
+
+  @media (max-width: 768px) {
+    body { overflow: auto; }
+    .main-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+      overflow: visible;
+    }
+    .col-div { display: none; }
+    .col-left  { overflow-y: visible; }
+    .col-right { overflow-y: visible; }
+    .bottom-nav { grid-template-columns: repeat(3, 1fr); }
+    .cobrar-row { flex-direction: column; align-items: stretch; gap: 10px; }
+    .cobrar-row span { font-size: 20px; }
+    .cobrar-row button { width: 100%; margin: 0; }
+  }
 </style>
 </head>
 <body>

@@ -24,6 +24,11 @@
     background: #202020; border: 1px solid #333; border-radius: 10px;
     padding: 20px; margin-top: 18px;
   }
+
+  @media (max-width: 768px) {
+    .ren-grid { grid-template-columns: 1fr; }
+    .summary-card > div { grid-template-columns: 1fr !important; gap: 10px !important; }
+  }
 </style>
 </head>
 <body>

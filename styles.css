@@ -441,3 +441,23 @@ tr:last-child td { border-bottom: none; }
 .receipt-center  { text-align:center; }
 .receipt-div     { color:#aaa; text-align:center; margin:5px 0; font-size:9px; }
 .receipt-foot    { text-align:center; font-size:9px; color:#555; }
+
+/* ── RESPONSIVE (Mobile ≤ 768px) ────────────────────── */
+@media (max-width: 768px) {
+  .page { padding: 14px 12px; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  div:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .balance-row { flex-wrap: wrap; gap: 10px; }
+  .product-btn { width: 90px; height: 86px; font-size: 12px; margin: 3px; }
+  .summary-total { font-size: 22px; }
+  .photo-xl { width: 80px; height: 80px; font-size: 2rem; }
+  .cut-window { padding: 14px; }
+  .flex-between { flex-wrap: wrap; gap: 10px; }
+  .flex-gap { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .page { padding: 12px 10px; }
+  .btn { font-size: 13px; padding: 0 8px; }
+  .btn-sm { font-size: 13px; }
+}

@@ -18,6 +18,17 @@
   }
   .reg-grid > div:first-child { overflow-y: auto; height: 100%; padding-right: 4px; }
   .reg-grid > div:last-child  { overflow-y: auto; height: 100%; }
+
+  @media (max-width: 768px) {
+    .page { height: auto; overflow: auto; }
+    .reg-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+      overflow: visible;
+    }
+    .reg-grid > div:first-child { height: auto; overflow: visible; padding-right: 0; }
+    .reg-grid > div:last-child  { height: auto; overflow: visible; }
+  }
 </style>
 </head>
 <body>

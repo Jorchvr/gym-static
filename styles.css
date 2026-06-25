@@ -1,51 +1,49 @@
-/* GymMamba 2.0 — pixel-perfect from XAML */
+/* GymMamba 2.0 — Paleta Menta / Teal */
 
-/* ── NOCHE (default) ─────────────────────────────────── */
-:root {
-  --accent:   #00A88F;
-  --btn-fg:   #001515;
-  --bg:       #0B1515;
-  --card:     #0F1F1F;
-  --card2:    #0C1B1B;
-  --card3:    #122222;
-  --divider:  #1C3535;
-  --text:     #ffffff;
-  --text-aa:  #AAAAAA;
-  --text-88:  #888888;
-  --text-66:  #666666;
-  --text-55:  #555555;
-  --text-44:  #444444;
-  --border:   #1E3D3D;
-  --border2:  #163030;
-  --input-bg: #0F1F1F;
-  --green:    #00E676;
-  --green2:   #4CAF50;
-  --green3:   #81C784;
-  --red:      #ff5252;
-  --red2:     #FF8A80;
-  --yellow:   #ffc107;
-  --blue:     #29B6F6;
-  --blue2:    #64B5F6;
+/* ── Gradiente base en html (muestra debajo de todo) ─── */
+html {
+  background: linear-gradient(180deg, #1B5E45 0%, #D0E1C9 100%) fixed;
+  min-height: 100%;
+}
+html.day {
+  background: linear-gradient(180deg, #2D7A5A 0%, #EAF5E0 100%) fixed;
 }
 
-/* ── DÍA — clase .day en html ────────────────────────── */
+/* ── Variables ───────────────────────────────────────── */
+:root {
+  --accent:    #00A88F;
+  --btn-fg:    #000000;
+  --bg:        transparent;
+  --card:      rgba(255,255,255,0.28);
+  --card2:     rgba(255,255,255,0.18);
+  --card3:     rgba(255,255,255,0.23);
+  --divider:   rgba(0,95,96,0.25);
+  --text:      #000000;
+  --text-aa:   #1A3530;
+  --text-88:   #2D5248;
+  --text-66:   #3D6558;
+  --text-55:   #4D7868;
+  --text-44:   #5D8B78;
+  --border:    rgba(0,95,96,0.40);
+  --border2:   rgba(0,95,96,0.22);
+  --input-bg:  rgba(255,255,255,0.50);
+  --green:     #00C853;
+  --green2:    #4CAF50;
+  --green3:    #81C784;
+  --red:       #D32F2F;
+  --red2:      #EF9A9A;
+  --yellow:    #F9A825;
+  --blue:      #0288D1;
+  --blue2:     #4FC3F7;
+}
+
 html.day {
-  --accent:   #005F60;
-  --btn-fg:   #ffffff;
-  --bg:       #D0E1C9;
-  --card:     #FFFFFF;
-  --card2:    #EEF7E8;
-  --card3:    #E4F0DE;
-  --divider:  #B8D4AF;
-  --text:     #0A1A1A;
-  --text-aa:  #3A5A55;
-  --text-88:  #4A6A65;
-  --text-66:  #5A7A75;
-  --text-55:  #6A8A85;
-  --text-44:  #7A9A95;
-  --border:   #A8C5A0;
-  --border2:  #BDD4B8;
-  --input-bg: #FFFFFF;
+  --card:      rgba(255,255,255,0.55);
+  --card2:     rgba(255,255,255,0.38);
+  --card3:     rgba(255,255,255,0.46);
+  --border:    rgba(0,95,96,0.30);
+  --border2:   rgba(0,95,96,0.18);
+  --input-bg:  rgba(255,255,255,0.70);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,169 +56,197 @@ html, body {
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--card2); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.10); }
+::-webkit-scrollbar-thumb { background: rgba(0,95,96,0.40); border-radius: 3px; }
 
-body { background: var(--bg); color: var(--text); transition: background .2s, color .2s; }
+body { background: transparent; color: var(--text); transition: color .2s; }
 
-/* ── UniversalBtn (exact XAML) ──────────────────────── */
+/* ── Encabezados — verde teatral, siempre transparentes ─ */
+h1, h2, h3, h4, h5, h6 {
+  color: #00A88F;
+  background: transparent;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* ── Botones — Comic Sans, teal oscuro, transparente ─── */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 6px;
-  background: transparent; color: var(--accent);
-  border: 1.5px solid var(--accent);
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  font-size: 17px; font-weight: 700;
+  background: transparent;
+  color: #000000;
+  border: 2px solid #005F60;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size: 19px; font-weight: 700;
   height: 48px; padding: 0 10px; margin: 5px;
   border-radius: 6px; cursor: pointer;
   text-decoration: none;
-  transition: background .18s, color .18s, border-color .18s, opacity .12s;
-  white-space: nowrap;
+  transition: background .18s, color .18s;
+  white-space: nowrap; overflow: hidden;
 }
-.btn:hover { background: var(--accent); color: var(--btn-fg); opacity: 1; }
+.btn:hover { background: rgba(0,95,96,0.18); color: #000000; }
 
-/* dark variant — filled card bg */
-.btn-dark { background: var(--card3); color: var(--text-aa); border-color: var(--border); }
-html.day .btn-dark { background: var(--card3); color: var(--text-aa); border-color: var(--border); }
-.btn-dark:hover { background: var(--border); color: var(--text); opacity: 1; }
+/* dark variant */
+.btn-dark {
+  background: rgba(0,0,0,0.12); color: #000000;
+  border: 1.5px solid rgba(0,95,96,0.35);
+}
+.btn-dark:hover { background: rgba(0,95,96,0.22); }
 
-/* outline/transparent — matches base .btn now */
+/* outline */
 .btn-outline {
-  background: transparent; color: var(--text);
-  border: 1.5px solid var(--border);
+  background: transparent; color: #000000;
+  border: 1.5px solid #005F60;
 }
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-outline:hover { background: rgba(0,95,96,0.15); }
 
 /* sizes */
-.btn-sm  { height: 40px; font-size: 14px; padding: 0 16px; margin: 2px; }
-.btn-xs  { height: 34px; font-size: 14px; padding: 0 12px; margin: 2px; border-radius: 4px; }
-.btn-w130 { width: 130px; height: 42px; font-size: 15px; }
-.btn-w150 { width: 150px; height: 42px; font-size: 15px; }
+.btn-sm   { height: 40px; font-size: 16px; padding: 0 14px; margin: 2px; }
+.btn-xs   { height: 34px; font-size: 14px; padding: 0 10px; margin: 2px; border-radius: 4px; }
+.btn-w130 { width: 130px; height: 42px; font-size: 16px; }
+.btn-w150 { width: 150px; height: 42px; font-size: 16px; }
 .btn-full { width: 100%; margin: 0; }
 
-/* ── Inputs (exact XAML TextBox) ────────────────────── */
+/* primary (filled accent) */
+.btn-primary {
+  background: rgba(0,168,143,0.25);
+  color: #000000;
+  border: 2px solid #00A88F;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-weight: 700;
+}
+.btn-primary:hover { background: rgba(0,168,143,0.40); }
+
+/* ghost */
+.btn-ghost {
+  background: transparent; color: #000000;
+  border: 1.5px solid rgba(0,95,96,0.4);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+.btn-ghost:hover { background: rgba(0,95,96,0.15); }
+
+/* ── Inputs ──────────────────────────────────────────── */
 input, select, textarea {
   width: 100%;
   background: var(--input-bg); color: var(--text);
-  border: 1px solid var(--border); border-radius: 6px;
+  border: 1.5px solid rgba(0,95,96,0.40); border-radius: 6px;
   padding: 10px 8px; font-size: 14px;
   font-family: 'Segoe UI', system-ui, sans-serif;
   outline: none;
 }
-input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+input:focus, select:focus, textarea:focus { border-color: #00A88F; box-shadow: 0 0 0 2px rgba(0,168,143,0.20); }
 input::placeholder { color: var(--text-55); }
 
-/* Login inputs: #222222 bg, #333333 border, radius 5 */
 .input-login {
-  background: #222222 !important;
-  border: 1px solid #333333 !important;
+  background: rgba(255,255,255,0.40) !important;
+  border: 1.5px solid rgba(0,95,96,0.40) !important;
   border-radius: 5px !important;
-  height: 45px;
-  padding: 10px !important;
+  height: 45px; padding: 10px !important;
 }
 
-/* Textarea */
 textarea { resize: vertical; border-radius: 6px; }
 
-/* ── Plan buttons (exact PlanBtn XAML) ──────────────── */
+/* ── Plan buttons ────────────────────────────────────── */
 .plan-btn {
-  background: transparent; color: var(--text-aa);
-  border: 1.5px solid var(--border); border-radius: 8px;
-  font-size: 16px; font-weight: 700;
+  background: transparent; color: #000000;
+  border: 2px solid #005F60; border-radius: 8px;
+  font-size: 15px; font-weight: 700;
   margin: 4px; padding: 10px;
   cursor: pointer; height: 52px;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  transition: background .15s, border-color .15s, color .15s;
-  width: 100%;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  transition: background .15s, border-color .15s;
+  width: 100%; overflow: hidden;
 }
-html.day .plan-btn { background: transparent; color: var(--text-88); }
-.plan-btn:hover { border-color: var(--accent); color: var(--accent); }
-.plan-btn.active { background: var(--accent); color: var(--btn-fg); border-color: var(--accent); }
-.plan-btn.efec   { border-color: #ffc107; color: #ffc107; }
-html.day .plan-btn.efec { border-color: #b58900; color: #b58900; }
-.plan-btn.horario { border-color: #29B6F6; color: #29B6F6; }
+.plan-btn:hover  { background: rgba(0,95,96,0.15); }
+.plan-btn.active { background: rgba(0,168,143,0.28); border-color: #00A88F; color: #000; }
+.plan-btn.selected { background: rgba(0,168,143,0.28); border-color: #00A88F; color: #000; }
+.plan-btn.efec   { border-color: #b58900; color: #7A5800; }
+.plan-btn.horario { border-color: #0288D1; color: #005F8A; }
 
-/* ── Day CheckBox buttons (exact DayBtn XAML) ────────── */
+/* ── Day CheckBox buttons ────────────────────────────── */
 .day-btn {
-  background: transparent; color: var(--text-88);
-  border: 1.5px solid var(--border); border-radius: 5px;
+  background: transparent; color: #000000;
+  border: 2px solid #005F60; border-radius: 5px;
   padding: 6px 8px; margin: 2px;
-  cursor: pointer; font-size: 11px; font-weight: 700;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  cursor: pointer;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   min-width: 36px; text-align: center;
   transition: background .15s, border-color .15s;
 }
-.day-btn.checked { background: var(--accent); color: var(--btn-fg); border-color: var(--accent); }
+.day-btn.checked { background: rgba(0,168,143,0.30); border-color: #00A88F; color: #000; }
 
-/* ── Product buttons (exact ProductBtn XAML) ─────────── */
+/* ── Product buttons ─────────────────────────────────── */
 .product-btn {
-  background: var(--card2); color: var(--accent);
-  border: 1px solid var(--border); border-radius: 8px;
+  background: rgba(255,255,255,0.30); color: #000000;
+  border: 2px solid #005F60; border-radius: 8px;
   width: 110px; height: 100px; margin: 5px;
-  cursor: pointer; font-size: 14px; font-weight: 700;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  cursor: pointer;
+  font-size: 14px; font-weight: 700;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 4px;
-  transition: border-color .15s, background .15s;
+  transition: background .15s, border-color .15s;
   text-align: center;
 }
-.product-btn:hover { border-color: var(--accent); background: var(--card3); }
+.product-btn:hover { background: rgba(255,255,255,0.55); border-color: #00A88F; }
 
-/* ── Cart item (exact DataTemplate) ─────────────────── */
+/* ── Cart item ───────────────────────────────────────── */
 .cart-item {
-  background: var(--card3); border-radius: 6px;
+  background: rgba(255,255,255,0.28); border-radius: 6px;
   padding: 8px 10px; margin: 2px 0;
   display: grid; grid-template-columns: 1fr auto 64px;
   align-items: center; gap: 8px;
 }
 .cart-qty {
-  background: var(--border); border-radius: 4px;
-  padding: 3px 10px; color: var(--accent);
+  background: rgba(0,95,96,0.20); border-radius: 4px;
+  padding: 3px 10px; color: #005F60;
   font-weight: 700; text-align: center;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
-/* ── Payment radio buttons (exact XAML template) ─────── */
+/* ── Payment radio buttons ───────────────────────────── */
 .pay-radio { display: flex; gap: 8px; }
 .pay-opt { position: relative; }
 .pay-opt input { display: none; }
 .pay-opt label {
   display: flex; align-items: center; justify-content: center;
-  background: transparent; color: var(--text-88);
-  border: 1.5px solid var(--border); border-radius: 6px;
+  background: transparent; color: #000000;
+  border: 2px solid #005F60; border-radius: 6px;
   padding: 9px 18px; cursor: pointer;
-  font-size: 13px; font-weight: 600;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  transition: all .15s;
-  white-space: nowrap;
+  font-size: 13px; font-weight: 700;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  transition: all .15s; white-space: nowrap;
 }
 .pay-opt input:checked + label {
-  background: var(--accent); border-color: var(--accent); color: var(--btn-fg);
+  background: rgba(0,168,143,0.30); border-color: #00A88F; color: #000;
 }
-.pay-opt label:hover { opacity: .85; }
+.pay-opt label:hover { background: rgba(0,95,96,0.12); }
 
 /* ── Status badges ───────────────────────────────────── */
 .badge {
   display: inline-block;
   border-radius: 4px; padding: 5px 10px;
   font-size: 12px; font-weight: 700;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
-.badge-green  { background: #1b3a1b; color: #4CAF50; }
-.badge-red    { background: #3a1b1b; color: #ff5252; }
-.badge-yellow { background: #3a2e00; color: #ffc107; }
+.badge-green  { background: rgba(0,200,83,0.18); color: #1B5E20; border: 1px solid #4CAF50; }
+.badge-red    { background: rgba(211,47,47,0.15); color: #B71C1C; border: 1px solid #D32F2F; }
+.badge-yellow { background: rgba(249,168,37,0.18); color: #7A5800; border: 1px solid #F9A825; }
 
 /* ── DataGrid tables ─────────────────────────────────── */
 .datagrid { width: 100%; border-collapse: collapse; font-size: 14px; }
-.datagrid thead tr { background: var(--card3); border-bottom: 2px solid var(--border); }
+.datagrid thead tr { background: rgba(255,255,255,0.30); border-bottom: 2px solid rgba(0,95,96,0.40); }
 .datagrid th {
   padding: 15px 10px; text-align: left;
-  color: var(--text-aa); font-weight: 700; font-size: 14px;
+  color: #00A88F; font-weight: 700; font-size: 14px;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 .datagrid td {
   padding: 0 10px; height: 70px; vertical-align: middle;
-  border-bottom: 1px solid var(--border); color: var(--text);
+  border-bottom: 1px solid rgba(0,95,96,0.25); color: #000000;
 }
-.datagrid tr:nth-child(odd)  td { background: var(--card3); }
-.datagrid tr:nth-child(even) td { background: var(--card2); }
+.datagrid tr:nth-child(odd)  td { background: rgba(255,255,255,0.22); }
+.datagrid tr:nth-child(even) td { background: rgba(255,255,255,0.12); }
 .datagrid tr:last-child td { border-bottom: none; }
 
 .datagrid-sm td { height: 50px; }
@@ -228,53 +254,67 @@ html.day .plan-btn.efec { border-color: #b58900; color: #b58900; }
 
 /* ── Fingerprint area ────────────────────────────────── */
 .fp-area {
-  background: var(--card3); border: 1px solid var(--border); border-radius: 6px;
+  background: rgba(255,255,255,0.25); border: 1.5px solid rgba(0,95,96,0.40); border-radius: 6px;
   padding: 18px; display: flex; flex-direction: column;
   align-items: center; gap: 8px; cursor: pointer;
   transition: border-color .12s;
 }
-.fp-area:hover { border-color: var(--accent); }
+.fp-area:hover { border-color: #00A88F; }
 
 /* ── Progress bar ────────────────────────────────────── */
-.progress { width: 100px; height: 4px; background: var(--border2); border-radius: 2px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+.progress { width: 100px; height: 4px; background: rgba(0,95,96,0.20); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: #00A88F; border-radius: 2px; }
 
 /* ── Card / panel backgrounds ────────────────────────── */
 .card-181818 { background: var(--card2); border-radius: 8px; padding: 15px; }
 .card-1a1a1a { background: var(--card);  border: 1px solid var(--border2); border-radius: 10px; padding: 18px; }
 .card-202020 { background: var(--card);  border: 1px solid var(--border);  border-radius: 10px; padding: 22px; }
-.card-111    { background: var(--bg);    border: 1px solid var(--border2); border-radius: 8px;  padding: 18px; }
+.card-111    { background: var(--card3); border: 1px solid var(--border2); border-radius: 8px;  padding: 18px; }
 
-/* ── Section title labels (uppercase tiny) ───────────── */
+/* ── Section title labels — verde teatral ────────────── */
 .sec-lbl {
-  color: var(--text-88); font-size: 11px; font-weight: 700;
+  color: #00A88F; background: transparent;
+  font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .05em;
   margin-bottom: 10px; display: block;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+.sec-label {
+  color: #00A88F; background: transparent;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em;
+  margin-bottom: 10px; display: block;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
 /* ── Separator ───────────────────────────────────────── */
-.sep { height: 1px; background: var(--border2); margin: 16px 0; }
+.sep { height: 1px; background: rgba(0,95,96,0.30); margin: 16px 0; }
 
-/* ── Schedule panel (exact XAML) ─────────────────────── */
+/* ── Schedule panel ──────────────────────────────────── */
 .schedule-panel {
-  background: #141414; border: 1px solid #1E3A5F;
+  background: rgba(255,255,255,0.22); border: 1.5px solid rgba(0,95,96,0.40);
   border-radius: 8px; padding: 18px; margin-top: 14px;
 }
-.schedule-title { color: #64B5F6; font-size: 11px; font-weight: 700; margin-bottom: 14px; }
+.schedule-title {
+  color: #00A88F; background: transparent;
+  font-size: 11px; font-weight: 700; margin-bottom: 14px;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  text-transform: uppercase; letter-spacing: .05em;
+}
 
 /* ── Utilities ───────────────────────────────────────── */
 .text-white  { color: #fff; }
-.text-gray   { color: #AAAAAA; }
-.text-888    { color: #888; }
-.text-444    { color: #444; }
-.text-green  { color: #00E676; }
-.text-green2 { color: #4CAF50; }
-.text-red    { color: #ff5252; }
-.text-red2   { color: #FF8A80; }
-.text-yellow { color: #ffc107; }
-.text-blue   { color: #29B6F6; }
-.text-blue2  { color: #64B5F6; }
-.text-accent { color: var(--accent); }
+.text-gray   { color: var(--text-88); }
+.text-888    { color: var(--text-88); }
+.text-444    { color: var(--text-44); }
+.text-green  { color: #00C853; }
+.text-green2 { color: #2E7D32; }
+.text-red    { color: #C62828; }
+.text-red2   { color: #D32F2F; }
+.text-yellow { color: #F9A825; }
+.text-blue   { color: #0277BD; }
+.text-blue2  { color: #0288D1; }
+.text-accent { color: #00A88F; }
 .bold        { font-weight: 700; }
 .semi        { font-weight: 600; }
 .black-w     { font-weight: 900; }
@@ -283,6 +323,7 @@ html.day .plan-btn.efec { border-color: #b58900; color: #b58900; }
 .mb-10 { margin-bottom: 10px; }
 .mb-14 { margin-bottom: 14px; }
 .mb-16 { margin-bottom: 16px; }
+.mb-18 { margin-bottom: 18px; }
 .mb-20 { margin-bottom: 20px; }
 .mb-25 { margin-bottom: 25px; }
 .mt-4  { margin-top: 4px; }
@@ -298,142 +339,133 @@ html.day .plan-btn.efec { border-color: #b58900; color: #b58900; }
 .flex-gap    { display: flex; align-items: center; gap: 10px; }
 .flex-wrap   { display: flex; flex-wrap: wrap; }
 
-/* ── Alias helpers so pages using var(--) work ──────── */
-.btn-primary { background: var(--accent); color: var(--btn-fg); border-color: var(--accent); font-weight: 700; }
-.btn-primary:hover { opacity: .85; background: var(--accent); }
-.btn-ghost   { background: transparent; color: var(--text-aa); border: 1.5px solid var(--border); }
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* ── Page wrapper ────────────────────────────────────── */
+.page { padding: 30px; background: transparent; min-height: 100vh; }
 
-/* ── Page wrapper (for non-fullscreen pages) ─────────── */
-.page { padding: 30px; background: var(--bg); min-height: 100vh; }
-
-/* ── Card variants ────────────────────────────────────── */
+/* ── Card variants ───────────────────────────────────── */
 .card {
   background: var(--card); border: 1px solid var(--border2);
   border-radius: 10px; padding: 18px; margin-bottom: 14px;
+  backdrop-filter: blur(2px);
 }
 .inner-card {
-  background: var(--card3); border: 1px solid var(--border2);
+  background: var(--card2); border: 1px solid var(--border2);
   border-radius: 6px; padding: 12px; margin-top: 8px;
 }
 .summary-card {
-  background: var(--bg); border: 1px solid var(--border2);
+  background: var(--card); border: 1px solid var(--border2);
   border-radius: 8px; padding: 20px;
 }
 
-/* ── Section label (alias for sec-lbl) ───────────────── */
-.sec-label {
-  color: var(--text-88); font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .05em;
-  margin-bottom: 10px; display: block;
-}
-
-/* ── Form group spacing ──────────────────────────────── */
+/* ── Form group ──────────────────────────────────────── */
 .form-group { margin-bottom: 12px; }
 .form-group label {
-  display: block; color: var(--text-88); font-size: 11px;
-  font-weight: 700; margin-bottom: 4px;
-  text-transform: uppercase;
+  display: block;
+  color: #00A88F; background: transparent;
+  font-size: 11px; font-weight: 700; margin-bottom: 4px;
+  text-transform: uppercase; letter-spacing: .04em;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
 /* ── Camera preview circle ───────────────────────────── */
 .camera-preview {
   width: 150px; height: 150px; border-radius: 50%;
-  background: #111; display: flex; align-items: center;
+  background: rgba(255,255,255,0.25); border: 2px solid rgba(0,95,96,0.40);
+  display: flex; align-items: center;
   justify-content: center; margin: 0 auto 12px;
   overflow: hidden;
 }
 
-/* ── Plan grid (2-col for membership selection) ──────── */
+/* ── Plan grid ───────────────────────────────────────── */
 .plan-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 0;
   margin-bottom: 14px;
 }
-.plan-btn.selected { background: var(--accent); color: var(--btn-fg); border-color: var(--accent); }
 
 /* ── Fingerprint progress bar ────────────────────────── */
-.fp-progress { width: 100px; height: 4px; background: var(--border2); border-radius: 2px; overflow: hidden; }
-.fp-progress-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+.fp-progress { width: 100px; height: 4px; background: rgba(0,95,96,0.20); border-radius: 2px; overflow: hidden; }
+.fp-progress-fill { height: 100%; background: #00A88F; border-radius: 2px; }
 
 /* ── Summary inside registro ──────────────────────────── */
 .summary-concept { color: var(--text); font-size: 16px; font-weight: 700; }
-.summary-total   { color: var(--accent); font-size: 28px; font-weight: 900; }
+.summary-total   { color: #00A88F; font-size: 28px; font-weight: 900;
+                   font-family: 'Comic Sans MS', 'Comic Sans', cursive; }
 
 /* ── Demo banner ─────────────────────────────────────── */
 .demo-banner {
-  background: var(--card3); border: 1px solid var(--border2); border-radius: 6px;
-  color: #81C784; font-size: 12px; padding: 8px 14px; margin-bottom: 20px;
+  background: rgba(255,255,255,0.25); border: 1px solid rgba(0,95,96,0.30); border-radius: 6px;
+  color: #1B5E20; font-size: 12px; padding: 8px 14px; margin-bottom: 20px;
 }
 
-/* ── Navbar (web nav, hidden — app has no top bar) ────── */
+/* ── Navbar hidden ───────────────────────────────────── */
 .navbar { display: none; }
 
-/* ── mb-14 alias (some pages use it) ────────────────── */
-.mb-14 { margin-bottom: 14px; }
-.mb-18 { margin-bottom: 18px; }
-
-/* ── Global plain table styling ─────────────────────── */
+/* ── Global plain table ──────────────────────────────── */
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th {
   padding: 12px 10px; text-align: left;
-  color: var(--text-aa); font-weight: 700; font-size: 14px;
-  border-bottom: 2px solid var(--border); background: var(--card3);
+  color: #00A88F; font-weight: 700; font-size: 14px;
+  border-bottom: 2px solid rgba(0,95,96,0.35);
+  background: rgba(255,255,255,0.28);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 td {
   padding: 0 10px; vertical-align: middle;
-  border-bottom: 1px solid var(--border); color: var(--text);
+  border-bottom: 1px solid rgba(0,95,96,0.20); color: #000000;
 }
-tr:nth-child(odd)  td { background: var(--card3); }
-tr:nth-child(even) td { background: var(--card2); }
+tr:nth-child(odd)  td { background: rgba(255,255,255,0.22); }
+tr:nth-child(even) td { background: rgba(255,255,255,0.12); }
 tr:last-child td { border-bottom: none; }
 
 /* ── Table wrapper ───────────────────────────────────── */
 .table-wrap {
-  background: var(--card3); border-radius: 4px; overflow: auto;
+  background: rgba(255,255,255,0.18); border-radius: 4px; overflow: auto;
   margin-bottom: 20px;
 }
 
 /* ── Historial balance strip ─────────────────────────── */
 .balance-row  { display: flex; align-items: center; gap: 24px; }
 .balance-item { display: flex; flex-direction: column; }
-.balance-lbl  { color: var(--text-88); font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
-.balance-val  { font-size: 16px; font-weight: 700; }
-.bal-green  { color: #00E676; }
-.bal-white  { color: var(--text); }
-.bal-blue   { color: #29B6F6; }
+.balance-lbl  { color: #00A88F; font-size: 10px; font-weight: 700; text-transform: uppercase;
+                margin-bottom: 2px; font-family: 'Comic Sans MS', 'Comic Sans', cursive; }
+.balance-val  { font-size: 16px; font-weight: 700; color: #000; }
+.bal-green  { color: #1B5E20; }
+.bal-white  { color: #000000; }
+.bal-blue   { color: #0277BD; }
 
 /* ── Photo circle for client detail ─────────────────── */
 .photo-circle {
-  border-radius: 50%; background: var(--card3); border: 3px solid var(--accent);
+  border-radius: 50%; background: rgba(255,255,255,0.30); border: 3px solid #00A88F;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; font-size: 3rem;
 }
 .photo-xl { width: 120px; height: 120px; }
 
-/* ── Text utilities missing ──────────────────────────── */
-.text-88   { color: #888; }
+/* ── Text utilities ──────────────────────────────────── */
+.text-88   { color: var(--text-88); }
 .text-bold { font-weight: 700; }
-.text-green { color: #4CAF50; }
+.text-green { color: #2E7D32; }
 .emoji     { font-size: 2rem; }
 
 /* ── Info row (client detail key/value pairs) ────────── */
-.info-row   { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2A2A2A; }
-.info-label { color: #888; font-size: 13px; }
-.info-value { color: #fff; font-size: 13px; font-weight: 600; }
+.info-row   { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(0,95,96,0.20); }
+.info-label { color: var(--text-88); font-size: 13px; }
+.info-value { color: #000000; font-size: 13px; font-weight: 600; }
 
-/* ── Cut window (daily cut / receipt wrapper) ─────────── */
+/* ── Cut window ──────────────────────────────────────── */
 .cut-window {
   max-width: 360px; margin: 0 auto;
-  background: #1A1A1A; border: 1px solid #2A2A2A;
+  background: rgba(255,255,255,0.35); border: 1px solid rgba(0,95,96,0.30);
   border-radius: 10px; padding: 20px;
+  backdrop-filter: blur(4px);
 }
 
-/* ── Receipt (DailyCutWindow — white 58mm) ───────────── */
+/* ── Receipt ─────────────────────────────────────────── */
 .receipt {
   background: #fff; color: #111;
   width: 300px; padding: 15px; margin: 0 auto;
   font-family: 'Courier New', monospace; font-size: 11px;
-  box-shadow: 0 2px 15px rgba(0,0,0,.4);
+  box-shadow: 0 2px 15px rgba(0,0,0,.15);
 }
 .receipt-logo    { text-align:center; font-weight:900; font-size:18px; }
 .receipt-title   { text-align:center; font-weight:700; font-size:14px; }
@@ -461,6 +493,6 @@ tr:last-child td { border-bottom: none; }
 
 @media (max-width: 480px) {
   .page { padding: 12px 10px; }
-  .btn { font-size: 13px; padding: 0 8px; }
-  .btn-sm { font-size: 13px; }
+  .btn { font-size: 15px; padding: 0 8px; }
+  .btn-sm { font-size: 14px; }
 }

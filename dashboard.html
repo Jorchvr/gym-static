@@ -36,15 +36,6 @@
     overflow-y: hidden;
   }
 
-  /* Logo box: 140x80 white CornerRadius 10 */
-  .logo-white {
-    width: 140px; height: 80px;
-    background: #fff; border-radius: 10px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    margin: 0 auto 6px; overflow: hidden; gap: 2px;
-  }
-  .logo-white .logo-snake { font-size: 2.6rem; line-height: 1; }
-
   /* Search bar: card2 CornerRadius 5 Padding 5 */
   .search-card {
     background: var(--card2); border-radius: 5px; padding: 5px;
@@ -131,16 +122,15 @@
   <!-- ═══════════ LEFT COLUMN ═══════════ -->
   <div class="col-left">
 
-    <!-- Row 0: Logo + user + buttons -->
-    <div style="margin-bottom:10px;">
-      <div class="logo-white">
-        <div class="logo-snake">🐍</div>
+    <!-- Row 0: user + tema -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--border);">
+      <div>
+        <div id="txtUsuario" style="color:var(--text); font-size:15px; font-weight:700;">admin</div>
+        <div style="color:var(--accent); font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; margin-top:2px;">Licencia Activa</div>
       </div>
-      <div id="txtUsuario" style="text-align:center; color:var(--text-aa); font-size:14px; margin-top:4px;">admin</div>
-      <div style="text-align:center; color:var(--text-88); font-size:12px; margin-top:2px;">Licencia Activa</div>
-      <div style="display:flex; justify-content:center; margin-top:10px;">
-        <a href="index.html" class="btn btn-sm" style="width:130px; height:42px; font-size:15px;">Salir</a>
-        <button id="btnTema" class="btn btn-sm" style="width:150px; height:42px; font-size:15px;" onclick="toggleTema()">Modo Día ☀️</button>
+      <div style="display:flex; gap:4px;">
+        <a href="index.html" class="btn btn-sm" style="height:36px; font-size:13px;">Salir</a>
+        <button id="btnTema" class="btn btn-sm" style="height:36px; font-size:13px;" onclick="toggleTema()">Modo Día ☀️</button>
       </div>
     </div>
 
@@ -169,8 +159,8 @@
         <span class="access-badge">Vence: 20 Jun 2026</span>
       </div>
       <div style="display:flex; gap:8px; margin-bottom:15px;">
-        <a href="cliente-detalle.html" class="btn" style="background:transparent; color:var(--text); border:1px solid #E0E0E0; height:40px; font-size:15px; padding:0 18px; margin:5px;">Ver ficha completa</a>
-        <a href="renovacion.html" class="btn" style="height:40px; font-size:15px; padding:0 18px; margin:5px;">RENOVAR AHORA</a>
+        <a href="cliente-detalle.html" class="btn" style="height:40px; font-size:15px; padding:0 18px; margin:5px;">Ver ficha completa</a>
+        <a href="renovacion.html" class="btn btn-primary" style="height:40px; font-size:15px; padding:0 18px; margin:5px;">RENOVAR AHORA</a>
       </div>
       <div class="status-box status-allowed" style="width:100%;">
         <div class="status-title">¡BIENVENIDO!</div>

@@ -3,107 +3,343 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>GymMamba 2.0 — Login</title>
+<title>GymMamba 2.0 — Dashboard</title>
 <link rel="stylesheet" href="styles.css"/>
 <script src="theme.js"></script>
 <style>
-  body {
-    background: #050505;
+  body { background: var(--bg); min-height: 100vh; overflow: hidden; }
+
+  /* exact 3-col Grid: * | 2px | 1.2* */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 2px 1.2fr;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Left col */
+  .col-left {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 0;
+  }
+
+  .col-div { background: var(--divider); margin: 20px 0; }
+
+  /* Right col */
+  .col-right {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+
+  /* Logo box: 140x80 white CornerRadius 10 */
+  .logo-white {
+    width: 140px; height: 80px;
+    background: #fff; border-radius: 10px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0 auto 6px; overflow: hidden; gap: 2px;
+  }
+  .logo-white .logo-snake { font-size: 2.6rem; line-height: 1; }
+
+  /* Search bar: card2 CornerRadius 5 Padding 5 */
+  .search-card {
+    background: var(--card2); border-radius: 5px; padding: 5px;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; margin-bottom: 15px;
+  }
+  .search-card input {
+    background: transparent; border: none; border-radius: 0;
+    color: var(--text-aa); font-size: 16px; padding: 5px;
+  }
+  .search-card input:focus { border: none; }
+
+  /* Idle card */
+  .idle-card {
+    background: var(--card2); border-radius: 10px; padding: 30px;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 10px; margin-bottom: 15px;
+  }
+  .idle-inner { opacity: 0.5; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .idle-inner span:first-child { font-size: 40px; }
+  .idle-inner span:last-child { color: var(--text); font-size: 14px; }
+
+  /* Result card */
+  .result-card {
+    background: var(--card2); border: 1px solid var(--border); border-radius: 15px;
+    padding: 20px; margin-bottom: 15px;
+    display: flex; flex-direction: column; align-items: center;
+    flex: 1; justify-content: center;
+  }
+
+  .access-photo {
+    width: 140px; height: 140px; border-radius: 50%;
+    background: var(--border); border: 3px solid var(--accent);
     display: flex; align-items: center; justify-content: center;
-    min-height: 100vh;
+    font-size: 4.5rem; margin-bottom: 12px; overflow: hidden;
   }
 
-  /* close button top-right */
-  .close-btn {
-    position: fixed; top: 15px; right: 15px; z-index: 100;
-    background: transparent; border: none; color: #fff;
-    font-size: 20px; font-weight: 700; cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
+  .access-name { font-size: 26px; font-weight: 900; color: var(--text); text-align: center; margin-bottom: 5px; }
+
+  .access-badge {
+    background: var(--border); border-radius: 5px; padding: 2px 8px;
+    color: var(--text-aa); font-weight: 700; margin: 0 2px;
   }
 
-  /* logo white box: 320x200, CornerRadius 15 */
-  .logo-box {
-    width: 320px; height: 200px;
-    background: #fff; border-radius: 15px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 18px; font-size: 6rem;
+  /* Status box */
+  .status-box {
+    border-radius: 10px; padding: 15px; border-width: 2px; border-style: solid;
+    text-align: center; width: 100%; margin-top: 10px;
+  }
+  .status-allowed { background: #004D40; border-color: #00695C; }
+  .status-denied  { background: #7f0000; border-color: #b71c1c; }
+  .status-warning { background: #3e2700; border-color: #ff8f00; }
+  .status-title { font-size: 28px; font-weight: 900; color: var(--text); }
+  .status-sub   { font-size: 12px; color: var(--text); margin-top: 4px; }
+
+  .cash-card {
+    background: var(--card2); border-radius: 8px; padding: 15px; margin-bottom: 10px;
+  }
+  .visitors-card {
+    background: var(--card2); border-radius: 8px; padding: 15px; margin-bottom: 10px;
   }
 
-  /* login card: Width 450, #1A1A1A, CornerRadius 15, Padding 40,
-     Border #333333, Opacity 0.95, DropShadow */
-  .login-card {
-    width: 450px;
-    background: #1A1A1A; border: 1px solid #333333;
-    border-radius: 15px; padding: 40px; opacity: 0.95;
-    box-shadow: 0 0 20px rgba(0,0,0,.5);
+  /* Bottom nav: 5-col UniformGrid */
+  .bottom-nav {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
   }
 
-  /* "Iniciar Sesión": White 28px Bold */
-  .login-title { color: #fff; font-size: 28px; font-weight: 700; margin-bottom: 10px; }
-
-  /* "Accede al sistema": #AAAAAA, margin 0,0,30 */
-  .login-sub { color: #AAAAAA; margin-bottom: 30px; }
-
-  /* Label: #AAAAAA Bold, margin-bottom 8 */
-  .login-lbl { color: #AAAAAA; font-weight: 700; margin-bottom: 8px; display: block; }
-
-  /* Input height 45 */
-  .login-input { height: 45px; }
-
-  /* Checkbox row */
-  .remember-row {
-    display: flex; align-items: center; justify-content: space-between;
-    margin: 20px 0;
+  .products-card {
+    background: var(--card2); border-radius: 8px; padding: 15px;
+    margin-bottom: 10px; flex: 1; overflow-y: auto;
+    display: flex; flex-direction: column;
   }
-  .remember-row label { display: flex; align-items: center; gap: 6px; color: #AAAAAA; cursor: pointer; }
-  .remember-row a { color: #E0E0E0; font-size: 12px; text-decoration: none; cursor: pointer; }
-
-  /* Enter button: Height 55, #E0E0E0, Black, Bold, 17px, CornerRadius 8, margin 10,0,20 */
-  .login-btn {
-    width: 100%; height: 55px;
-    background: #E0E0E0; color: #000;
-    font-size: 17px; font-weight: 700;
-    border: none; border-radius: 8px; cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 10px 0 20px; display: block;
-    text-align: center; line-height: 55px;
-    text-decoration: none; transition: opacity .12s;
+  .cart-scroll {
+    background: var(--card2); border: 1px solid var(--border2); border-radius: 8px;
+    height: 140px; overflow-y: auto; padding: 6px 8px; margin-bottom: 10px;
   }
-  .login-btn:hover { opacity: .88; }
 
-  /* Footer: #444, 10px, Center */
-  .login-footer { color: #444; font-size: 10px; text-align: center; }
+  .cobrar-row { display: flex; align-items: center; justify-content: space-between; }
 </style>
 </head>
 <body>
-  <button class="close-btn">✕</button>
+<div class="main-grid">
 
-  <div style="display:flex; flex-direction:column; align-items:center;">
-    <!-- Logo: white box 320x200 CornerRadius 15 -->
-    <div class="logo-box">🐍</div>
+  <!-- ═══════════ LEFT COLUMN ═══════════ -->
+  <div class="col-left">
 
-    <!-- Login box -->
-    <div class="login-card">
-      <div class="login-title">Iniciar Sesión</div>
-      <div class="login-sub">Accede al sistema</div>
-
-      <div class="login-lbl">Usuario</div>
-      <input class="input-login login-input" type="text" value="admin" style="margin-bottom:0;" />
-
-      <div class="login-lbl" style="margin-top:20px;">Contraseña</div>
-      <input class="input-login login-input" type="password" value="12345" />
-
-      <div class="remember-row">
-        <label>
-          <input type="checkbox" checked style="width:auto;" /> Recordarme
-        </label>
-        <a href="#">¿Problemas de acceso?</a>
+    <!-- Row 0: Logo + user + buttons -->
+    <div style="margin-bottom:10px;">
+      <div class="logo-white">
+        <div class="logo-snake">🐍</div>
       </div>
+      <div id="txtUsuario" style="text-align:center; color:var(--text-aa); font-size:14px; margin-top:4px;">admin</div>
+      <div style="text-align:center; color:var(--text-88); font-size:12px; margin-top:2px;">Licencia Activa</div>
+      <div style="display:flex; justify-content:center; margin-top:10px;">
+        <button id="btnTema" class="btn btn-sm" style="width:150px; height:42px; font-size:15px;" onclick="toggleTema()">Modo Día ☀️</button>
+      </div>
+    </div>
 
-      <a href="dashboard.html" class="login-btn">ENTRAR AL SISTEMA</a>
+    <!-- Row 1: Search bar -->
+    <div class="search-card">
+      <input id="txtBuscar" type="text" placeholder="Buscar..." value="Buscar..."
+             onfocus="this.value==='Buscar...'&&(this.value='')"
+             onblur="this.value===''&&(this.value='Buscar...')"
+             onkeydown="if(event.key==='Enter')buscar()" />
+      <button class="btn btn-sm" style="height:36px; margin:0; font-size:14px;" onclick="buscar()">Buscar</button>
+    </div>
 
-      <div class="login-footer">Sistema de Gestión v2.0</div>
+    <!-- Row 2: Idle card (default) / Result card (after search) -->
+    <div id="cardIdle" class="idle-card">
+      <div class="idle-inner">
+        <span>👆</span>
+        <span>Escanea huella o escribe ID</span>
+      </div>
+    </div>
+
+    <div id="cardResultado" class="result-card" style="display:none;">
+      <div class="access-photo">🧑</div>
+      <div class="access-name">Carlos García López</div>
+      <div style="display:flex; gap:4px; margin-bottom:10px; flex-wrap:wrap; justify-content:center;">
+        <span class="access-badge">#00142</span>
+        <span class="access-badge">Vence: 20 Jun 2026</span>
+      </div>
+      <div style="display:flex; gap:8px; margin-bottom:15px;">
+        <a href="cliente-detalle.html" class="btn" style="background:transparent; color:var(--text); border:1px solid #E0E0E0; height:40px; font-size:15px; padding:0 18px; margin:5px;">Ver ficha completa</a>
+        <a href="renovacion.html" class="btn" style="height:40px; font-size:15px; padding:0 18px; margin:5px;">RENOVAR AHORA</a>
+      </div>
+      <div class="status-box status-allowed" style="width:100%;">
+        <div class="status-title">¡BIENVENIDO!</div>
+        <div class="status-sub">Acceso concedido.</div>
+      </div>
+    </div>
+
+    <!-- Row 3: Caja de hoy -->
+    <div class="cash-card">
+      <div class="flex-between" style="margin-bottom:5px;">
+        <span style="color:var(--text); font-weight:700;">Caja de Hoy (Neto)</span>
+        <button class="btn btn-dark" style="height:22px; font-size:10px; padding:0 5px; margin:0;" onclick="toggleCaja()">Ocultar</button>
+      </div>
+      <div id="panelCaja">
+        <div style="font-size:22px; color:var(--text); font-weight:700; margin:5px 0;">$0.0</div>
+        <div style="color:var(--text-aa); font-size:12px; margin-bottom:10px;">0 ventas</div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;">
+        <button class="btn btn-sm" style="font-size:14px; margin:2px;">Ajustes</button>
+        <a href="historial.html" class="btn btn-sm" style="font-size:14px; margin:2px;">Historial</a>
+        <a href="corte.html" class="btn btn-sm" style="font-size:14px; margin:2px;">Corte</a>
+        <button class="btn btn-sm" style="font-size:14px; margin:2px;">Excel</button>
+      </div>
+    </div>
+
+    <!-- Row 4: Personas hoy -->
+    <div class="visitors-card">
+      <div style="color:var(--text); font-weight:700;">Personas hoy</div>
+      <div style="font-size:26px; font-weight:700; color:var(--text); margin-top:4px;">0</div>
+    </div>
+
+    <!-- Row 5: Nav buttons -->
+    <div class="bottom-nav">
+      <a href="clientes.html"   class="btn" style="font-size:15px; margin:5px;">Clientes</a>
+      <a href="registro.html"   class="btn" style="font-size:15px; margin:5px;">Registro</a>
+      <a href="renovacion.html" class="btn" style="font-size:15px; margin:5px;">Renovacion</a>
+      <a href="ventas.html"     class="btn" style="font-size:15px; margin:5px;">Ventas Externas</a>
+      <a href="historial.html"  class="btn" style="font-size:15px; margin:5px;">Pagos</a>
     </div>
   </div>
+
+  <!-- DIVIDER -->
+  <div class="col-div"></div>
+
+  <!-- ═══════════ RIGHT COLUMN ═══════════ -->
+  <div class="col-right">
+
+    <!-- Header: Tienda Online + Backoffice + Crear Usr -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+      <span style="color:var(--text); font-size:20px; font-weight:700;">Tienda Online</span>
+      <div>
+        <a href="backoffice.html" class="btn" style="width:130px; height:40px; font-size:14px; margin:2px;">Backoffice</a>
+        <button class="btn" style="width:130px; height:40px; font-size:14px; margin:2px;">Crear Usr</button>
+      </div>
+    </div>
+
+    <!-- Products card: fills remaining height -->
+    <div class="products-card">
+      <div class="flex-between mb-5">
+        <span style="color:var(--text); font-weight:700;">Productos rápidos</span>
+        <span style="color:var(--text-aa); font-size:11px;">Toca para agregar</span>
+      </div>
+      <div class="flex-wrap" style="flex:1; align-content:flex-start;">
+        <button class="product-btn" onclick="addCart('Proteína 30g',80)">🥤<br>Proteína<br><small>$80</small></button>
+        <button class="product-btn" onclick="addCart('Agua 600ml',15)">💧<br>Agua<br><small>$15</small></button>
+        <button class="product-btn" onclick="addCart('Barra Energética',35)">🍫<br>Barra<br><small>$35</small></button>
+        <button class="product-btn" onclick="addCart('Playera',220)">👕<br>Playera<br><small>$220</small></button>
+        <button class="product-btn" onclick="addCart('Gorra',180)">🧢<br>Gorra<br><small>$180</small></button>
+        <button class="product-btn" onclick="addCart('Candado',60)">🔑<br>Candado<br><small>$60</small></button>
+        <button class="product-btn" onclick="addCart('Leche',45)">🥛<br>Leche<br><small>$45</small></button>
+        <button class="product-btn" onclick="addCart('Guantes',280)">🏋️<br>Guantes<br><small>$280</small></button>
+      </div>
+    </div>
+
+    <!-- Cart -->
+    <div>
+      <div class="flex-between mb-10" style="margin-top:0;">
+        <span style="color:var(--text); font-weight:700; font-size:16px;">Carrito</span>
+        <button class="btn btn-dark" style="height:34px; font-size:14px; padding:0 12px; margin:0;" onclick="clearCart()">Vaciar</button>
+      </div>
+
+      <div class="cart-scroll" id="cartList">
+        <div style="color:var(--text-55); font-size:13px; text-align:center; padding:20px 0;">Carrito vacío</div>
+      </div>
+
+      <!-- Payment radios -->
+      <div class="pay-radio mb-10">
+        <div class="pay-opt">
+          <input type="radio" name="pay" id="pay1" checked />
+          <label for="pay1">💵 Efectivo</label>
+        </div>
+        <div class="pay-opt">
+          <input type="radio" name="pay" id="pay2" />
+          <label for="pay2">💳 Tarjeta</label>
+        </div>
+      </div>
+
+      <!-- Total + COBRAR VENTA -->
+      <div class="cobrar-row">
+        <span id="lblTotal" style="color:var(--text); font-size:24px; font-weight:700;">Total: $0.0</span>
+        <button class="btn" style="width:140px; font-size:17px; margin:0;" onclick="cobrar()">COBRAR VENTA</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* Theme toggle */
+function toggleTema() {
+  var dia = document.documentElement.classList.toggle('day');
+  localStorage.setItem('tema', dia ? 'dia' : 'noche');
+  document.getElementById('btnTema').textContent = dia ? 'Modo Noche 🌙' : 'Modo Día ☀️';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.documentElement.classList.contains('day'))
+    document.getElementById('btnTema').textContent = 'Modo Noche 🌙';
+});
+
+/* Search toggle */
+function buscar() {
+  var q = document.getElementById('txtBuscar').value.trim();
+  if (!q || q === 'Buscar...') return;
+  document.getElementById('cardIdle').style.display = 'none';
+  document.getElementById('cardResultado').style.display = 'flex';
+}
+
+/* Caja toggle */
+var cajaVisible = true;
+function toggleCaja() {
+  cajaVisible = !cajaVisible;
+  document.getElementById('panelCaja').style.display = cajaVisible ? '' : 'none';
+  event.target.textContent = cajaVisible ? 'Ocultar' : 'Mostrar';
+}
+
+/* Cart */
+var cart = [];
+function addCart(name, price) {
+  var item = cart.find(i => i.name === name);
+  if (item) { item.qty++; }
+  else { cart.push({name, price, qty:1}); }
+  renderCart();
+}
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+function cobrar() {
+  if (!cart.length) return;
+  alert('Venta realizada: ' + document.getElementById('lblTotal').textContent);
+  clearCart();
+}
+function renderCart() {
+  var el = document.getElementById('cartList');
+  var total = 0;
+  if (!cart.length) {
+    el.innerHTML = '<div style="color:var(--text-55);font-size:13px;text-align:center;padding:20px 0;">Carrito vacío</div>';
+    document.getElementById('lblTotal').textContent = 'Total: $0.0';
+    return;
+  }
+  el.innerHTML = cart.map(i => {
+    total += i.price * i.qty;
+    return '<div class="cart-item">' +
+      '<span style="font-size:13px;font-weight:600;color:var(--text);">' + i.name + '</span>' +
+      '<span class="cart-qty">x' + i.qty + '</span>' +
+      '<span style="font-size:13px;font-weight:700;color:var(--text);text-align:right;">$' + (i.price*i.qty) + '</span>' +
+    '</div>';
+  }).join('');
+  document.getElementById('lblTotal').textContent = 'Total: $' + total.toFixed(1);
+}
+</script>
 </body>
 </html>
